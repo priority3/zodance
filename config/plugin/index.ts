@@ -6,10 +6,10 @@ import { setupVueComponents } from './vue-components'
 export function configVitePlugin() {
   // TODO isbuild
   const vitePlugins: Plugin[] = [
-    setupAutoimport(),
-    setupUnoCSS(),
     setupVuePlugin(),
     setupVueComponents(),
+    setupAutoimport(),
+    setupUnoCSS(),
   ]
   return vitePlugins
 }

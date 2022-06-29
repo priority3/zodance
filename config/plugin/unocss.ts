@@ -4,10 +4,10 @@ export function setupUnoCSS() {
   return UnoCSS({
     shortcuts: {},
     presets: [
+      presetUno(),
       presetAttributify(),
       // 暂定
       // presetIcons(),
-      presetUno(),
     ],
   })
 }

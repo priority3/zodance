@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import { configVitePlugin } from './config/plugin'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: configVitePlugin(),

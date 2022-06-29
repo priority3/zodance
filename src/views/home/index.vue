@@ -1,10 +1,13 @@
-<script setup lang='ts'>
-
+<script  lang='ts' setup>
+import { NButton } from 'naive-ui'
 </script>
 
 <template>
-  <div>
-    this is home page
+  <base-header />
+  <div text-red text-xl>
+    <n-button type="info">
+      naive-ui
+    </n-button>
   </div>
 </template>
 
