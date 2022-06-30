@@ -24,6 +24,9 @@
   box-shadow: 0 4px 20px 0 rgba(15,83,152,0.15);
   padding: 12px 0 0 20px;
   cursor: pointer;
+  &:hover{
+    box-shadow: 0 4px 20px 0 rgba(15,83,152,0.25);
+  }
   h1 {
     height: 30px;
     color: rgba(29,33,41,1);

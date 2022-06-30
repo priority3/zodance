@@ -65,7 +65,7 @@ const bannerInfo = reactive<Array<BannerInfo>>([
   <base-header />
   <!--  -->
   <base-carousel :banner-info="bannerInfo" />
-  <div>
+  <div flex justify-center>
     <strategy-section />
   </div>
 </template>
