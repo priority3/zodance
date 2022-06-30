@@ -1,5 +1,5 @@
 import type { Plugin } from 'vite'
-import { setupAutoimport } from './auto-import'
+// import { setupAutoimport } from './auto-import'
 import { setupUnoCSS } from './unocss'
 import { setupVuePlugin } from './vue'
 import { setupVueComponents } from './vue-components'
@@ -8,7 +8,7 @@ export function configVitePlugin() {
   const vitePlugins: Plugin[] = [
     setupVuePlugin(),
     setupVueComponents(),
-    setupAutoimport(),
+    // setupAutoimport(),
     setupUnoCSS(),
   ]
   return vitePlugins

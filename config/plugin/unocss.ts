@@ -1,5 +1,5 @@
 import UnoCSS from 'unocss/vite'
-import { presetAttributify, presetUno } from 'unocss'
+import { presetAttributify, presetIcons, presetUno } from 'unocss'
 export function setupUnoCSS() {
   return UnoCSS({
     shortcuts: {},
@@ -7,7 +7,7 @@ export function setupUnoCSS() {
       presetUno(),
       presetAttributify(),
       // 暂定
-      // presetIcons(),
+      presetIcons(),
     ],
   })
 }

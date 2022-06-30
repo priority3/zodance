@@ -47,6 +47,8 @@ const itemMap = [{
 <style scoped lang="scss">
 .header-container{
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 100;
 }
 .header-box{
   font: 400 16px "PingFang SC";
