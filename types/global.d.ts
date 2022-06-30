@@ -6,5 +6,10 @@ declare global{
     VITE_PORT: number;
     VITE_API_BASE_URL: string;
   }
-
+  // img item
+  interface ImgData {
+    url: string;
+    width?: number;
+    height?: number;
+  }
 }

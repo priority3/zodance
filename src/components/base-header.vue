@@ -21,19 +21,53 @@ const itemMap = [{
 </script>
 
 <template>
-  <header class="header-box">
-    <div @click="$router.push('home')">
-      logo
-    </div>
-    <div class="header-item-box">
-      <div v-for="item in itemMap" :key="item.name" class="header-item" @click="$router.push(item.path)">
-        <div class="header-item-name">
-          {{ item.name }}
-        </div>
+  <header class="header-container">
+    <div class="w60%" flex mxa my0 h60px items-center>
+      <div @click="$router.push('home')">
+        <img src="@/assets/zodance-logo.png" alt="">
+      </div>
+      <div
+        class="header-box"
+        flex justify-around wfull ml64px items-center
+      >
+        <template v-for="item in itemMap" :key="item.name">
+          <div
+            class="header-box-item"
+            cursor-pointer
+            @click="$router.push(item.path)"
+          >
+            {{ item.name }}
+          </div>
+        </template>
       </div>
     </div>
   </header>
 </template>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
+.header-container{
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.1);
+}
+.header-box{
+  font: 400 16px "PingFang SC";
+  color:rgba(61,61,61,1)
+}
+.header-box-item{
+  position: relative;
+  &::after{
+    content: "";
+    position: absolute;
+    top: 26px;
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #194ac3;
+    transform: scale(0,1);
+    transform-origin: 50% 0;
+    transition: all 0.15s ease-out,opacity 0.2s ease-out
+  }
+  &:hover::after{
+    transform: scale(1,1);
+  }
+}
 </style>
