@@ -23,7 +23,7 @@ const textType = {
   <div
     :class="props.class"
     :style="[btnType[props.type || 'default'], props.style]"
-    absolute w-240px h-56px cursor-pointer
+    w-240px h-56px cursor-pointer
     flex justify-center items-center
     border="~ rounded-5px 0"
   >

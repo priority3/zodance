@@ -11,6 +11,7 @@ const { bannerInfo } = defineProps<{
     <n-carousel autoplay :interval="6000">
       <template v-for="{ image, title, subTitle, button } in bannerInfo" :key="image.url">
         <div class="carousel-item">
+          <!-- TODO 加载 -->
           <img
             absolute
             :src="image.url"
@@ -36,14 +37,14 @@ const { bannerInfo } = defineProps<{
             </div>
             <self-button
               :type="button?.type"
-              :style="{ top: `${button?.top}px`, left: `${button?.left}px` }"
+              :style="{ position: 'absolute', top: `${button?.top}px`, left: `${button?.left}px` }"
             >
               {{ button?.text || '了解更多' }}
             </self-button>
           </div>
           <div
-            flex absolute left-121px bottom-28px
-            justify-between w-full items-center
+            flex absolute bottom-28px
+            justify-between items-center
             class="banner-linkbox"
           >
             <template v-for="ind in 3" :key="ind">
@@ -108,5 +109,7 @@ const { bannerInfo } = defineProps<{
 }
 .banner-linkbox{
   width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 </style>

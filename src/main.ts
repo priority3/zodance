@@ -3,6 +3,7 @@ import App from './App.vue'
 // style
 import '@unocss/reset/tailwind.css'
 import 'uno.css'
+import '@/style/index.scss'
 import { setupRouter } from './router'
 import { setupGlobDirectives } from './directives'
 // console.log(import.meta.env)

@@ -34,7 +34,9 @@ function handleChangeTab(item) {
     </div>
     <div mt4>
       <!-- <component :is="curtab" /> -->
-      <slot name="content" />
+      <transition name="fade">
+        <slot name="content" />
+      </transition>
     </div>
   </div>
 </template>

@@ -28,6 +28,17 @@ const info = [{
           />
         </template>
       </div>
+      <self-button
+        type="primary"
+        :style="{
+          'min-width': '224px',
+          'width': '20rem',
+          'margin': '0 auto',
+          'margin-top': '104px',
+        }"
+      >
+        立即咨询
+      </self-button>
     </div>
   </div>
 </template>
@@ -36,9 +47,9 @@ const info = [{
 .service-container{
   width: 100%;
   background-color: rgba(249,252,255,1);
+  height: 840px;
   .service-box{
     width: 80%;
-    height: 840px;
     text-align: center;
     margin: 0 auto;
     h1{
