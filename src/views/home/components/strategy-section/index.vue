@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import type { StrategyInfo } from '../type'
+import type { StrategyInfo } from '../../type'
 import strategyItem from './strategy-item.vue'
 const info: StrategyInfo[] = [{
   title: '销售数字化',

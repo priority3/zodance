@@ -1,5 +1,4 @@
 <script setup lang='ts'>
-import { defineProps } from 'vue'
 import type { Type } from 'naive-ui/es/button/src/interface'
 const props = defineProps<{
   style?: Object

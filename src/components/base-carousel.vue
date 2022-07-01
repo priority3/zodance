@@ -16,6 +16,17 @@ const { bannerInfo } = defineProps<{
             :src="image.url"
             :style="{ top: `${image?.top}px`, left: `${image?.left}px`, right: `${image?.right}` }"
           >
+          <!-- <div
+            class="img-box"
+            absolute
+            :style="{ top: `${image?.top}px`, left: `${image?.left}px`, right: `${image?.right}` }"
+          >
+            <n-image
+              lazy
+              width="100"
+              :src="image.url"
+            />
+          </div> -->
           <div class="carousel-content">
             <h1 m0 :style="title.style">
               {{ title.desc }}
@@ -63,7 +74,7 @@ const { bannerInfo } = defineProps<{
   object-fit: cover;
   background-color: rgba(247,249,255,1);
   position: relative;
-  & img{
+  img{
     max-width: 50%;
     max-height: 100%;
   }

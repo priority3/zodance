@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SelfButton: typeof import('./src/components/self-button.vue')['default']
+    SelfTabs: typeof import('./src/components/self-tabs.vue')['default']
   }
 }
 

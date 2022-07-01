@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import type { StrategyInfo } from '../type'
+import type { StrategyInfo } from '../../type'
 const { info } = defineProps<{
   info: StrategyInfo
 }>()
@@ -7,7 +7,8 @@ const { info } = defineProps<{
 
 <template>
   <div class="item-box">
-    <div>
+    <div flex items-center justify-center gap-5 class="box-title">
+      <div i-carbon-tag class="icon-font" text-2xl mt2 />
       <h1>{{ info.title }}</h1>
     </div>
     <p mt38px>
@@ -31,6 +32,10 @@ const { info } = defineProps<{
   box-shadow: 0 4px 20px 0 rgba(86,140,196,0.2);
   margin-top: 76px;
   padding:50px 49px 81px 48px;
+  .box-title{
+    width:max-content;
+    margin: 0 auto;
+  }
   h1{
     margin:0;
     color: rgba(61,61,61,1);

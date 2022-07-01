@@ -1,6 +1,9 @@
 <script  lang='ts' setup>
 import { reactive } from 'vue'
-import strategySection from './components/strategy-section.vue'
+import strategySection from './components/strategy-section/index.vue'
+import sceneSection from './components/scene-section/index.vue'
+import businessSection from './components/business-section/index.vue'
+import serviceSection from './components/service-section/index.vue'
 const bannerInfo = reactive<Array<BannerInfo>>([
   {
     image: {
@@ -65,8 +68,11 @@ const bannerInfo = reactive<Array<BannerInfo>>([
   <base-header />
   <!--  -->
   <base-carousel :banner-info="bannerInfo" />
-  <div flex justify-center>
+  <div flex justify-center flex-wrap>
     <strategy-section />
+    <scene-section />
+    <business-section />
+    <service-section />
   </div>
 </template>
 
