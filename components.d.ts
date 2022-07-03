@@ -8,6 +8,7 @@ declare module '@vue/runtime-core' {
     BaseBannerlink: typeof import('./src/components/base-bannerlink.vue')['default']
     BaseCarousel: typeof import('./src/components/base-carousel.vue')['default']
     BaseHeader: typeof import('./src/components/base-header.vue')['default']
+    BaseModel: typeof import('./src/components/base-model.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SelfButton: typeof import('./src/components/self-button.vue')['default']

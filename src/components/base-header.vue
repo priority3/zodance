@@ -23,7 +23,7 @@ const itemMap = [{
 <template>
   <header class="header-container">
     <div class="w60%" flex mxa my0 h60px items-center>
-      <div @click="$router.push('home')">
+      <div cursor-pointer @click="$router.push('home')">
         <img src="@/assets/zodance-logo.png" alt="">
       </div>
       <div

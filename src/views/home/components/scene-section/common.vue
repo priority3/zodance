@@ -25,9 +25,9 @@ const { title, src } = defineProps<{
 <style scoped lang='scss'>
 .img-box{
   width: 20%;
-  height: 466px;
-  padding: 10px;
   min-width: 268px;
+  height: 466px;
+  padding: 0 10px;
   box-sizing: border-box;
   background: rgba(255,255,255,1);
   box-shadow: 0 4px 20px 0 rgba(15,83,152,0.15);
@@ -36,6 +36,7 @@ const { title, src } = defineProps<{
     color: rgba(61,61,61,1);
     font: 400 16px "PingFang SC";
     text-align: left;
+    margin: 18px 0 16px 0;
   }
 }
 </style>

@@ -1,7 +1,10 @@
 <script lang='ts' setup>
-import { ref } from 'vue'
 import IpTab from './ip-tab.vue'
-import UserTab from './user-tab.vue'
+import UserTab from './userlab-tab.vue'
+import CommunityTab from './community-tab.vue'
+import ChanelTab from './chanel-tab.vue'
+import UserUpTab from './userup-tab.vue'
+import UserChangeTab from './userchange-tab.vue'
 const info = {
   title: '应对复杂场景 轻松运营提效',
   subTitle: '小零针对不同企业情况提供多种运营策略',
@@ -10,14 +13,40 @@ const tabsPanel = [
   {
     'tab-key': 'user-tab',
     'tab-name': '用户标签',
+    'tab-component': UserTab,
+    'tab-icon': 'i-carbon-tag',
   },
   {
     'tab-key': 'ip-tab',
     'tab-name': 'IP运营',
+    'tab-component': IpTab,
+    'tab-icon': 'i-carbon-user-avatar',
+  },
+  {
+    'tab-key': 'community-tab',
+    'tab-name': '社群运营',
+    'tab-component': CommunityTab,
+    'tab-icon': 'i-carbon-group',
+  },
+  {
+    'tab-key': 'chanel-tab',
+    'tab-name': '渠道建设',
+    'tab-component': ChanelTab,
+    'tab-icon': 'i-carbon-webhook',
+  },
+  {
+    'tab-key': 'userUp-tab',
+    'tab-name': '用户增长',
+    'tab-component': UserUpTab,
+    'tab-icon': 'i-carbon-growth',
+  },
+  {
+    'tab-key': 'userchange-tab',
+    'tab-name': '用户转化',
+    'tab-component': UserChangeTab,
+    'tab-icon': 'i-carbon-group',
   },
 ]
-
-const curtab = ref(tabsPanel[0]['tab-key'])
 
 // const curtable = 'user-tab'
 </script>
@@ -32,15 +61,8 @@ const curtab = ref(tabsPanel[0]['tab-key'])
         {{ info.subTitle }}
       </h2>
       <self-tabs
-        v-model="curtab"
         :tabspanel="tabsPanel"
-      >
-        <template #content>
-          <component :is="curtab" />
-          <user-tab v-if="curtab === tabsPanel[0]['tab-key'] " />
-          <ip-tab v-if="curtab === tabsPanel[1]['tab-key'] " />
-        </template>
-      </self-tabs>
+      />
     </div>
   </div>
 </template>

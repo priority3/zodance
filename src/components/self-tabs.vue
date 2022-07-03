@@ -1,18 +1,8 @@
 <script setup lang='ts'>
-// import userTab from './user-tab.vue'
-// TODO 动画效果
 import { NTabPane, NTabs } from 'naive-ui'
-// import ipTab from './ip-tab.vue'
 const { tabspanel } = defineProps<{
   tabspanel: Array<any>
 }>()
-
-// function handleChangeTab(item) {
-//   if (item['tab-key'] === curtab.value)
-//     return
-//   curtab.value = item['tab-key']
-//   emits('update:modelValue', item['tab-key'])
-// }
 </script>
 
 <template>
@@ -41,10 +31,18 @@ const { tabspanel } = defineProps<{
     >
       <n-tab-pane
         v-for="item in tabspanel" :key="item['tab-key']"
-        :name="item['tab-key']" :tab="item['tab-name']"
+        :name="item['tab-key']"
         display-directive="show:lazy"
       >
-        Wonderwall
+        <template #default>
+          <component :is="item['tab-component']" />
+        </template>
+        <template #tab>
+          <div flex justify-center items-center gap10px>
+            <div :class="item['tab-icon']" text-xl />
+            <span>{{ item['tab-name'] }}</span>
+          </div>
+        </template>
       </n-tab-pane>
     </n-tabs>
   </div>
@@ -54,6 +52,10 @@ const { tabspanel } = defineProps<{
 .tabs-container{
   margin-top:22px;
   width: 100%;
+  :deep(.n-tab-pane){
+    padding-bottom: 20px;
+    // margin-top: 20px;
+  }
   :deep(.n-tabs .n-tabs-bar){
     display: none;
   }
@@ -64,6 +66,7 @@ const { tabspanel } = defineProps<{
   :deep(.n-tabs-tab){
     width: 100%;
     justify-content: center;
+    border-radius: 5px;
   }
   :deep(.n-tabs-tab.n-tabs-tab--active){
     width: 100%;
