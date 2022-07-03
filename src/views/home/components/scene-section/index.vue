@@ -36,7 +36,7 @@ const curtab = ref(tabsPanel[0]['tab-key'])
         :tabspanel="tabsPanel"
       >
         <template #content>
-          <!-- <component :is="curtab" /> -->
+          <component :is="curtab" />
           <user-tab v-if="curtab === tabsPanel[0]['tab-key'] " />
           <ip-tab v-if="curtab === tabsPanel[1]['tab-key'] " />
         </template>
