@@ -5,7 +5,7 @@ import { setupVuePlugin } from './vue'
 import { setupVueComponents } from './vue-components'
 export function configVitePlugin() {
   // TODO isbuild
-  const vitePlugins: Plugin[] = [
+  const vitePlugins: (Plugin | Plugin[])[] = [
     setupVuePlugin(),
     setupVueComponents(),
     // setupAutoimport(),

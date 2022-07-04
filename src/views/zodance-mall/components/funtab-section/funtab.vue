@@ -3,28 +3,10 @@ import { NTabPane, NTabs } from 'naive-ui'
 const { tabspanel } = defineProps<{
   tabspanel: Array<any>
 }>()
-// 为tab自定义样式
-// TODO 复用性不高，需要优化
 </script>
 
 <template>
   <div class="tabs-container">
-    <!-- <div flex justify-around items-center cursor-pointer class="tabs-header-box">
-      <template v-for="item in tabspanel" :key="item['tab-key']">
-        <div
-          class="tabs-item"
-          :class="[{ active: item['tab-key'] === curtab }]"
-          @click="handleChangeTab(item)"
-        >
-          {{ item['tab-name'] }}
-        </div>
-      </template>
-    </div>
-    <div mt4>
-      <transition name="fade">
-        <slot name="content" />
-      </transition>
-    </div> -->
     <n-tabs
       animated
       justify-content="space-around"
@@ -58,25 +40,29 @@ const { tabspanel } = defineProps<{
     padding-bottom: 20px;
     // margin-top: 20px;
   }
-  // 禁用默认选择到的样式
   :deep(.n-tabs .n-tabs-bar){
     display: none;
   }
-  //
+  :deep(.n-tabs .n-tab-pane){
+    padding: 0;
+  }
   :deep(.n-tabs-tab-wrapper){
-    width: 142px;
+    width: 20%;
+    height: 72px;
     justify-content: center;
+    border: 1px solid rgba(0,0,0,.2);
   }
   :deep(.n-tabs-tab){
     width: 100%;
     justify-content: center;
     border-radius: 5px;
+    font: 400 24px "PingFang SC";
   }
   :deep(.n-tabs-tab.n-tabs-tab--active){
     width: 100%;
     justify-content: center;
-    background-color: rgba(130,192,255,1);
-    border-radius: 5px;
+    background-color: rgba(249,252,255,1);
+    color: rgba(21,76,139,1) !important;
   }
 
 }
