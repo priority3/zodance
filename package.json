@@ -8,12 +8,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@antfu/eslint-config": "^0.25.2",
     "axios": "^0.27.2",
+    "nprogress": "^0.2.0",
     "vue": "^3.2.25",
     "vue-router": "^4.0.16"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^0.25.2",
     "@iconify-json/carbon": "^1.1.6",
     "@unocss/reset": "^0.42.0",
     "@vitejs/plugin-vue": "^2.3.3",

@@ -44,7 +44,7 @@ const tabsPanel = [
     'tab-key': 'userchange-tab',
     'tab-name': '用户转化',
     'tab-component': UserChangeTab,
-    'tab-icon': 'i-carbon-group',
+    'tab-icon': 'i-carbon-user-activity',
   },
 ]
 

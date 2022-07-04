@@ -3,11 +3,23 @@ import { ref } from 'vue'
 import serviceCard from './service-card.vue'
 const title = ref('不只是系统，全流程服务为你持续赋能')
 const info = [{
-  src: 'https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg',
+  src: '/src/assets/home/section-service1.png',
   infoHeader: '经营选择',
   content: '行业市场及目标人群分析，深挖需求痛点，定制解决方案。',
 }, {
-  src: 'https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg',
+  src: '/src/assets/home/section-service2.png',
+  infoHeader: '经营选择',
+  content: '行业市场及目标人群分析，深挖需求痛点，定制解决方案。',
+}, {
+  src: '/src/assets/home/section-service3.png',
+  infoHeader: '经营选择',
+  content: '行业市场及目标人群分析，深挖需求痛点，定制解决方案。',
+}, {
+  src: '/src/assets/home/section-service4.png',
+  infoHeader: '经营选择',
+  content: '行业市场及目标人群分析，深挖需求痛点，定制解决方案。',
+}, {
+  src: '/src/assets/home/section-service5.png',
   infoHeader: '经营选择',
   content: '行业市场及目标人群分析，深挖需求痛点，定制解决方案。',
 }]

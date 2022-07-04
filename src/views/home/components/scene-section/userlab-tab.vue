@@ -1,8 +1,14 @@
 <script setup lang='ts'>
 import common from './common.vue'
 const info = [{
-  url: '/src/assets/test-scene.png',
-  title: '形象建设',
+  url: '/src/assets/home/tab-user1.png',
+  title: '精准发送',
+}, {
+  url: '/src/assets/home/tab-user2.png',
+  title: '精准发送',
+}, {
+  url: '/src/assets/home/tab-user3.png',
+  title: '精准发送',
 }]
 </script>
 

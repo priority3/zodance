@@ -4,6 +4,7 @@ import App from './App.vue'
 import '@unocss/reset/tailwind.css'
 import 'uno.css'
 import '@/style/index.scss'
+import 'nprogress/nprogress.css'
 import { setupRouter } from './router'
 import { setupGlobDirectives } from './directives'
 // console.log(import.meta.env)

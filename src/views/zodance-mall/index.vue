@@ -1,10 +1,10 @@
 <script setup lang='ts'>
-
+import mallBanner from './components/banner.vue'
 </script>
 
 <template>
   <div>
-    <slot />
+    <mall-banner />
   </div>
 </template>
 

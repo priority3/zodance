@@ -1,7 +1,9 @@
 <script setup lang='ts'>
+import { useRouter } from 'vue-router'
+import { nextTick, ref } from 'vue'
 const itemMap = [{
   name: '零一商城',
-  path: '',
+  path: '/zodance-mall',
 }, {
   name: '服务价格',
   path: '',
@@ -18,30 +20,43 @@ const itemMap = [{
   name: '关于我们',
   path: '',
 }]
+const router = useRouter()
+const modal = ref(null)
+function handleTonext(item: string) {
+  // router.push(item)
+  !item && nextTick(() => {
+    // TODO any ----
+    (modal.value as any).setShowModal()
+  })
+  item && router.push(item)
+}
 </script>
 
 <template>
-  <header class="header-container">
-    <div class="w60%" flex mxa my0 h60px items-center>
-      <div cursor-pointer @click="$router.push('home')">
-        <img src="@/assets/zodance-logo.png" alt="">
+  <div>
+    <header class="header-container">
+      <div class="w60%" flex mxa my0 h60px items-center>
+        <div cursor-pointer @click="$router.push('home')">
+          <img src="@/assets/zodance-logo.png" alt="">
+        </div>
+        <div
+          class="header-box"
+          flex justify-around wfull ml64px items-center
+        >
+          <template v-for="item in itemMap" :key="item.name">
+            <div
+              class="header-box-item"
+              cursor-pointer
+              @click="handleTonext(item.path)"
+            >
+              {{ item.name }}
+            </div>
+          </template>
+        </div>
       </div>
-      <div
-        class="header-box"
-        flex justify-around wfull ml64px items-center
-      >
-        <template v-for="item in itemMap" :key="item.name">
-          <div
-            class="header-box-item"
-            cursor-pointer
-            @click="$router.push(item.path)"
-          >
-            {{ item.name }}
-          </div>
-        </template>
-      </div>
-    </div>
-  </header>
+    </header>
+    <base-modal ref="modal" />
+  </div>
 </template>
 
 <style scoped lang="scss">

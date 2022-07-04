@@ -1,16 +1,19 @@
 <script setup lang='ts'>
-import { ref } from 'vue'
 import { NImage } from 'naive-ui'
-const title = ref('先进企业的选择')
+const info = {
+  title: '先进企业的选择',
+  src: '/src/assets/home/business-section.png',
+}
 </script>
 
 <template>
   <div class="business-container">
-    <h1 m0>
-      {{ title }}
+    <h1 m0 mb77px>
+      {{ info.title }}
     </h1>
     <n-image
-      src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
+      preview-disabled
+      :src="info.src"
     />
   </div>
 </template>

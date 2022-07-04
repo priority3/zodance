@@ -19,7 +19,7 @@ const { infoHeader, src, content } = defineProps<{
       <h1 m0>
         {{ infoHeader }}
       </h1>
-      <p mt7px>
+      <p mt7px px17px>
         {{ content }}
       </p>
     </div>
@@ -28,7 +28,7 @@ const { infoHeader, src, content } = defineProps<{
 
 <style scoped lang='scss'>
 .card-container{
-  width: 20%;
+  width: 15%;
   min-width: 220px;
   background: rgba(255,255,255,1);
   .card-content{

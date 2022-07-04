@@ -1,6 +1,7 @@
 import type { RouteRecordRaw } from 'vue-router'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import type { App } from 'vue'
+import { setupBeforeEachGuard } from './guard'
 
 const basicRoutes: RouteRecordRaw[] = [
   {
@@ -11,6 +12,10 @@ const basicRoutes: RouteRecordRaw[] = [
     path: '/home',
     component: () => import('@/views/home/index.vue'),
   },
+  {
+    path: '/zodance-mall',
+    component: () => import('@/views/zodance-mall/index.vue'),
+  },
 ]
 
 export const router = createRouter({
@@ -20,5 +25,6 @@ export const router = createRouter({
 
 export function setupRouter(app: App<Element>) {
   // TODO guard
+  setupBeforeEachGuard(router)
   app.use(router)
 }

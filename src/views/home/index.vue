@@ -7,7 +7,7 @@ import serviceSection from './components/service-section/index.vue'
 const bannerInfo = reactive<Array<BannerInfo>>([
   {
     image: {
-      url: '/src/assets/banner1.png',
+      url: '/src/assets/home/banner1.png',
       right: 0,
     },
     title: {
@@ -35,7 +35,7 @@ const bannerInfo = reactive<Array<BannerInfo>>([
   },
   {
     image: {
-      url: '/src/assets/banner2.png',
+      url: '/src/assets/home/banner2.png',
       right: 0,
       top: 129,
     },
@@ -65,7 +65,6 @@ const bannerInfo = reactive<Array<BannerInfo>>([
 </script>
 
 <template>
-  <base-header />
   <!--  -->
   <base-carousel :banner-info="bannerInfo" />
   <div flex justify-center flex-wrap>
