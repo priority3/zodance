@@ -17,17 +17,6 @@ const { bannerInfo } = defineProps<{
             :src="image.url"
             :style="{ top: `${image?.top}px`, left: `${image?.left}px`, right: `${image?.right}` }"
           >
-          <!-- <div
-            class="img-box"
-            absolute
-            :style="{ top: `${image?.top}px`, left: `${image?.left}px`, right: `${image?.right}` }"
-          >
-            <n-image
-              lazy
-              width="100"
-              :src="image.url"
-            />
-          </div> -->
           <div class="carousel-content">
             <h1 m0 :style="title.style">
               {{ title.desc }}

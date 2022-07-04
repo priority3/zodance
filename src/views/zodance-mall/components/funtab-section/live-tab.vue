@@ -1,16 +1,26 @@
 <script setup lang='ts'>
-
+import common from './common.vue'
+const info = {
+  title: '0基础搭建高颜值商城',
+  descArr: ['50+行业模板', '在线客服', '数据看板', '店铺管理'],
+  imageArr: ['/src/assets/mall/livetab1.png', '/src/assets/mall/livetab2.png', '/src/assets/mall/livetab1.png'],
+}
 </script>
 
 <template>
-  <div class="livetab-container">
-    直播带货
+  <div class="quicktab-containier">
+    <common
+      :title="info.title"
+      :desc-arr="info.descArr"
+      :image-arr="info.imageArr"
+    />
   </div>
 </template>
 
 <style scoped lang='scss'>
-.livetab-container{
+.quicktab-containier{
   background-color: rgba(249,252,255,1);
   height: 528px;
+  overflow: hidden;
 }
 </style>

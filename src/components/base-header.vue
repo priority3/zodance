@@ -30,6 +30,9 @@ function handleTonext(item: string) {
   })
   item && router.push(item)
 }
+function getisAvtive(item: string) {
+  return item && router.currentRoute.value.path === item
+}
 </script>
 
 <template>
@@ -46,6 +49,7 @@ function handleTonext(item: string) {
           <template v-for="item in itemMap" :key="item.name">
             <div
               class="header-box-item"
+              :class="{ 'is-active': getisAvtive(item.path) }"
               cursor-pointer
               @click="handleTonext(item.path)"
             >
@@ -85,6 +89,17 @@ function handleTonext(item: string) {
   }
   &:hover::after{
     transform: scale(1,1);
+  }
+}
+.is-active.header-box-item{
+  &::before{
+    content: "";
+    position: absolute;
+    top: 26px;
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #194ac3;
   }
 }
 </style>

@@ -39,14 +39,20 @@ const info = {
     <funtab
       :tabspanel="info.tabspanel"
     />
+    <self-button
+      type="primary"
+      style="margin-top: 40px;"
+    >
+      立即咨询
+    </self-button>
   </div>
 </template>
 
 <style scoped lang='scss'>
 .funtab-container{
   width: 80%;
-  height: 600px;
-  margin: 80px auto 0 auto;
+  height: 850px;
+  margin: 50px auto 0 auto;
   h1{
     color: rgba(29,33,41,1);
     font: 500 36px "PingFang SC";

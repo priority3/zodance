@@ -1,7 +1,9 @@
 <script setup lang='ts'>
-import mallBanner from './components/banner/banner.vue'
-import resultSection from './components/result-section/result-section.vue'
-import funtabSection from './components/funtab-section/funtab-section.vue'
+import mallBanner from './components/banner/index.vue'
+import resultSection from './components/result-section/index.vue'
+import funtabSection from './components/funtab-section/index.vue'
+import otheruseSection from './components/otheruse-section/index.vue'
+import otherchoseSection from './components/otherchose-section/index.vue'
 </script>
 
 <template>
@@ -9,6 +11,8 @@ import funtabSection from './components/funtab-section/funtab-section.vue'
     <mall-banner />
     <result-section />
     <funtab-section />
+    <otheruse-section />
+    <otherchose-section />
   </div>
 </template>
 
