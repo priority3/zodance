@@ -6,7 +6,7 @@ const itemMap = [{
   path: '/zodance-mall',
 }, {
   name: '服务价格',
-  path: '',
+  path: '/zodance-price',
 }, {
   name: '小零运营',
   path: '',

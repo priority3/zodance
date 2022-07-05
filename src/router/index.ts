@@ -10,11 +10,15 @@ const basicRoutes: RouteRecordRaw[] = [
   },
   {
     path: '/home',
-    component: () => import('@/views/home/index.vue'),
+    component: () => import('@/views/zodance-home/index.vue'),
   },
   {
     path: '/zodance-mall',
     component: () => import('@/views/zodance-mall/index.vue'),
+  },
+  {
+    path: '/zodance-price',
+    component: () => import('@/views/zodance-price/index.vue'),
   },
 ]
 
