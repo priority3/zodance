@@ -60,6 +60,10 @@ const { title, subTitle, content, price } = defineProps<{
   h2{
     color: rgba(29,33,41,1);
     font:400 28px "PingFang SC";
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
   }
   p{
     color: rgba(134,144,156,1);

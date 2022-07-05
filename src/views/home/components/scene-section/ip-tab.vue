@@ -1,10 +1,10 @@
 <script setup lang='ts'>
 import common from './common.vue'
 const info = [{
-  url: '/src/assets/test-scene.png',
+  url: '/src/assets/home/tab-user1.png',
   title: '形象建设',
 }, {
-  url: '/src/assets/test-scene.png',
+  url: '/src/assets/home/tab-user1.png',
   title: '形象建设',
 }]
 </script>

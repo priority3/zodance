@@ -32,11 +32,13 @@ const info = {
             </div>
           </template>
         </div>
-        <n-image
-          src="/src/assets/mall/result-section.png"
-          width="414"
-          preview-disabled
-        />
+        <div flex-none>
+          <n-image
+            src="/src/assets/mall/result-section.png"
+            width="414"
+            preview-disabled
+          />
+        </div>
         <div class="content-left" flex="~ col" gap-70px>
           <template v-for="item in info.leftRes" :key="item.conTitle">
             <div text-left>
@@ -81,6 +83,7 @@ const info = {
       font: 400 16px "PingFang SC";
       height: 44px;
     }
+
   }
 
 }
