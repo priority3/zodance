@@ -1,9 +1,13 @@
 <script setup lang='ts'>
 import priceDiff from './components/pricediff/index.vue'
+import { getTestApi } from '@/api'
 const info = {
   title: '专业的数字化团队服务',
   subTitle: '服务简介语，例如：一个普通员工的薪资就能拥有',
 }
+getTestApi().then((res) => {
+  console.log(res)
+})
 </script>
 
 <template>

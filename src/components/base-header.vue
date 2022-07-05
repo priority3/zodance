@@ -9,7 +9,7 @@ const itemMap = [{
   path: '/zodance-price',
 }, {
   name: '小零运营',
-  path: '',
+  path: '/zodance-operate',
 }, {
   name: 'SaaS',
   path: '',

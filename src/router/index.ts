@@ -20,6 +20,10 @@ const basicRoutes: RouteRecordRaw[] = [
     path: '/zodance-price',
     component: () => import('@/views/zodance-price/index.vue'),
   },
+  {
+    path: '/zodance-opearte',
+    component: () => import('@/views/zodance-operate/index.vue'),
+  },
 ]
 
 export const router = createRouter({

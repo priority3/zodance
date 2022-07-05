@@ -16,3 +16,5 @@ export const priceMap = {
   major: 10000,
   plus: 20000,
 }
+
+export const SCROLL_TOP = 313

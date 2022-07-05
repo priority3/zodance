@@ -1,6 +1,7 @@
 <script setup lang='ts'>
 import { computed } from 'vue'
 import { priceMap, versionMap } from '../../constants'
+import collapse from './collapse.vue'
 const typeInfo = computed(() => Object.keys(versionMap))
 function getVersionType(type: string) {
   let res = '运营'
@@ -10,17 +11,17 @@ function getVersionType(type: string) {
 </script>
 
 <template>
-  <div>
+  <div flex="~ col" w-full justify-center items-center>
     <div
       flex="~ col" justify-center items-center gap-20px
-      mt-90px
+      mt-90px w-full
     >
       <div class="all-title">
         比较所有版本
       </div>
       <div i-carbon-arrow-down text-5xl class="all-arrow-down" />
     </div>
-    <div class="diff-cont-container" mt-74px>
+    <div class="diff-cont-container" mt-74px pb-30px w-full>
       <div
         class="diff-cont-title"
         flex
@@ -34,7 +35,7 @@ function getVersionType(type: string) {
         <template v-for="item in typeInfo" :key="item">
           <div
             flex="~ col" items-center justify-center
-            class="servic-cont-info"
+            class="servic-cont-info" flex-auto
           >
             <div>
               {{ getVersionType(item) }}
@@ -53,9 +54,16 @@ function getVersionType(type: string) {
         </template>
       </div>
       <div mt-20px>
-        内容
+        <collapse />
       </div>
     </div>
+    <self-button
+      type="small"
+      style="height: 48px;min-width:224px;width:15%;"
+      :text-style="{ font: `500 24px 'OPPSSans'` }"
+    >
+      立即咨询
+    </self-button>
   </div>
 </template>
 
@@ -74,14 +82,14 @@ function getVersionType(type: string) {
   width: 100%;
   .service-cont{
     width: 24%;
-    min-width: 360px;
+    // min-width: 360px;
     color: rgba(30,34,48,1);
     font: 700 20px "PingFang SC";
     letter-spacing: 4px;
   }
   // 奇数
   .servic-cont-info{
-    min-width: 160px;
+    // min-width: 160px;
     width: 19%;
     &:nth-child(even){
     background: rgba(247,249,255,1);

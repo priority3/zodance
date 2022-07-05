@@ -13,4 +13,8 @@ export default defineConfig({
     assetsDir: './src/assets',
   },
   base: './',
+  server: {
+    host: '::',
+    cors: true,
+  },
 })
