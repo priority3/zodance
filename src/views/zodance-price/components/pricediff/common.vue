@@ -1,6 +1,7 @@
 <script setup lang='ts'>
 import { computed, nextTick, onMounted, onUnmounted, ref, watchEffect } from 'vue'
 import { bgcMap, priceMap, versionMap } from '../../constants'
+import { useMallStore } from '@/store/modules/mall'
 const { title, type, isActive, contentInfo, titleCont } = defineProps<{
   title: string
   type: string
@@ -8,6 +9,8 @@ const { title, type, isActive, contentInfo, titleCont } = defineProps<{
   isActive: boolean
   contentInfo: Array<any>
 }>()
+const mall = useMallStore()
+
 const getinfoPara = computed(() => {
   let res = ''
   type !== 'start' && (res = `联合运营${versionMap[type]}的一切，加上`)
@@ -36,8 +39,9 @@ const titleBoxWidth = ref<number | undefined>(0)
 watchEffect(() => {
   nextTick(() => {
     titleBoxTop.value = titleBox.value?.getBoundingClientRect().top || 0
+    mall.setHeight((titleBox.value?.getBoundingClientRect().top || 0) + (infoBox.value?.clientHeight || 0 + titleBoxTop.value || 0))
     titleBoxBottom.value
-    = (titleBox.value?.getBoundingClientRect().top || 0) + (infoBox.value?.clientHeight || 0 + titleBoxTop.value || 0)
+    = mall.maxHeight
     titleBoxHeight = titleBox.value?.clientHeight || 0
     titleBoxWidth.value = titleBox.value?.clientWidth
     clientWidth.value = window.pageXOffset || document.documentElement.clientWidth || document.body.clientWidth
@@ -80,8 +84,8 @@ function getVersionType(type: string) {
 const getTitleBoxWidth = computed(() => {
   let res = '100%'
   if (isTop.value) {
-    res = '20%'
-    isActive && (res = `${(clientWidth.value * 0.20) - 5}px`)
+    res = '16%'
+    isActive && (res = `${(clientWidth.value * 0.20 * 0.80) - 5}px`)
   }
 
   return res

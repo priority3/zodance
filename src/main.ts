@@ -5,12 +5,16 @@ import '@unocss/reset/tailwind.css'
 import 'uno.css'
 import '@/style/index.scss'
 import 'nprogress/nprogress.css'
+
 import { setupRouter } from './router'
 import { setupGlobDirectives } from './directives'
+import { setupStore } from './store'
 // console.log(import.meta.env)
+
 const bootstrap = function () {
   // setup router
   const app = createApp(App)
+  setupStore(app)
   setupRouter(app)
   setupGlobDirectives(app)
   app.mount('#app')

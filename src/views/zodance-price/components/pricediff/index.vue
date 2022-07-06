@@ -146,5 +146,8 @@ const info = [
 </template>
 
 <style scoped lang='scss'>
-
+.price-diff-container{
+  width: 80%;
+  margin: 0 auto;
+}
 </style>
