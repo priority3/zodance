@@ -65,6 +65,7 @@ const bannerInfo = reactive<Array<BannerInfo>>([
 </script>
 
 <template>
+  <base-header />
   <!--  -->
   <base-carousel :banner-info="bannerInfo" />
   <div flex justify-center flex-wrap>

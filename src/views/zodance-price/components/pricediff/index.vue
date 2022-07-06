@@ -1,5 +1,4 @@
 <script setup lang='ts'>
-import allDiff from '../alldiff/index.vue'
 import common from './common.vue'
 const info = [
   {
@@ -120,7 +119,7 @@ const info = [
   >
     <div
       class="price-diff-container"
-      flex justify-around gap-30px flex-wrap w-full
+      flex justify-around w-full
     >
       <template
         v-for="item in info"
@@ -144,7 +143,6 @@ const info = [
       立即咨询
     </self-button>
   </div>
-  <all-diff />
 </template>
 
 <style scoped lang='scss'>

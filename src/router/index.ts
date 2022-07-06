@@ -21,8 +21,16 @@ const basicRoutes: RouteRecordRaw[] = [
     component: () => import('@/views/zodance-price/index.vue'),
   },
   {
-    path: '/zodance-opearte',
+    path: '/zodance-operate',
     component: () => import('@/views/zodance-operate/index.vue'),
+  },
+  {
+    path: '/404',
+    component: () => import('@/views/zodance-404/index.vue'),
+  },
+  {
+    path: '/:catchAll(.*)',
+    redirect: '/404',
   },
 ]
 

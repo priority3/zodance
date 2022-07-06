@@ -3,7 +3,7 @@ import common from './common.vue'
 const info = {
   title: '0基础搭建高颜值商城',
   descArr: ['50+行业模板', '在线客服', '数据看板', '店铺管理'],
-  imageArr: ['/src/assets/mall/livetab1.png', '/src/assets/mall/livetab2.png', '/src/assets/mall/livetab1.png'],
+  image: '/src/assets/mall/quick-tab.png',
 }
 </script>
 
@@ -12,7 +12,7 @@ const info = {
     <common
       :title="info.title"
       :desc-arr="info.descArr"
-      :image-arr="info.imageArr"
+      :image="info.image"
     />
   </div>
 </template>
@@ -22,5 +22,6 @@ const info = {
   background-color: rgba(249,252,255,1);
   height: 528px;
   overflow: hidden;
+
 }
 </style>

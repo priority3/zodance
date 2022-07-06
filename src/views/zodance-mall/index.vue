@@ -8,6 +8,7 @@ import otherchoseSection from './components/otherchose-section/index.vue'
 
 <template>
   <div>
+    <base-header />
     <mall-banner />
     <result-section />
     <funtab-section />

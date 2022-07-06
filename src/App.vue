@@ -2,7 +2,6 @@
 </script>
 
 <template>
-  <base-header />
   <div>
     <RouterView />
   </div>

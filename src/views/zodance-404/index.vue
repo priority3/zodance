@@ -4,10 +4,7 @@
 
 <template>
   <div>
-    <base-header />
-    <div>
-      just
-    </div>
+    this is 404
   </div>
 </template>
 

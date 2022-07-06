@@ -1,6 +1,6 @@
 <script setup lang='ts'>
-import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue'
-import { SCROLL_TOP, bgcMap, priceMap, versionMap } from '../../constants'
+import { computed, nextTick, onMounted, onUnmounted, ref, watchEffect } from 'vue'
+import { bgcMap, priceMap, versionMap } from '../../constants'
 const { title, type, isActive, contentInfo, titleCont } = defineProps<{
   title: string
   type: string
@@ -26,53 +26,66 @@ const getTitlePara = computed(() => {
 
 const titleBox = ref<HTMLElement | null>(null)
 const infoBox = ref<HTMLElement | null>(null)
-const scrollTop = ref(0)
-let titleBoxTop
-let titleBoxBottom
-nextTick(() => {
-  titleBoxTop = titleBox.value?.offsetTop || 0
-  titleBoxBottom = (titleBox.value?.offsetTop || 0) + (infoBox.value?.offsetHeight || 0)
+
+const scrollTop = ref<number>(0)
+const clientWidth = ref<number>(0)
+const titleBoxTop = ref<number | undefined>(0)
+const titleBoxBottom = ref<number | undefined>(0)
+let titleBoxHeight = 0
+const titleBoxWidth = ref<number | undefined>(0)
+watchEffect(() => {
+  nextTick(() => {
+    titleBoxTop.value = titleBox.value?.getBoundingClientRect().top || 0
+    titleBoxBottom.value
+    = (titleBox.value?.getBoundingClientRect().top || 0) + (infoBox.value?.clientHeight || 0 + titleBoxTop.value || 0)
+    titleBoxHeight = titleBox.value?.clientHeight || 0
+    titleBoxWidth.value = titleBox.value?.clientWidth
+    clientWidth.value = window.pageXOffset || document.documentElement.clientWidth || document.body.clientWidth
+  })
 })
 const isTop = computed(() => {
-  return scrollTop.value > titleBoxTop && scrollTop.value < titleBoxBottom
+  return scrollTop.value > (titleBoxTop.value || 0) && scrollTop.value < (titleBoxBottom.value || 0)
 })
 function handleScroll() {
   scrollTop.value = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-  console.log(scrollTop.value)
 }
-// function handleThrottle(fn, delay) {
-//   let timer
-//   return function () {
-//     if (timer)
-//       clearTimeout(timer)
-//     timer = setTimeout(() => {
-//       fn()
-//     }, delay)
-//   }
-// }
+function handleResize() {
+  clientWidth.value = window.pageXOffset || document.documentElement.clientWidth || document.body.clientWidth
+}
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
+  window.addEventListener('resize', handleResize)
 })
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
+  window.removeEventListener('resize', handleResize)
 })
 const getselfBtnStyle = computed(() => {
   let res = 'rgba(0,0,0,.2)'
   type === 'plus' && (res = 'rgba(255,209,123,1)')
   return {
     color: getTitlecolor,
-    width: '80%',
-    height: '38px',
+    width: isTop.value ? '60%' : '80%',
+    height: isTop.value ? '26px' : '38px',
     margin: '0 auto',
     borderColor: res,
   }
 })
 function getVersionType(type: string) {
-  const res = type
-  // if (isTop.value && type !== 'plus')
-  //   res = `运营${res}`
+  let res = type
+  if (isTop.value && type !== 'plus')
+    res = `运营${res}`
   return res
 }
+const getTitleBoxWidth = computed(() => {
+  let res = '100%'
+  if (isTop.value) {
+    res = '20%'
+    isActive && (res = `${(clientWidth.value * 0.20) - 5}px`)
+  }
+
+  return res
+})
 </script>
 
 <template>
@@ -87,7 +100,8 @@ function getVersionType(type: string) {
     </div>
     <div
       ref="titleBox"
-      class="common-title-box" :style="{ color: getTitlecolor, backgroundColor: bgcMap[type] }" text-center
+      :style="{ color: getTitlecolor, backgroundColor: bgcMap[type], width: getTitleBoxWidth }" text-center
+      :class="[isTop ? 'common-title-box-top' : 'common-title-box']"
       of-hidden
     >
       <div
@@ -124,7 +138,11 @@ function getVersionType(type: string) {
         {{ titleCont }}
       </p>
     </div>
-    <div ref="infoBox" class="conmon-info-box">
+    <div
+      ref="infoBox"
+      class="conmon-info-box"
+      :style="{ 'padding-top': isTop ? `${titleBoxHeight}px` : 0 }"
+    >
       <div
         v-if="type !== 'start'"
         flex justify-center gap-10px items-center
@@ -176,10 +194,11 @@ function getVersionType(type: string) {
   width: 20%;
   min-width: 290px;
   padding-bottom: 20px;
-  border-radius: 5px;
+  border-radius:5px;
   overflow: hidden;
-  box-sizing: content-box;
+  box-sizing: border-box;
   .common-title-box{
+    width: 100%;
     .common-title{
       font: 400 20px "PingFang SC";
     }
@@ -191,6 +210,33 @@ function getVersionType(type: string) {
     }
     p{
       font: 400 12px "PingFang SC";
+    }
+  }
+  .common-title-box-top{
+    position:fixed;
+    top: 0;
+    width: 20%;
+    min-width: 290px;
+    opacity: 1;
+    border-radius: 0 5px 5px 5px;
+    z-index: 100;
+    padding: 5px 0;
+    .common-title{
+      margin-top: 0;
+      font: 300 14px "PingFang SC";
+      span:nth-child(1){
+      display: none;
+    }
+    }
+    .common-price{
+      font-size: 20px;
+      margin: 0;
+    }
+    h1{
+      font: 400 20px "PingFang SC";
+    }
+    p{
+      display: none;
     }
   }
 
@@ -230,6 +276,7 @@ function getVersionType(type: string) {
         top: 50%;
       }
     }
+
   }
 }
 
@@ -249,6 +296,12 @@ function getVersionType(type: string) {
       background-color: rgba(0,97,207,1);
       gap: 10px;
     }
+
+  }
+  .common-title-box-top{
+    min-width: 285px;
+    border-top: 5px rgba(0,97,207,1) solid;
+    border-right: 5px rgba(0,97,207,1) solid;
   }
 }
 </style>
