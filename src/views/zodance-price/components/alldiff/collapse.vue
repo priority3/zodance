@@ -5,7 +5,7 @@ const info = [
     title: '定制微信小程序商城',
     funArr: [
       {
-        subText: '品牌标识LOGO',
+        subText: '商城风格定制',
         isAccord: [0, 1, 1, 1],
       },
       {
@@ -20,48 +20,97 @@ const info = [
         subText: '基础营销',
         isAccord: [0, 0, 1, 1],
       },
-    ],
-  },
-  {
-    title: '定制微信小程序商城',
-    funArr: [
       {
-        text: '商城风格定制',
-        subText: '品牌标识LOGO',
+        subText: '分销推广',
         isAccord: [0, 0, 1, 1],
       },
       {
-        subText: '商品管理',
+        subText: '在线客服',
         isAccord: [0, 0, 1, 1],
       },
       {
-        subText: '订单管理',
-        isAccord: [0, 0, 1, 1],
-      },
-      {
-        subText: '基础营销',
+        subText: '数据看板',
         isAccord: [0, 0, 1, 1],
       },
     ],
   },
   {
-    title: '定制微信小程序商城',
+    title: '品牌构建',
     funArr: [
       {
-        text: '商城风格定制',
+        text: '品牌VI设计',
         subText: '品牌标识LOGO',
         isAccord: [0, 0, 1, 1],
       },
       {
-        subText: '商品管理',
+        subText: '品牌标语Slogan',
         isAccord: [0, 0, 1, 1],
       },
       {
-        subText: '订单管理',
+        subText: 'IP形象',
         isAccord: [0, 0, 1, 1],
       },
       {
-        subText: '基础营销',
+        text: '品牌营销素材设计',
+        subText: '营销海报',
+        isAccord: [0, 0, 1, 1],
+      },
+      {
+        text: '',
+        subText: '品牌故事',
+        isAccord: [0, 0, 1, 1],
+      },
+      {
+        text: '',
+        subText: '产品图册',
+        isAccord: [0, 0, 1, 1],
+      },
+      {
+        text: '',
+        subText: '微信红包封面',
+        isAccord: [0, 0, 1, 1],
+      },
+      {
+        text: '',
+        subText: '品牌表情包',
+        isAccord: [0, 0, 1, 1],
+      },
+    ],
+  },
+  {
+    title: '渠道构建',
+    funArr: [
+      {
+        text: '公域渠道构建',
+        subText: '抖音&快手',
+        isAccord: [0, 0, 1, 1],
+      },
+      {
+        subText: '小红书&微博',
+        isAccord: [0, 0, 1, 1],
+      },
+      {
+        subText: '百度&今日头条',
+        isAccord: [0, 0, 1, 1],
+      },
+      {
+        text: '私域渠道构建',
+        subText: '微信公众',
+        isAccord: [0, 0, 1, 1],
+      },
+      {
+        text: '',
+        subText: '微信视频号',
+        isAccord: [0, 0, 1, 1],
+      },
+      {
+        text: '',
+        subText: '企业微信',
+        isAccord: [0, 0, 1, 1],
+      },
+      {
+        text: '',
+        subText: '小程序',
         isAccord: [0, 0, 1, 1],
       },
     ],

@@ -6,6 +6,7 @@ const typeInfo = computed(() => Object.keys(versionMap))
 function getVersionType(type: string) {
   let res = '运营'
   type !== 'plus' && (res += versionMap[type])
+  type === 'plus' && (res = versionMap[type])
   return res
 }
 </script>

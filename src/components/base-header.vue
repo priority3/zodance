@@ -11,7 +11,7 @@ const itemMap = [{
   name: '小零运营',
   path: '/zodance-operate',
 }, {
-  name: 'SaaS',
+  name: 'SaaS定制',
   path: '',
 }, {
   name: '代理合作',
@@ -38,13 +38,13 @@ function getisAvtive(item: string) {
 <template>
   <div>
     <header class="header-container">
-      <div class="w60%" flex mxa my0 h60px items-center>
+      <div class="w-3/5" flex mxa my0 h60px items-center>
         <div cursor-pointer @click="$router.push('home')">
           <img src="@/assets/zodance-logo.png" alt="">
         </div>
         <div
           class="header-box"
-          flex justify-around wfull ml64px items-center
+          flex justify-around w-full ml64px items-center
         >
           <template v-for="item in itemMap" :key="item.name">
             <div

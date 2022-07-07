@@ -1,15 +1,17 @@
 <script setup lang='ts'>
 import { computed, nextTick, onMounted, onUnmounted, ref, watchEffect } from 'vue'
 import { bgcMap, priceMap, versionMap } from '../../constants'
-import { useMallStore } from '@/store/modules/mall'
-const { title, type, isActive, contentInfo, titleCont } = defineProps<{
+const { title, type, isActive, contentInfo, titleCont, maxHeight } = defineProps<{
   title: string
   type: string
   titleCont: string
   isActive: boolean
   contentInfo: Array<any>
+  maxHeight: number
 }>()
-const mall = useMallStore()
+const emits = defineEmits<{
+  (e: 'update:maxHeight', type: number): void
+}>()
 
 const getinfoPara = computed(() => {
   let res = ''
@@ -29,24 +31,25 @@ const getTitlePara = computed(() => {
 
 const titleBox = ref<HTMLElement | null>(null)
 const infoBox = ref<HTMLElement | null>(null)
+const boxContainer = ref<HTMLElement | null>(null)
 
 const scrollTop = ref<number>(0)
 const clientWidth = ref<number>(0)
 const titleBoxTop = ref<number | undefined>(0)
 const titleBoxBottom = ref<number | undefined>(0)
-let titleBoxHeight = 0
-const titleBoxWidth = ref<number | undefined>(0)
+
+const max = ref<number>(0)
 watchEffect(() => {
-  nextTick(() => {
-    titleBoxTop.value = titleBox.value?.getBoundingClientRect().top || 0
-    mall.setHeight((titleBox.value?.getBoundingClientRect().top || 0) + (infoBox.value?.clientHeight || 0 + titleBoxTop.value || 0))
-    titleBoxBottom.value
-    = mall.maxHeight
-    titleBoxHeight = titleBox.value?.clientHeight || 0
-    titleBoxWidth.value = titleBox.value?.clientWidth
-    clientWidth.value = window.pageXOffset || document.documentElement.clientWidth || document.body.clientWidth
-  })
+  emits('update:maxHeight', max.value)
+  titleBoxBottom.value = maxHeight
 })
+nextTick(() => {
+  titleBoxTop.value = boxContainer.value?.getBoundingClientRect().top || 0
+  max.value = Math.max(maxHeight, (titleBox.value?.getBoundingClientRect().top || 0) + (infoBox.value?.clientHeight || 0 + titleBoxTop.value || 0))
+  clientWidth.value = window.pageXOffset || document.documentElement.clientWidth || document.body.clientWidth
+})
+// TODO failed fixed value
+const titleBoxHeight = 85
 const isTop = computed(() => {
   return scrollTop.value > (titleBoxTop.value || 0) && scrollTop.value < (titleBoxBottom.value || 0)
 })
@@ -85,15 +88,31 @@ const getTitleBoxWidth = computed(() => {
   let res = '100%'
   if (isTop.value) {
     res = '16%'
-    isActive && (res = `${(clientWidth.value * 0.20 * 0.80) - 5}px`)
+    isActive && (res = `${(clientWidth.value * 0.20 * 0.90) - 5}px`)
   }
+  return res
+})
+const getCommonTitleTop = computed(() => {
+  let res = ''
+  if (isActive)
+    res = '25px'
+  else
+    res = '30px'
+  if (isTop.value)
+    res = '5px'
+  if (isTop.value && isActive)
+    res = '0'
 
   return res
 })
 </script>
 
 <template>
-  <div class="common-container" :class="{ 'is-active': isActive }" relative>
+  <div
+    ref="boxContainer"
+    class="common-container" :class="{ 'is-active': isActive }"
+    relative
+  >
     <div
       display-none class="common-active" text-white
     >
@@ -109,8 +128,9 @@ const getTitleBoxWidth = computed(() => {
       of-hidden
     >
       <div
-        class="common-title mt-30px"
+        class="common-title"
         flex="~ col" gap-4px
+        :style="{ 'margin-top': getCommonTitleTop }"
       >
         <span
           m0
@@ -165,22 +185,25 @@ const getTitleBoxWidth = computed(() => {
               {{ item.title }}
             </h3>
             <div
-              flex="~ col" justify-center items-center gap-20px mt-16px
+              flex="~ col" justify-center items-center gap-20px mt-16px w-full
             >
               <template v-for="it in item.infoContext" :key="it.subTitle">
                 <div
-                  flex="~ col" items-center justify-start
+                  flex="~ col" items-center justify-center w-full
                 >
                   <span
                     class="info-sub"
                   >{{ it.subTitle }}</span>
                   <div
-                    v-for="text in it.text"
-                    :key="text"
-                    mt-16px w-full ml-100px
-                    class="info-text"
+                    class="w-1/2 ml-20"
                   >
-                    {{ text }}
+                    <div
+                      v-for="text in it.text"
+                      :key="text" mt-10px
+                      class="info-text"
+                    >
+                      {{ text }}
+                    </div>
                   </div>
                 </div>
               </template>
@@ -198,6 +221,7 @@ const getTitleBoxWidth = computed(() => {
   width: 20%;
   min-width: 290px;
   padding-bottom: 20px;
+  margin-bottom: 20px;
   border-radius:5px;
   overflow: hidden;
   box-sizing: border-box;
@@ -225,8 +249,8 @@ const getTitleBoxWidth = computed(() => {
     border-radius: 0 5px 5px 5px;
     z-index: 100;
     padding: 5px 0;
+    box-sizing: border-box;
     .common-title{
-      margin-top: 0;
       font: 300 14px "PingFang SC";
       span:nth-child(1){
       display: none;
@@ -288,8 +312,9 @@ const getTitleBoxWidth = computed(() => {
   border: 5px rgba(0,97,207,1) solid;
   &.common-container{
     .common-active{
+      padding: 0;
       display: block;
-      position:absolute;
+      position: absolute;
       top: 0;
       left: 0;
       display: flex;
