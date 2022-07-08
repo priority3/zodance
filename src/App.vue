@@ -3,11 +3,16 @@
 
 <template>
   <div>
-    <RouterView />
+    <n-message-provider>
+      <RouterView />
+    </n-message-provider>
   </div>
 </template>
 
 <style>
+body{
+  min-width: 1440px;
+}
   /* 滚动槽 */
 ::-webkit-scrollbar {
     background-color: transparent;

@@ -9,6 +9,7 @@ const info = [
     isActive: false,
     contentInfo: [
       {
+        titleIcon: 'brand-tag',
         title: '品牌构建',
         infoContext: [{
           subTitle: '品牌营销素材设计',
@@ -16,6 +17,7 @@ const info = [
         }],
       },
       {
+        titleIcon: 'chanel-build',
         title: '渠道构建',
         infoContext: [{
           subTitle: '私域渠道构建',
@@ -23,6 +25,7 @@ const info = [
         }],
       },
       {
+        titleIcon: 'user-up',
         title: '用户增长',
         infoContext: [{
           subTitle: '公域导私域',
@@ -33,6 +36,7 @@ const info = [
         }],
       },
       {
+        titleIcon: 'user-operate',
         title: '用户运营',
         infoContext: [{
           subTitle: 'IP号运营',
@@ -46,6 +50,7 @@ const info = [
         }],
       },
       {
+        titleIcon: 'user-change',
         title: '用户转化',
         infoContext: [{
           subTitle: '转化触达',
@@ -60,6 +65,7 @@ const info = [
     isActive: false,
     contentInfo: [
       {
+        titleIcon: 'brand-tag',
         title: '品牌构建',
         infoContext: [{
           subTitle: '品牌营销素材设计',
@@ -67,6 +73,7 @@ const info = [
         }],
       },
       {
+        titleIcon: 'user-up',
         title: '用户增长',
         infoContext: [{
           subTitle: '公域导私域',
@@ -77,6 +84,7 @@ const info = [
         }],
       },
       {
+        titleIcon: 'user-operate',
         title: '用户运营',
         infoContext: [{
           subTitle: '社群运营',
@@ -87,6 +95,7 @@ const info = [
         }],
       },
       {
+        titleIcon: 'user-change',
         title: '用户转化',
         infoContext: [{
           subTitle: '用户分层',
@@ -100,6 +109,7 @@ const info = [
         }],
       },
       {
+        titleIcon: 'data-driven',
         title: '数据驱动',
         infoContext: [{
           subTitle: '',
@@ -121,6 +131,7 @@ const info = [
         }],
       },
       {
+        titleIcon: 'brand-tag',
         title: '品牌构建',
         infoContext: [{
           subTitle: '品牌VI设计',
@@ -131,6 +142,7 @@ const info = [
         }],
       },
       {
+        titleIcon: 'chanel-build',
         title: '渠道构建',
         infoContext: [{
           subTitle: '公域渠道构建',
@@ -141,6 +153,7 @@ const info = [
         }],
       },
       {
+        titleIcon: 'user-up',
         title: '用户增长',
         infoContext: [{
           subTitle: '公域增长',
@@ -154,6 +167,7 @@ const info = [
         }],
       },
       {
+        titleIcon: 'user-operate',
         title: '用户运营',
         infoContext: [{
           subTitle: '社群运营',
@@ -161,7 +175,8 @@ const info = [
         }],
       },
       {
-        title: '标准定制版微信小程序商城',
+        titleIcon: 'user-change',
+        title: '用户转化',
         infoContext: [{
           subTitle: '转化触达',
           text: ['直播种草'],
@@ -171,6 +186,7 @@ const info = [
         }],
       },
       {
+        titleIcon: 'data-driven',
         title: '数据驱动',
         infoContext: [{
           subTitle: '',
@@ -192,6 +208,7 @@ const info = [
         }],
       },
       {
+        titleIcon: 'brand-tag',
         title: '品牌构建',
         infoContext: [{
           subTitle: '品牌VI设计',
@@ -202,6 +219,7 @@ const info = [
         }],
       },
       {
+        titleIcon: 'chanel-build',
         title: '渠道构建',
         infoContext: [{
           subTitle: '公域渠道构建',
@@ -212,6 +230,7 @@ const info = [
         }],
       },
       {
+        titleIcon: 'user-up',
         title: '用户增长',
         infoContext: [{
           subTitle: '公域增长',
@@ -225,6 +244,7 @@ const info = [
         }],
       },
       {
+        titleIcon: 'user-operate',
         title: '用户运营',
         infoContext: [{
           subTitle: '社群运营',
@@ -232,7 +252,8 @@ const info = [
         }],
       },
       {
-        title: '标准定制版微信小程序商城',
+        titleIcon: 'user-change',
+        title: '用户转化',
         infoContext: [{
           subTitle: '转化触达',
           text: ['直播种草'],
@@ -242,6 +263,7 @@ const info = [
         }],
       },
       {
+        titleIcon: 'data-driven',
         title: '数据驱动',
         infoContext: [{
           subTitle: '',
@@ -271,7 +293,7 @@ const maxHeight = ref<number>(0)
           :title="item.title"
           :is-active="item.isActive"
           :content-info="item.contentInfo"
-          :type="item.type"
+          :type="item.type as any"
           :title-cont="item.titleCont"
         />
       </template>

@@ -5,32 +5,32 @@ const info = {
   cardInfo: [{
     title: '倔海马葡萄酒',
     content: '零一跃动丰富的营销工具实现了多元化的活动玩法,增强了粉丝粘性。倔海马社交电商在未来社交商业模式探索之路上，更离不开微信小程序的助力。',
-    src: '/src/assets/mall/store1.jpg',
+    src: 'mall1',
     codeSrc: '/src/assets/mall/mall-code1.png',
   }, {
     title: '倔海马葡萄酒',
     content: '零一跃动丰富的营销工具实现了多元化的活动玩法,增强了粉丝粘性。倔海马社交电商在未来社交商业模式探索之路上，更离不开微信小程序的助力。',
-    src: '/src/assets/mall/store1.jpg',
+    src: 'mall2',
     codeSrc: '/src/assets/mall/mall-code1.png',
   }, {
     title: '倔海马葡萄酒',
     content: '零一跃动丰富的营销工具实现了多元化的活动玩法,增强了粉丝粘性。倔海马社交电商在未来社交商业模式探索之路上，更离不开微信小程序的助力。',
-    src: '/src/assets/mall/store1.jpg',
+    src: 'mall3',
     codeSrc: '/src/assets/mall/mall-code1.png',
   }, {
     title: '倔海马葡萄酒',
     content: '零一跃动丰富的营销工具实现了多元化的活动玩法,增强了粉丝粘性。倔海马社交电商在未来社交商业模式探索之路上，更离不开微信小程序的助力。',
-    src: '/src/assets/mall/store1.jpg',
+    src: 'mall4',
     codeSrc: '/src/assets/mall/mall-code1.png',
   }, {
     title: '倔海马葡萄酒',
     content: '零一跃动丰富的营销工具实现了多元化的活动玩法,增强了粉丝粘性。倔海马社交电商在未来社交商业模式探索之路上，更离不开微信小程序的助力。',
-    src: '/src/assets/mall/store1.jpg',
+    src: 'mall5',
     codeSrc: '/src/assets/mall/mall-code1.png',
   }, {
     title: '倔海马葡萄酒',
     content: '零一跃动丰富的营销工具实现了多元化的活动玩法,增强了粉丝粘性。倔海马社交电商在未来社交商业模式探索之路上，更离不开微信小程序的助力。',
-    src: '/src/assets/mall/store1.jpg',
+    src: 'mall6',
     codeSrc: '/src/assets/mall/mall-code1.png',
   }],
 }

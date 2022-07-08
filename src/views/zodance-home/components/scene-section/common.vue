@@ -28,7 +28,8 @@ const { title, src } = defineProps<{
 
 <style scoped lang='scss'>
 .img-container{
-  width: 20%;
+  // width: 20%;
+  width: 268px;
   min-width: 268px;
   height: 466px;
   box-sizing: border-box;

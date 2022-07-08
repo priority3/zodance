@@ -1,11 +1,17 @@
 <script setup lang='ts'>
-
+// import { useRouter } from 'vue-router'
+const { title, desc, link } = defineProps<{
+  title: string
+  desc: string
+  link: string
+}>()
+// const router = useRouter()
 </script>
 
 <template>
-  <div class="link-box">
-    <h1>零一商城</h1>
-    <p>更高端的品牌形象</p>
+  <div class="link-box" @click="link && $router.push(link)">
+    <h1>{{ title }}</h1>
+    <p>{{ desc }}</p>
     <div class="link-box-other" flex items-center gap-10px>
       <span>立即查看</span>
       <div i-carbon-arrow-right text-xl />

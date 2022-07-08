@@ -1,9 +1,11 @@
 <script setup lang='ts'>
 import { computed, nextTick, onMounted, onUnmounted, ref, watchEffect } from 'vue'
 import { bgcMap, priceMap, versionMap } from '../../constants'
+import type { versionType } from '../../constants/type'
+import { useStyle } from './_utils'
 const { title, type, isActive, contentInfo, titleCont, maxHeight } = defineProps<{
   title: string
-  type: string
+  type: versionType
   titleCont: string
   isActive: boolean
   contentInfo: Array<any>
@@ -13,23 +15,9 @@ const emits = defineEmits<{
   (e: 'update:maxHeight', type: number): void
 }>()
 
-const getinfoPara = computed(() => {
-  let res = ''
-  type !== 'start' && (res = `联合运营${versionMap[type]}的一切，加上`)
-  return res
-})
-const getTitlecolor = computed(() => {
-  let res = 'rgba(29,33,41,1)'
-  type === 'plus' && (res = 'rgba(255,209,123,1)')
-  return res
-})
-const getTitlePara = computed(() => {
-  let res = 'rgba(134,144,156,1)'
-  type === 'plus' && (res = 'rgba(255,209,123,1)')
-  return res
-})
-
+// 固定元素的父盒子 实际的scrollTop以父盒子计算因为可能存在border
 const titleBox = ref<HTMLElement | null>(null)
+// 需要fixed元素
 const infoBox = ref<HTMLElement | null>(null)
 const boxContainer = ref<HTMLElement | null>(null)
 
@@ -45,7 +33,7 @@ watchEffect(() => {
 })
 nextTick(() => {
   titleBoxTop.value = boxContainer.value?.getBoundingClientRect().top || 0
-  max.value = Math.max(maxHeight, (titleBox.value?.getBoundingClientRect().top || 0) + (infoBox.value?.clientHeight || 0 + titleBoxTop.value || 0))
+  max.value = Math.max(maxHeight, 90 + (infoBox.value?.clientHeight || 0 + titleBoxTop.value || 0))
   clientWidth.value = window.pageXOffset || document.documentElement.clientWidth || document.body.clientWidth
 })
 // TODO failed fixed value
@@ -53,6 +41,11 @@ const titleBoxHeight = 85
 const isTop = computed(() => {
   return scrollTop.value > (titleBoxTop.value || 0) && scrollTop.value < (titleBoxBottom.value || 0)
 })
+// fixed 达到底部 页面抖动问题
+const isToBottom = computed(() => {
+  return scrollTop.value >= (titleBoxBottom.value || Number.MAX_VALUE)
+})
+
 function handleScroll() {
   scrollTop.value = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
 }
@@ -67,43 +60,20 @@ onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
   window.removeEventListener('resize', handleResize)
 })
-const getselfBtnStyle = computed(() => {
-  let res = 'rgba(0,0,0,.2)'
-  type === 'plus' && (res = 'rgba(255,209,123,1)')
-  return {
-    color: getTitlecolor,
-    width: isTop.value ? '60%' : '80%',
-    height: isTop.value ? '26px' : '38px',
-    margin: '0 auto',
-    borderColor: res,
-  }
-})
-function getVersionType(type: string) {
-  let res = type
-  if (isTop.value && type !== 'plus')
-    res = `运营${res}`
-  return res
-}
-const getTitleBoxWidth = computed(() => {
-  let res = '100%'
-  if (isTop.value) {
-    res = '16%'
-    isActive && (res = `${(clientWidth.value * 0.20 * 0.90) - 5}px`)
-  }
-  return res
-})
-const getCommonTitleTop = computed(() => {
-  let res = ''
-  if (isActive)
-    res = '25px'
-  else
-    res = '30px'
-  if (isTop.value)
-    res = '5px'
-  if (isTop.value && isActive)
-    res = '0'
 
-  return res
+const {
+  getselfBtnStyle,
+  getVersionType,
+  getTitleBoxWidth,
+  getCommonTitleTop,
+  getTitlecolor,
+  getinfoPara,
+  getTitlePara,
+} = useStyle({
+  type,
+  isActive,
+  isTop,
+  clientWidth,
 })
 </script>
 
@@ -124,7 +94,7 @@ const getCommonTitleTop = computed(() => {
     <div
       ref="titleBox"
       :style="{ color: getTitlecolor, backgroundColor: bgcMap[type], width: getTitleBoxWidth }" text-center
-      :class="[isTop ? 'common-title-box-top' : 'common-title-box']"
+      :class="[isTop ? 'common-title-box-top' : 'common-title-box', isToBottom ? 'commmon-hidden' : '']"
       of-hidden
     >
       <div
@@ -156,7 +126,7 @@ const getCommonTitleTop = computed(() => {
         联系我们
       </self-button>
       <p
-        m="8px 0"
+        my-8px
         :style="{ color: getTitlePara }"
       >
         {{ titleCont }}
@@ -180,9 +150,13 @@ const getCommonTitleTop = computed(() => {
           <div>
             <h3
               border="b light-900"
-              p="10px 0"
+              p="10px 0" flex items-center justify-start gap-8px
             >
-              {{ item.title }}
+              <!-- <div class="iconfont" :class="[item.titleIcon]" /> -->
+              <self-svgicon :name="item.titleIcon" />
+              <div class="common-item-title">
+                {{ item.title }}
+              </div>
             </h3>
             <div
               flex="~ col" justify-center items-center gap-20px mt-16px w-full
@@ -218,8 +192,9 @@ const getCommonTitleTop = computed(() => {
 <style scoped lang='scss'>
 .common-container{
   box-shadow: 0 10px 20px 0 rgba(21,76,139,0.1);
-  width: 20%;
-  min-width: 290px;
+  // width: 20%;
+  width: 292px;
+  min-width: 292px;
   padding-bottom: 20px;
   margin-bottom: 20px;
   border-radius:5px;
@@ -267,14 +242,13 @@ const getCommonTitleTop = computed(() => {
       display: none;
     }
   }
+  .commmon-hidden{
+    display: none;
+  }
 
   .conmon-info-box{
     width: 90%;
     margin: 0 auto;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    overflow: hidden;
     p{
       color: rgba(134,144,156,1);
       font:300 14px "PingFang SC";
@@ -282,6 +256,13 @@ const getCommonTitleTop = computed(() => {
     h3{
       color: rgba(29,33,41,1);
       font: 400 18px "PingFang SC";
+      .common-item-title{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+      }
+
     }
     .info-sub{
       color: rgba(29,33,41,1);
@@ -331,6 +312,9 @@ const getCommonTitleTop = computed(() => {
     min-width: 285px;
     border-top: 5px rgba(0,97,207,1) solid;
     border-right: 5px rgba(0,97,207,1) solid;
+  }
+  .conmon-info-box{
+    width: 95%;
   }
 }
 </style>

@@ -30,7 +30,9 @@ const bannerInfo = reactive<Array<BannerInfo>>([
     button: {
       text: '免费咨询',
       type: 'primary',
-      top: 276,
+      style: {
+        'margin-top': '116px',
+      },
     },
   },
   {
@@ -51,14 +53,15 @@ const bannerInfo = reactive<Array<BannerInfo>>([
       style: `font-size: 60px;
               font-weight: 700;
               font-family: "PingFang SC";
-              line-height: 120px;
               background-image:-webkit-linear-gradient(bottom,#7CBCFF,#005EBF); 
               -webkit-background-clip:text; 
               -webkit-text-fill-color:transparent; `,
     },
     button: {
       text: '免费咨询',
-      top: 276,
+      style: {
+        'margin-top': '110px',
+      },
     },
   },
 ])

@@ -41,7 +41,7 @@ const { tabspanel } = defineProps<{
         </template>
         <template #tab>
           <div flex justify-center items-center gap10px>
-            <div :class="item['tab-icon']" text-xl />
+            <div :class="[item['tab-icon']]" text-xl class="active-icon" />
             <span>{{ item['tab-name'] }}</span>
           </div>
         </template>
@@ -77,6 +77,12 @@ const { tabspanel } = defineProps<{
     justify-content: center;
     background-color: rgba(130,192,255,1);
     border-radius: 5px;
+    .active-icon{
+      color:white;
+    }
+    span{
+      color:white;
+    }
   }
 
 }

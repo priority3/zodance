@@ -6,7 +6,7 @@ export interface testResponse {
   introduction: string
   title: string
   group: string
-  tags: Array<object>
+  list: Array<object>
   notifyCount: number
   unreadCount: number
   country: string

@@ -9,9 +9,13 @@ declare module '@vue/runtime-core' {
     BaseCarousel: typeof import('./src/components/base-carousel.vue')['default']
     BaseHeader: typeof import('./src/components/base-header.vue')['default']
     BaseModal: typeof import('./src/components/base-modal.vue')['default']
+    NCarousel: typeof import('naive-ui')['NCarousel']
+    NImage: typeof import('naive-ui')['NImage']
+    NMessageProvider: typeof import('naive-ui')['NMessageProvider']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SelfButton: typeof import('./src/components/self-button.vue')['default']
+    SelfSvgicon: typeof import('./src/components/self-svgicon.vue')['default']
     SelfTabs: typeof import('./src/components/self-tabs.vue')['default']
   }
 }

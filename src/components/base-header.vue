@@ -18,7 +18,7 @@ const itemMap = [{
   path: '',
 }, {
   name: '关于我们',
-  path: '',
+  path: '/home',
 }]
 const router = useRouter()
 const modal = ref(null)
@@ -30,8 +30,8 @@ function handleTonext(item: string) {
   })
   item && router.push(item)
 }
-function getisAvtive(item: string) {
-  return item && router.currentRoute.value.path === item
+function getisAvtive({ path }) {
+  return path && router.currentRoute.value.path === path
 }
 </script>
 
@@ -49,7 +49,7 @@ function getisAvtive(item: string) {
           <template v-for="item in itemMap" :key="item.name">
             <div
               class="header-box-item"
-              :class="{ 'is-active': getisAvtive(item.path) }"
+              :class="{ 'is-active': getisAvtive(item) }"
               cursor-pointer
               @click="handleTonext(item.path)"
             >
@@ -78,10 +78,10 @@ function getisAvtive(item: string) {
   &::after{
     content: "";
     position: absolute;
-    top: 26px;
+    top: 38px;
     display: block;
     width: 100%;
-    height: 3px;
+    height: 2px;
     background-color: #194ac3;
     transform: scale(0,1);
     transform-origin: 50% 0;
@@ -95,10 +95,10 @@ function getisAvtive(item: string) {
   &::before{
     content: "";
     position: absolute;
-    top: 26px;
+    top: 38px;
     display: block;
     width: 100%;
-    height: 3px;
+    height: 2px;
     background-color: #194ac3;
   }
 }

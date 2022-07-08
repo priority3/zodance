@@ -30,9 +30,18 @@ const info = {
           {{ info?.subTitle || '' }}
         </h2>
       </div>
-      <div class="banner-fun-box" mt56px>
-        <template v-for="item in info.bannerFun">
-          {{ item.text }}
+      <div class="banner-fun-box" mt56px flex gap-40px>
+        <template v-for="item in info.bannerFun" :key="item">
+          <div
+            flex items-end gap-12px
+          >
+            <div
+              i-carbon-tag
+            />
+            <div>
+              {{ item.text }}
+            </div>
+          </div>
         </template>
       </div>
       <self-button

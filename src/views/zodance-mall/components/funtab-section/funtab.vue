@@ -19,7 +19,7 @@ const { tabspanel } = defineProps<{
         display-directive="show:lazy"
       >
         <template #default>
-          <component :is="item['tab-component']" />
+          <component :is="item['tab-component']" da="123" />
         </template>
         <template #tab>
           <div flex justify-center items-center gap10px>

@@ -1,8 +1,25 @@
 <script setup lang='ts'>
-import { NCarousel } from 'naive-ui'
 const { bannerInfo } = defineProps<{
   bannerInfo: Array<BannerInfo>
 }>()
+
+//
+const linkInfo = [
+  {
+    title: '零一商城',
+    desc: '更高端的品牌形象店',
+    link: '/zodance-mall',
+  }, {
+    title: '小零运营',
+    desc: '更高效的数字经营模式',
+    link: '/zodance-operate',
+  }, {
+    title: 'SaaS定制',
+    desc: '更全面的SaaS解决方案',
+    link: '',
+  },
+]
+
 // TODO 图片 缩放
 </script>
 
@@ -10,14 +27,18 @@ const { bannerInfo } = defineProps<{
   <div relative of-hidden absolute>
     <n-carousel autoplay :interval="6000">
       <template v-for="{ image, title, subTitle, button } in bannerInfo" :key="image.url">
-        <div class="carousel-item">
+        <div class="carousel-item" of-hidden z-0>
           <!-- TODO 加载 -->
-          <img
-            absolute
-            :src="image.url"
+          <div
+            absolute z--100
             :style="{ top: `${image?.top}px`, left: `${image?.left}px`, right: `${image?.right}` }"
           >
-          <div class="carousel-content">
+            <n-image
+              preview-disabled
+              :src="image.url"
+            />
+          </div>
+          <div class="carousel-content" z-100>
             <h1 m0 :style="title.style">
               {{ title.desc }}
             </h1>
@@ -26,18 +47,22 @@ const { bannerInfo } = defineProps<{
             </div>
             <self-button
               :type="button?.type"
-              :style="{ position: 'absolute', top: `${button?.top}px`, left: `${button?.left}px` }"
+              :style="button?.style"
             >
               {{ button?.text || '了解更多' }}
             </self-button>
           </div>
           <div
-            flex absolute bottom-28px
+            flex m="0 auto" mt-147px z-100
             justify-between items-center
-            class="banner-linkbox"
+            class="w-4/5"
           >
-            <template v-for="ind in 3" :key="ind">
-              <base-bannerlink :ind="ind" />
+            <template v-for="item in linkInfo" :key="item.title">
+              <base-bannerlink
+                :title="item.title"
+                :desc="item.desc"
+                :link="item.link"
+              />
             </template>
           </div>
         </div>
@@ -71,12 +96,14 @@ const { bannerInfo } = defineProps<{
 }
 
 .custom-dots {
+  z-index: 100;
   display: flex;
-  margin: 0;
   padding: 0;
+  // width: 80%;
+  // margin: 0 auto;
   position: absolute;
+  left: 10%;
   bottom: 219px;
-  left: 121px;
   li {
     display: inline-block;
     width: 60px;
@@ -92,13 +119,11 @@ const { bannerInfo } = defineProps<{
   }
 }
 .carousel-content{
-  position: absolute;
-  top: 133px;
-  left: 121px;
-}
-.banner-linkbox{
-  width: 90%;
-  left: 50%;
-  transform: translateX(-50%);
+  // position: absolute;
+  // top: 133px;
+  // left: 121px;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 127px;
 }
 </style>

@@ -27,7 +27,7 @@ const textType = {
 </script>
 
 <template>
-  <div
+  <button
     w-240px h-56px cursor-pointer
     flex justify-center items-center
     border="~ rounded-5px 0"
@@ -37,7 +37,7 @@ const textType = {
     <span :style="[textType[props.type || 'default'], props.textStyle]">
       <slot />
     </span>
-  </div>
+  </button>
 </template>
 
 <style scoped lang='scss'>

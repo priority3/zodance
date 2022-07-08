@@ -1,7 +1,8 @@
 import type { NavigationGuardNext, RouteLocationNormalized, Router } from 'vue-router'
 import NProgress from 'nprogress'
 export function setupBeforeEachGuard(router: Router): void {
-  router.beforeEach((_: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
+  // eslint-disable-next-line no-empty-pattern
+  router.beforeEach((_: RouteLocationNormalized, {}, next: NavigationGuardNext) => {
     // from.name && NProgress.start()
     NProgress.start()
     setTimeout(() => {

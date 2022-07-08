@@ -21,10 +21,12 @@ function handleToHideCode() {
 <template>
   <div class="card-container" relative>
     <div flex items-center gap-10px>
-      <n-image
+      <!-- <n-image
         preview-disabled
         :src="src"
-      />
+      /> -->
+      <!-- <i class="iconfont icon-a-Frame11090" /> -->
+      <self-svgicon :name="src" text-4xl />
       <h1>
         {{ info.title }}
       </h1>
@@ -63,6 +65,9 @@ function handleToHideCode() {
 </template>
 
 <style scoped lang='scss'>
+// .iconfont{
+//   font-size: 24px;
+// }
 .card-container{
   width: 30%;
   background: rgba(255,255,255,1);
