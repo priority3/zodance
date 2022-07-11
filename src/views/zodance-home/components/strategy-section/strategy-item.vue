@@ -8,10 +8,13 @@ const { info } = defineProps<{
 <template>
   <div class="item-box">
     <div flex items-center justify-center gap-5 class="box-title">
-      <div :class="info.icon" class="icon-font" text-2xl mt2 />
+      <self-svgicon :name="info.icon" text-3xl />
+
       <h1>{{ info.title }}</h1>
     </div>
-    <div class="box-content">
+    <div
+      class="box-content"
+    >
       <p mt38px>
         {{ info.content }}
       </p>

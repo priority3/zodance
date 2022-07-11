@@ -30,7 +30,8 @@ const textType = {
   <button
     w-240px h-56px cursor-pointer
     flex justify-center items-center
-    border="~ rounded-5px 0"
+    border="~  0"
+
     class="btn-container" :class="[props.class]"
     :style="[btnType[props.type || 'default'], props.style]"
   >

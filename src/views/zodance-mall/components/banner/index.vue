@@ -4,16 +4,16 @@ const info = {
   title: '零一商城',
   subTitle: '快速拥有适合自己的小程序商城，获取流量销量双增长',
   bannerFun: [{
-    icon: '',
+    icon: 'mall-tag1',
     text: '快速开发',
   }, {
-    icon: '',
+    icon: 'mall-tag2',
     text: '流量风口',
   }, {
-    icon: '',
+    icon: 'mall-tag3',
     text: '极佳体验',
   }, {
-    icon: '',
+    icon: 'mall-tag4',
     text: '超强粘性',
   }],
 }
@@ -33,11 +33,9 @@ const info = {
       <div class="banner-fun-box" mt56px flex gap-40px>
         <template v-for="item in info.bannerFun" :key="item">
           <div
-            flex items-end gap-12px
+            flex items-center gap-12px
           >
-            <div
-              i-carbon-tag
-            />
+            <self-svgicon :name="item.icon" text-2xl />
             <div>
               {{ item.text }}
             </div>
