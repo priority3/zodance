@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
 body{
   min-width: 1440px;
 }

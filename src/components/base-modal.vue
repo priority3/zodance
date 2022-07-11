@@ -16,15 +16,53 @@ defineExpose({
 </script>
 
 <template>
-  <div>
+  <div
+    display-directive="show"
+  >
     <NModal v-model:show="showModal">
-      <n-image
-        width="100"
-        src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
-      />
+      <div
+        class="img-container"
+        bg-white p-10px
+        w-360px h-476px
+      >
+        <div
+          flex items-center gap-6px pb-12px
+          border-b="solid 1px gray-300"
+        >
+          <self-svgicon
+            name="avator"
+            text-5xl
+          />
+          <span>
+            HI,我是你的专属SaaS顾问
+          </span>
+        </div>
+        <div
+          flex="~ col" items-center gap-22px mt-23px
+        >
+          <p>扫码加微信，送你专属大礼包</p>
+          <n-image
+            preview-disabled
+            src="/src/assets/binaryCode.png"
+          />
+        </div>
+      </div>
     </NModal>
   </div>
 </template>
 
 <style scoped lang='scss'>
+.img-container{
+  color: rgba(29,33,41,1);
+  font-weight: 700;
+  font-family: "PingFang SC";
+  background: rgba(255,255,255,1);
+  box-shadow: 0 4px 20px 0px rgba(0,0,0,0.25);
+  p{
+    font-size: 24px;
+  }
+  span{
+    font-size: 23px;
+  }
+}
 </style>

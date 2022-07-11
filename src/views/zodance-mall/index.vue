@@ -14,6 +14,7 @@ import otherchoseSection from './components/otherchose-section/index.vue'
     <funtab-section />
     <otheruse-section />
     <otherchose-section />
+    <base-footer mt-94px />
   </div>
 </template>
 

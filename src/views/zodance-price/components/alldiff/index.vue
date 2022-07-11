@@ -62,6 +62,7 @@ function getVersionType(type: string) {
       type="small"
       style="height: 48px;min-width:224px;width:15%;"
       :text-style="{ font: `500 24px 'OPPSSans'` }"
+      mt-100px
     >
       立即咨询
     </self-button>

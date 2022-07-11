@@ -33,5 +33,9 @@ declare global{
     subTitle: BannerInfoDesc 
     button?:BannerInfobutton
   }
+  interface MODAL extends HTMLElement {
+    setShowModal: () => void
+    setHideModal: () => void
+  }
   
 }

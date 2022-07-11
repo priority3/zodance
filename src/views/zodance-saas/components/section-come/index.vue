@@ -1,4 +1,5 @@
 <script setup lang='ts'>
+// import { onBeforeUnmount, onMounted, ref } from 'vue'
 import comeCard from './come-card.vue'
 const info = {
   title: '你想要的，都能帮你实现',
@@ -39,6 +40,25 @@ const info = {
     },
   ],
 }
+// const cards = ref<HTMLElement[] | null[]>([null])
+// function checkBoxes() {
+//   console.log(cards)
+//   const triggerBottom = (window.innerHeight / 5) * 4;
+//   ((cards.value || [])).forEach((box) => {
+//     const boxTop = box.getBoundingClientRect().top
+//     if (boxTop < triggerBottom)
+//       box.classList.add('show')
+//     else
+//       box.classList.remove('show')
+//   })
+// }
+// onMounted(() => {
+//   checkBoxes()
+//   window.addEventListener('scroll', checkBoxes)
+// })
+// onBeforeUnmount(() => {
+//   window.removeEventListener('scroll', checkBoxes)
+// })
 </script>
 
 <template>
@@ -48,8 +68,9 @@ const info = {
     <p>{{ info.contPara2 }}</p>
   </div>
   <div
-    flex="~ col" mt-100px
-    class="w-7/10" mx-auto my-0 gap-20px
+    flex="~ col"
+    mt-100px class="w-7/10" mx-auto my-0
+    gap-20px
   >
     <come-card
       v-for="{ position, title, content, src, subContent } in info.cardArr"
@@ -76,4 +97,10 @@ const info = {
     font-size: 15px;
   }
 }
+// .card:nth-of-type(even){
+//   transform: translateX(-400%);
+// }
+// .card.show{
+//   transform: translateX(0);
+// }
 </style>

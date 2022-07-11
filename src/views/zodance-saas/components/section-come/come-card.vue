@@ -6,6 +6,13 @@ const { position, src, title, content } = defineProps<{
   content: string
   subContent?: string
 }>()
+// TODO 类型约束
+function getContentStyle() {
+  return {
+    'margin-left': position === 'start' ? '0' : '80px',
+    'order': position === 'start' ? '0' : '1',
+  } as any
+}
 </script>
 
 <template>
@@ -16,8 +23,7 @@ const { position, src, title, content } = defineProps<{
   >
     <div
       w-440px
-      :class="`order-${position === 'start' ? '0' : '1'}`"
-      :style="{ 'margin-left': position === 'start' ? '0' : '80px' }"
+      :style="getContentStyle()"
     >
       <h1>{{ title }}</h1>
       <p mt-16px>

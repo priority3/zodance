@@ -1,13 +1,11 @@
 <script setup lang='ts'>
-
+import banner from './components/banner/index.vue'
 </script>
 
 <template>
   <div>
     <base-header />
-    <div>
-      just
-    </div>
+    <banner />
   </div>
 </template>
 

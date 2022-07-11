@@ -77,6 +77,7 @@ const bannerInfo = reactive<Array<BannerInfo>>([
     <business-section />
     <service-section />
   </div>
+  <base-footer />
 </template>
 
 <style scoped lang='scss'>

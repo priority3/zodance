@@ -7,8 +7,10 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     BaseBannerlink: typeof import('./src/components/base-bannerlink.vue')['default']
     BaseCarousel: typeof import('./src/components/base-carousel.vue')['default']
+    BaseFooter: typeof import('./src/components/base-footer.vue')['default']
     BaseHeader: typeof import('./src/components/base-header.vue')['default']
     BaseModal: typeof import('./src/components/base-modal.vue')['default']
+    NCarousel: typeof import('naive-ui')['NCarousel']
     NImage: typeof import('naive-ui')['NImage']
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
     RouterLink: typeof import('vue-router')['RouterLink']

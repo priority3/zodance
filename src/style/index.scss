@@ -1,0 +1,9 @@
+.show-start-enter-from,
+.show-start-leave-to{
+  transform: translateX(-200px);
+  opacity: 0;
+}
+.show-start-enter-active,
+.show-start-leave-active{
+  transition: all 0.3s ease;
+}

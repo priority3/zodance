@@ -12,6 +12,7 @@ import sectionAdvance from './components/section-advance/index.vue'
     <section-come />
     <section-ability />
     <section-advance />
+    <base-footer mt-36px />
   </div>
 </template>
 

@@ -35,6 +35,8 @@ const info = {
       <all-diff />
     </div>
   </div>
+
+  <base-footer mt-100px />
 </template>
 
 <style scoped lang='scss'>
