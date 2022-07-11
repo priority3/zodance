@@ -3,7 +3,7 @@ import common from './common.vue'
 const info = {
   title: '0基础搭建高颜值商城',
   descArr: ['50+行业模板', '在线客服', '数据看板', '店铺管理'],
-  image: '/src/assets/mall/quick-tab.png',
+  image: '/src/assets/mall/vip-tab.png',
 }
 </script>
 
