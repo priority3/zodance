@@ -1,7 +1,13 @@
 <script setup lang='ts'>
 import { NTabPane, NTabs } from 'naive-ui'
+interface Tabspanel {
+  'tab-key': string
+  'tab-name': string
+  'tab-component': any
+  'tab-icon'?: string
+}
 const { tabspanel } = defineProps<{
-  tabspanel: Array<any>
+  tabspanel: Array<Tabspanel>
 }>()
 // 为tab自定义样式
 // TODO 复用性不高，需要优化

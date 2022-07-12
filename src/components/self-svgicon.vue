@@ -20,7 +20,7 @@ const props = defineProps<Props>()
 const iconName = computed((): string => `#icon-${props.name}`)
 const svgClass = computed((): string => {
   if (props.className)
-    return `svg-icon icon-${props.name}`
+    return `svg-icon ${props.className}`
 
   else
     return 'svg-icon'
