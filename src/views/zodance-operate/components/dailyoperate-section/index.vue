@@ -1,5 +1,7 @@
 <script setup lang='ts'>
+import { ref } from 'vue'
 import card from './card.vue'
+import { useAnimation } from '@/hooks/useAnimation'
 const info = [{
   icon: 'dailyoperate1',
   title: '低成本获客',
@@ -17,6 +19,10 @@ const info = [{
   title: '方案的执行运营',
   desc: '来有请运营总监讲几句需求点简述来有请运营总监讲几句需求点简述来有请运营总监讲几',
 }]
+
+//
+const cards = ref(null)
+useAnimation(cards)
 </script>
 
 <template>
@@ -25,7 +31,9 @@ const info = [{
     flex="~ col" justify-center items-center
     mx-auto my-0 mt-48px pb-96px
   >
-    <h1>日常经营，你可能会需要这些</h1>
+    <h1>
+      日常经营，你可能会需要这些
+    </h1>
     <p mt-6px>
       私域运营已经成为企业经营的标配
     </p>
@@ -33,10 +41,15 @@ const info = [{
       flex flex-wrap justify-center gap-24px
       mt-60px
     >
-      <card
-        v-for="{ icon, title, desc } in info"
-        :key="title" :icon="icon" :title="title" :desc="desc"
-      />
+      <div
+        v-for="({ icon, title, desc }) in info" :key="title"
+        ref="cards" w-600px class="show-init"
+      >
+        <card
+          :icon="icon" :title="title"
+          :desc="desc"
+        />
+      </div>
     </div>
   </div>
 </template>

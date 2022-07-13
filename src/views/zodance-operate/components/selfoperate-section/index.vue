@@ -100,10 +100,13 @@ const info = [{
     <div
       mt-25px flex gap-22px
     >
-      <operate-card
+      <div
         v-for="{ title, isLine, icon, contentInfo } in info" :key="title"
-        :title="title" :is-line="isLine" :icon="icon" :content-info="contentInfo"
-      />
+      >
+        <operate-card
+          :title="title" :is-line="isLine" :icon="icon" :content-info="contentInfo"
+        />
+      </div>
     </div>
   </div>
 </template>

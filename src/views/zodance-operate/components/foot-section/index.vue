@@ -1,4 +1,7 @@
 <script setup lang='ts'>
+import { ref } from 'vue'
+import { useAnimation } from '@/hooks/useAnimation'
+
 const info = [{
   icon: 'foot-item1',
   desc: '运营成本下降',
@@ -9,6 +12,8 @@ const info = [{
   icon: 'foot-item2',
   desc: '单场活动成交总额',
 }]
+const cards = ref(null)
+useAnimation(cards)
 </script>
 
 <template>
@@ -22,6 +27,7 @@ const info = [{
     >
       <div
         v-for="{ icon, desc } in info" :key="desc"
+        ref="cards" class="show-init"
         flex="~ col" justify-center items-center
       >
         <self-svgicon :name="icon" class-name="iconstyle" />

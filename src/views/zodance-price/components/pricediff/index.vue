@@ -124,6 +124,7 @@ const info = [
     isActive: true,
     contentInfo: [
       {
+        titleIcon: 'user-operate',
         title: '标准定制版微信小程序商城',
         infoContext: [{
           subTitle: '',
@@ -201,6 +202,7 @@ const info = [
     isActive: false,
     contentInfo: [
       {
+        titleIcon: 'user-operate',
         title: '标准定制版微信小程序商城',
         infoContext: [{
           subTitle: '',

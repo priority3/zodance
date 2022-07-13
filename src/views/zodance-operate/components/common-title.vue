@@ -10,8 +10,9 @@ const { title } = defineProps<{
   >
     <div class="vertical-line" mt-33px h-89px w-2px />
     <h2
-      h-148px px-90px
-      flex justify-center items-center
+      h-148px
+      px-90px flex justify-center z-100
+      items-center
     >
       {{ title }}
     </h2>
@@ -26,5 +27,6 @@ h2{
   border-radius: 80px;
   opacity: 1;
   border: 2px solid rgba(225,225,225,1);
+  background-color: #fff;
 }
 </style>

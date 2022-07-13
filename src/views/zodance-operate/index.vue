@@ -6,6 +6,8 @@ import AlloperateSection from './components/alloperate-section/index.vue'
 import SelfoperateSection from './components/selfoperate-section/index.vue'
 import ActiviSection from './components/activi-section/index.vue'
 import FootSection from './components/foot-section/index.vue'
+import { setupHandleScroll } from '@/hooks/useAnimation'
+setupHandleScroll()
 </script>
 
 <template>

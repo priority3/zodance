@@ -21,12 +21,12 @@ const itemMap = [{
   path: '/home',
 }]
 const router = useRouter()
-const modal = ref(null)
+const modal = ref<MODAL | null>(null)
 function handleTonext(item: string) {
   // router.push(item)
   !item && nextTick(() => {
     // TODO any ----
-    (modal.value as any).setShowModal()
+    modal.value && modal.value.setShowModal()
   })
   item && router.push(item)
 }

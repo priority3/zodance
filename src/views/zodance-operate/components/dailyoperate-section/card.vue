@@ -9,7 +9,7 @@ const { icon, title, desc } = defineProps<{
 <template>
   <div
     flex justify-center items-center p-40px w-full gap-30px
-    h-180px border="solid rounded-8px" class="card-container md:w-1/3"
+    h-180px border="solid rounded-8px" class="card-container"
   >
     <div>
       <self-svgicon :name="icon" text-8xl />

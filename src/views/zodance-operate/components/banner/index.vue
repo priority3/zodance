@@ -1,4 +1,16 @@
 <script setup lang='ts'>
+import { ref } from 'vue'
+import baseModal from '@/components/base-modal.vue'
+const modal = ref<MODAL | null>(null)
+function handleToShowModal() {
+  modal.value && modal.value.setShowModal()
+}
+const modalInfo = {
+  title: 'HI,我是你的首席私域运营官',
+  desc: '扫码加微信，送你专属大礼包',
+  avator: 'xiaoling-avator',
+  src: '/src/assets/xiaoling-code.png',
+}
 </script>
 
 <template>
@@ -35,10 +47,18 @@
           'height': '48px',
           'width': '240px',
         }"
+        @click="handleToShowModal"
       >
         免费咨询
       </self-button>
     </div>
+    <base-modal
+      ref="modal"
+      :avator="modalInfo.avator"
+      :src="modalInfo.src"
+      :title="modalInfo.title"
+      :desc="modalInfo.desc"
+    />
   </div>
 </template>
 

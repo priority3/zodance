@@ -1,6 +1,7 @@
 <script setup lang='ts'>
+import { ref } from 'vue'
 import commonTitle from '../common-title.vue'
-import actImg from './act-img.vue'
+import { useAnimation } from '@/hooks/useAnimation'
 const title = '活动带动转化，提升成交总额'
 const srcArr = [
   {
@@ -34,6 +35,8 @@ const srcArr = [
     top: 391,
   },
 ]
+const img = ref(null)
+useAnimation(img)
 </script>
 
 <template>
@@ -51,10 +54,20 @@ const srcArr = [
         src="/src/assets/operate/activi-bgc.png"
       />
       <div>
-        <act-img
+        <div
           v-for="{ src, left, top } in srcArr" :key="src"
-          :src="src" :left="left" :top="top"
-        />
+          ref="img"
+          absolute
+          :style="{
+            top: `${top}px`,
+            left: `${left}px`,
+          }" class="show-init"
+        >
+          <n-image
+            preview-disabled
+            :src="src"
+          />
+        </div>
       </div>
     </div>
   </div>

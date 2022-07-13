@@ -1,8 +1,10 @@
 <script setup lang='ts'>
 // import collapse from './collapse.vue'
+import { ref } from 'vue'
 import commonTitle from '../common-title.vue'
 import collapse from './collapse.vue'
 import card from './card.vue'
+import { useAnimation } from '@/hooks/useAnimation'
 const info = [{
   title: '专人专项跟进，保障运营质量',
   icon: 'allcard1',
@@ -17,10 +19,15 @@ const info = [{
   desc: '这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介',
 }]
 const title = '全局操盘运营，培养忠实客户群'
+const cards = ref(null)
+useAnimation(cards, 'fade')
 </script>
 
 <template>
-  <div flex="~ col" justify-center items-center class="alloperate-container" mt-60px>
+  <div
+    flex="~ col" justify-center items-center
+    class="alloperate-container" mt-60px
+  >
     <common-title :title="title" />
     <div
       class="w-3/5 mx-auto my-0"
@@ -29,10 +36,14 @@ const title = '全局操盘运营，培养忠实客户群'
     </div>
     <div class="vertical-line" w-2px h-90px />
     <div flex gap-100px mt-20px>
-      <card
-        v-for="{ title, icon, desc } in info"
-        :key="title" :title="title" :icon="icon" :desc="desc"
-      />
+      <div
+        v-for="({ title, icon, desc }) in info" :key="title"
+        ref="cards" class="fade-init"
+      >
+        <card
+          :title="title" :icon="icon" :desc="desc"
+        />
+      </div>
     </div>
   </div>
 </template>

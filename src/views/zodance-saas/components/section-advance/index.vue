@@ -33,8 +33,7 @@ const info = [{
 }]
 const modal = ref<null | MODAL >(null)
 function handleToshowModal() {
-  if (modal.value)
-    modal.value.setShowModal()
+  modal.value && modal.value.setShowModal()
 }
 </script>
 

@@ -1,15 +1,20 @@
 <script setup lang='ts'>
+import { ref } from 'vue'
 import commonTitle from '../common-title.vue'
 import card from './card.vue'
+import { useAnimation } from '@/hooks/useAnimation'
 const tabspanel = [{
   'tab-key': 'activity-tab',
-  'tab-name': '首页',
+  'tab-name': '活动裂变',
+  'tab-src': '/src/assets/operate/operate-tab1.png',
 }, {
   'tab-key': 'daily-tab',
   'tab-name': '日常裂变',
+  'tab-src': '/src/assets/operate/operate-tab2.png',
 }, {
   'tab-key': 'offline-tab',
   'tab-name': '线下活动',
+  'tab-src': '/src/assets/operate/operate-tab3.png',
 }]
 const cardInfo = [{
   icon: 'operate-tab-card1',
@@ -24,6 +29,13 @@ const cardInfo = [{
   title: '活动针对性强',
   content: '人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低',
 }]
+const cards = ref(null)
+const tab = ref(null)
+useAnimation(cards, 'fade')
+useAnimation(tab)
+function getFirstRef(num: number) {
+  return !num ? tab : undefined
+}
 const title = '裂变引流，低成本获客'
 </script>
 
@@ -44,16 +56,22 @@ const title = '裂变引流，低成本获客'
       size="large"
     >
       <n-tab-pane
-        v-for="item in tabspanel" :key="item['tab-key']"
+        v-for="(item, index) in tabspanel" :key="item['tab-key']"
         :name="item['tab-key']"
         display-directive="show:lazy"
       >
         <template #default>
-          <div flex justify-center>
-            <n-image
-              preview-disabled
-              src="/src/assets/operate/operate-tab1.png"
-            />
+          <div
+            :ref="getFirstRef(index)" :class="!index && 'show-init'"
+            flex justify-center
+          >
+            <!-- TODO 不指定高度出现 图片抖动加载问题 应该时naive ui 内部问题 -->
+            <div h-450px>
+              <n-image
+                preview-disabled
+                :src="item['tab-src']"
+              />
+            </div>
           </div>
         </template>
         <template #tab>
@@ -69,10 +87,14 @@ const title = '裂变引流，低成本获客'
       <div
         flex gap-60px
       >
-        <card
-          v-for="{ title, icon, content } in cardInfo" :key="title"
-          :title="title" :icon="icon" :content="content"
-        />
+        <div
+          v-for="({ title, icon, content }) in cardInfo" :key="title" ref="cards"
+          class="fade-init"
+        >
+          <card
+            :title="title" :icon="icon" :content="content"
+          />
+        </div>
       </div>
     </div>
   </div>
