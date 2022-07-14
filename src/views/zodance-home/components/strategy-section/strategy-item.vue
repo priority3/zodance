@@ -6,7 +6,13 @@ const { info } = defineProps<{
 </script>
 
 <template>
-  <div class="item-box" :style="{ marginTop: info.mt }">
+  <div
+    class="item-box" absolute
+    :style="{
+      left: `${info.left}px`,
+      top: `${info.top}px`,
+    }"
+  >
     <div
       flex items-center justify-center gap-5 class="box-title"
     >
@@ -29,7 +35,9 @@ const { info } = defineProps<{
         flex justify-between flex-wrap items-center gap-10px
         pl-10px
       >
-        <li v-for="item in info.arrayFun" :key="item" mt-13px>
+        <li
+          v-for="item in info.arrayFun" :key="item" mt-13px
+        >
           {{ item }}
         </li>
       </ul>
@@ -40,10 +48,9 @@ const { info } = defineProps<{
 <style scoped lang='scss'>
 .item-box{
   box-sizing: border-box;
-  width: 320px;
-  min-width: 320px;
+  width: 300px;
+  min-width: 300px;
   border-radius: 12px;
-  padding-bottom:78px ;
   .box-title{
     width: max-content;
     margin: 0 auto;

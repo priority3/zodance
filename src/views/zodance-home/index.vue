@@ -1,10 +1,11 @@
 <script  lang='ts' setup>
 import { reactive } from 'vue'
 import strategySection from './components/strategy-section/index.vue'
-import sceneSection from './components/scene-section/index.vue'
 import businessSection from './components/business-section/index.vue'
-import serviceSection from './components/service-section/index.vue'
 import xiaolingSection from './components/xiaoling-section/index.vue'
+import digitSection from './components/digit-section/index.vue'
+import allcoverSection from './components/allcover-section/index.vue'
+import { setupHandleScroll } from '@/hooks/useAnimation'
 const bannerInfo = reactive<Array<BannerInfo>>([
   {
     image: {
@@ -75,15 +76,16 @@ const bannerInfo = reactive<Array<BannerInfo>>([
         'width': '168px',
         'border-radius': '5px',
         'background': 'rgba(87,142,204,1)',
+        'border': '0',
       },
       textStyle: {
         'color': 'rgba(255,255,255,1)',
         'font-size': '18px',
         'font-weight': '500',
-        ' font-family': 'OPPOSans',
+        'font-family': 'OPPOSans',
       },
     }, {
-      text: '免费咨询',
+      text: '查看价格',
       style: {
         'margin-top': '110px',
         'height': '36px',
@@ -100,6 +102,7 @@ const bannerInfo = reactive<Array<BannerInfo>>([
     }],
   },
 ])
+setupHandleScroll()
 </script>
 
 <template>
@@ -109,9 +112,9 @@ const bannerInfo = reactive<Array<BannerInfo>>([
   <div flex justify-center flex-wrap>
     <strategy-section />
     <xiaoling-section />
-    <scene-section />
+    <digit-section />
+    <allcover-section />
     <business-section />
-    <service-section />
   </div>
   <base-footer />
 </template>

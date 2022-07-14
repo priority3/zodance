@@ -1,5 +1,7 @@
 <script setup lang='ts'>
+import { ref } from 'vue'
 import card from './card.vue'
+import { useAnimation } from '@/hooks/useAnimation'
 const leftInfo = {
   title: '小零同学',
   subTitle: '帮助企业低成本实现销售数字化',
@@ -63,6 +65,8 @@ function getWidth(num: number) {
   }
   return res
 }
+const cards = ref(null)
+useAnimation(cards)
 </script>
 
 <template>
@@ -100,15 +104,16 @@ function getWidth(num: number) {
       class="card-box"
       flex="~ col" items-end justify-center
     >
-      <template
+      <div
         v-for="({ title, contentInfo }, index) in cardInfo" :key="title"
+        ref="cards" class="show-init"
       >
         <card
           :title="title"
           :content-info="contentInfo"
           :width="getWidth(index)"
         />
-      </template>
+      </div>
     </div>
   </div>
 </template>

@@ -2,8 +2,6 @@
 const { bannerInfo } = defineProps<{
   bannerInfo: Array<BannerInfo>
 }>()
-
-//
 const linkInfo = [
   {
     title: '零一商城',
@@ -16,7 +14,7 @@ const linkInfo = [
   }, {
     title: 'SaaS定制',
     desc: '更全面的SaaS解决方案',
-    link: '',
+    link: '/zodance-saas',
   },
 ]
 // const modal = ref<MODAL | null>(null)

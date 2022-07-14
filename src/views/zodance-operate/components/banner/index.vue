@@ -8,7 +8,7 @@ function handleToShowModal() {
 const modalInfo = {
   title: 'HI,我是你的首席私域运营官',
   desc: '扫码加微信，送你专属大礼包',
-  avator: 'xiaoling-avator',
+  avator: 'avator',
   src: '/src/assets/xiaoling-code.png',
 }
 </script>

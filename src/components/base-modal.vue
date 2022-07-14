@@ -51,7 +51,7 @@ defineExpose({
           border-b="solid 1px gray-300"
         >
           <self-svgicon
-            :name="avator"
+            :name="avator || 'avator'"
             text-5xl
           />
           <span>

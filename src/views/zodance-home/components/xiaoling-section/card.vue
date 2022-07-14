@@ -11,8 +11,8 @@ const { title, contentInfo, width = '100%' } = defineProps<{
 
 <template>
   <div
-    class="card-container" :style="{ width: `${width}` }"
-    flex items-center gap-35px
+    ref="card" class="card-container"
+    :style="{ width: `${width}` }" flex items-center gap-35px
   >
     <h1>{{ title }}</h1>
     <div

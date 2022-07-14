@@ -25,6 +25,8 @@ function traversalDom(el: Ref<DomRef>) {
   }
 }
 function useShow(dom: HTMLElement, type: string) {
+  if (!dom)
+    return
   const boxTop = dom.getBoundingClientRect().top
   if (boxTop < scrollTop.value)
     dom.classList.add(type)
@@ -50,6 +52,7 @@ export function setupHandleScroll() {
   }
   onMounted(() => {
     window.addEventListener('scroll', handleScroll)
+    // domRef.value = new Map()
   })
   onBeforeUnmount(() => {
     window.removeEventListener('scroll', handleScroll)
