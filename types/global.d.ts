@@ -26,12 +26,13 @@ declare global{
     width?: number
     height?: number
     style?: object
+    textStyle?: object
   }
   interface BannerInfo {
     image: BannerInfoImg 
     title: BannerInfoDesc 
     subTitle: BannerInfoDesc 
-    button?:BannerInfobutton
+    button?:Array<BannerInfobutton>
   }
   interface MODAL extends HTMLElement {
     setShowModal: () => void

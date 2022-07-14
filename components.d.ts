@@ -15,6 +15,7 @@ declare module '@vue/runtime-core' {
     NCollapseItem: typeof import('naive-ui')['NCollapseItem']
     NImage: typeof import('naive-ui')['NImage']
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
+    NModal: typeof import('naive-ui')['NModal']
     NTabPane: typeof import('naive-ui')['NTabPane']
     NTabs: typeof import('naive-ui')['NTabs']
     RouterLink: typeof import('vue-router')['RouterLink']

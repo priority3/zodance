@@ -6,23 +6,30 @@ const { info } = defineProps<{
 </script>
 
 <template>
-  <div class="item-box">
-    <div flex items-center justify-center gap-5 class="box-title">
-      <self-svgicon :name="info.icon" text-3xl />
-
+  <div class="item-box" :style="{ marginTop: info.mt }">
+    <div
+      flex items-center justify-center gap-5 class="box-title"
+    >
+      <!-- <self-svgicon :name="info.icon" text-3xl /> -->
+      <div
+        w-40px h-40px flex-none rounded-full
+        class="title-icon" text-center leading-40px
+      >
+        {{ info.icon }}
+      </div>
       <h1>{{ info.title }}</h1>
     </div>
     <div
       class="box-content"
     >
-      <p mt38px>
+      <p mt-10px>
         {{ info.content }}
       </p>
       <ul
         flex justify-between flex-wrap items-center gap-10px
         pl-10px
       >
-        <li v-for="item in info.arrayFun" :key="item" mt13px>
+        <li v-for="item in info.arrayFun" :key="item" mt-13px>
           {{ item }}
         </li>
       </ul>
@@ -36,18 +43,20 @@ const { info } = defineProps<{
   width: 320px;
   min-width: 320px;
   border-radius: 12px;
-  background: rgba(249,252,255,1);
-  box-shadow: 0 4px 20px 0 rgba(86,140,196,0.2);
-  margin-top: 76px;
   padding-bottom:78px ;
   .box-title{
     width: max-content;
     margin: 0 auto;
-    margin-top: 40px;
+    .title-icon{
+      color:#48A7D7;
+      font-size: 32px;
+      font-weight: 500;
+      border: 2px solid;
+    }
     h1{
       margin: 0;
-      color: rgba(61,61,61,1);
-      font: 500 2rem  "PingFang SC";
+      color: rgba(11,123,178,1);
+      font: 500 32px  "PingFang SC";
       width: 100%;
       min-width: 160px;
     }
@@ -55,8 +64,8 @@ const { info } = defineProps<{
   .box-content{
     margin: 0 40px;
     p{
-      color: rgba(61,61,61,1);
-      font: 300 20px "PingFang SC";
+      color: rgba(0,0,0,1);
+      font: 300 16px "PingFang SC";
       // height: 140px;
       display: -webkit-box;
       -webkit-box-orient: vertical;
@@ -64,7 +73,7 @@ const { info } = defineProps<{
       overflow: hidden;
     }
     li{
-      font:400 20px "PingFang SC";
+      font:400 18px "PingFang SC";
       width: 35%;
       min-width: 100px;
       list-style: none;

@@ -66,19 +66,14 @@ const { title, icon, contentInfo, isLine } = defineProps<{
     border-radius: 8px;
     box-shadow: 0 4px 4px 0px rgba(5,102,187,0.25);
     background-color: #fff;
-    position: relative;
-    overflow: hidden;
-    // TODO
-    &::before{
-      content: "";
-      position: absolute;
-      border-radius: inherit;
-      height: 3px;
-      width: 100%;
-      background: linear-gradient(to right, #0B8AFA, #47DEF6);
-      top: 0;
-      left: 0;
-    }
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    background-image: linear-gradient(to right,#fff,#fff), linear-gradient(to right,#0B8AFA, #47DEF6);
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
     h2{
       color: rgba(30,34,48,1);
       font-size: 14px;

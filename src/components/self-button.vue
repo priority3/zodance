@@ -36,7 +36,9 @@ const textType = {
     :style="[btnType[props.type || 'default'], props.style]"
   >
     <span :style="[textType[props.type || 'default'], props.textStyle]">
-      <slot />
+      <slot>
+        免费咨询
+      </slot>
     </span>
   </button>
 </template>

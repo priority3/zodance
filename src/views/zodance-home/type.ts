@@ -3,4 +3,5 @@ export interface StrategyInfo {
   content: string
   arrayFun: string[]
   icon: string
+  mt?: string
 }

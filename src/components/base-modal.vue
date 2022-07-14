@@ -1,5 +1,4 @@
 <script setup lang='ts'>
-import { NImage, NModal } from 'naive-ui'
 import { ref } from 'vue'
 interface ModalProps {
   title?: string
@@ -44,11 +43,11 @@ defineExpose({
     <NModal v-model:show="showModal">
       <div
         class="img-container"
-        bg-white p-10px
+        bg-white p-5px
         w-360px h-476px
       >
         <div
-          flex items-center gap-6px pb-12px
+          flex items-center gap-6px h-71px
           border-b="solid 1px gray-300"
         >
           <self-svgicon
@@ -60,7 +59,7 @@ defineExpose({
           </span>
         </div>
         <div
-          flex="~ col" items-center gap-22px mt-23px
+          flex="~ col" items-center gap-22px mt-15px
         >
           <p>{{ desc }}</p>
           <n-image

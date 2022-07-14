@@ -19,6 +19,11 @@ const linkInfo = [
     link: '',
   },
 ]
+// const modal = ref<MODAL | null>(null)
+
+// function handleShowModal() {
+
+// }
 
 // TODO 图片 缩放
 </script>
@@ -45,12 +50,19 @@ const linkInfo = [
             <div :style="subTitle.style">
               {{ subTitle.desc }}
             </div>
-            <self-button
-              :type="button?.type"
-              :style="button?.style"
+            <div
+
+              flex gap-20px
             >
-              {{ button?.text || '了解更多' }}
-            </self-button>
+              <self-button
+                v-for="btn in button" :key="btn.text"
+                :type="btn?.type"
+                :style="btn?.style"
+                :text-style="btn?.textStyle"
+              >
+                {{ btn?.text || '了解更多' }}
+              </self-button>
+            </div>
           </div>
           <div
             flex m="0 auto" mt-147px z-100

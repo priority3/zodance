@@ -4,6 +4,7 @@ import strategySection from './components/strategy-section/index.vue'
 import sceneSection from './components/scene-section/index.vue'
 import businessSection from './components/business-section/index.vue'
 import serviceSection from './components/service-section/index.vue'
+import xiaolingSection from './components/xiaoling-section/index.vue'
 const bannerInfo = reactive<Array<BannerInfo>>([
   {
     image: {
@@ -27,17 +28,26 @@ const bannerInfo = reactive<Array<BannerInfo>>([
               line-height: 64px;
               margin-top: 24px;`,
     },
-    button: {
+    button: [{
       text: '免费咨询',
       type: 'primary',
       style: {
         'margin-top': '116px',
+        'width': '168px',
+        'height': '36px',
+        'border-radius': '5px',
       },
-    },
+      textStyle: {
+        'color': ' rgba(255,255,255,1)',
+        'font-size': '18px',
+        'font-weight': '500',
+        'font-family': 'OPPOSans',
+      },
+    }],
   },
   {
     image: {
-      url: '/src/assets/home/banner2.png',
+      url: '/src/assets/home/xiaoling-logo.png',
       right: 0,
       top: 129,
     },
@@ -57,12 +67,37 @@ const bannerInfo = reactive<Array<BannerInfo>>([
               -webkit-background-clip:text; 
               -webkit-text-fill-color:transparent; `,
     },
-    button: {
+    button: [{
       text: '免费咨询',
       style: {
         'margin-top': '110px',
+        'height': '36px',
+        'width': '168px',
+        'border-radius': '5px',
+        'background': 'rgba(87,142,204,1)',
       },
-    },
+      textStyle: {
+        'color': 'rgba(255,255,255,1)',
+        'font-size': '18px',
+        'font-weight': '500',
+        ' font-family': 'OPPOSans',
+      },
+    }, {
+      text: '免费咨询',
+      style: {
+        'margin-top': '110px',
+        'height': '36px',
+        'width': '168px',
+        'border-radius': '5px',
+        'border': '1px solid rgba(193,193,193,1)',
+      },
+      textStyle: {
+        'color': 'rgba(29,33,41,1)',
+        'font-size': '18px',
+        'font-weight': '500',
+        ' font-family': 'OPPOSans',
+      },
+    }],
   },
 ])
 </script>
@@ -73,6 +108,7 @@ const bannerInfo = reactive<Array<BannerInfo>>([
   <base-carousel :banner-info="bannerInfo" />
   <div flex justify-center flex-wrap>
     <strategy-section />
+    <xiaoling-section />
     <scene-section />
     <business-section />
     <service-section />

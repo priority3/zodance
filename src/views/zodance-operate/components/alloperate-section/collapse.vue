@@ -1,6 +1,5 @@
 <script setup lang='ts'>
-import { ref } from 'vue'
-import { useAnimation } from '@/hooks/useAnimation'
+import { computed, ref } from 'vue'
 
 const info = [{
   icon: 'collicon1',
@@ -11,31 +10,35 @@ const info = [{
   icon: 'collicon2',
   title: 'IP号日常运营',
   desc: '人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低',
-  src: '/src/assets/operate/alloperate-item1.png',
+  src: '/src/assets/operate/alloperate-item2.png',
 }, {
   icon: 'collicon3',
   title: '运营海报制作',
   desc: '人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低',
-  src: '/src/assets/operate/alloperate-item1.png',
+  src: '/src/assets/operate/alloperate-item3.png',
 }, {
   icon: 'collicon4',
   title: '专属红包制作',
   desc: '人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低',
-  src: '/src/assets/operate/alloperate-item1.png',
+  src: '/src/assets/operate/alloperate-item4.png',
 }, {
   icon: 'collicon5',
   title: '促销活动操盘',
   desc: '人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低',
-  src: '/src/assets/operate/alloperate-item1.png',
+  src: '/src/assets/operate/alloperate-item5.png',
 }]
 const curImg = ref(info[0].src)
-const img = ref(null)
-useAnimation(img)
+const imgArr = computed(() => {
+  return info.map(item => item.src)
+})
 </script>
 
 <template>
-  <div flex justify-around items-center gap-120px mt-30px>
-    <div class="w-1/3">
+  <div
+    flex justify-around items-center gap-120px mt-30px
+    h-610px
+  >
+    <div w-300px flex-none>
       <n-collapse
         accordion
         :default-expanded-names="[0]"
@@ -62,12 +65,41 @@ useAnimation(img)
         </n-collapse-item>
       </n-collapse>
     </div>
-    <div ref="img" class="show-init">
-      <n-image
-        preview-disabled
-        :src="curImg"
-      />
-    </div>
+    <Transition name="slide-up" mode="out-in">
+      <!-- 这里需要v-show把所有节点渲染出来 否则切换会导致show动画丢失show类型导致不可见 -->
+      <!-- 如果采用v-if 会有多次比较导致 出现闪烁 -->
+      <!-- TODO 垃圾代码 先占位 render重写 -->
+      <div v-if="imgArr[0] === curImg">
+        <n-image
+          preview-disabled
+          :src="curImg"
+        />
+      </div>
+      <div v-else-if="imgArr[1] === curImg">
+        <n-image
+          preview-disabled
+          :src="curImg"
+        />
+      </div>
+      <div v-else-if="imgArr[2] === curImg">
+        <n-image
+          preview-disabled
+          :src="curImg"
+        />
+      </div>
+      <div v-else-if="imgArr[3] === curImg">
+        <n-image
+          preview-disabled
+          :src="curImg"
+        />
+      </div>
+      <div v-else>
+        <n-image
+          preview-disabled
+          :src="curImg"
+        />
+      </div>
+    </Transition>
   </div>
 </template>
 
@@ -104,5 +136,19 @@ useAnimation(img)
   border: 1px solid rgba(242,242,242,1);
   background: rgba(255,255,255,1);
   box-shadow: 4px 4px 15px 0px rgba(5,102,187,0.1);
+}
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.25s ease-out;
+}
+
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
 }
 </style>

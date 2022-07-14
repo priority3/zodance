@@ -60,7 +60,7 @@ function handleToshowModal() {
     </div>
     <self-button
       type="small"
-      :style="{ backgroundColor: 'rgba(51,136,255,1)', width: '112px', height: '25px', border: 0 }"
+      :style="{ backgroundColor: 'rgba(51,136,255,1)', width: '112px', height: '25px', borderRadius: '4px' }"
       border="false" mt-90px
       :text-style="{ font: '500 12px PingFang SC' }"
       @click="handleToshowModal"
