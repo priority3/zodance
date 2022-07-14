@@ -18,7 +18,7 @@ interface ModalProps {
 // )
 const {
   title = 'HI,我是你的专属SaaS顾问',
-  avator = 'avator',
+  avator = 'zavator',
   desc = '扫码加微信，送你专属大礼包',
   src = '/src/assets/binaryCode.png',
 } = defineProps<ModalProps>()
@@ -51,7 +51,7 @@ defineExpose({
           border-b="solid 1px gray-300"
         >
           <self-svgicon
-            :name="avator || 'avator'"
+            :name="avator"
             text-5xl
           />
           <span>

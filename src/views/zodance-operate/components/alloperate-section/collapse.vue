@@ -65,41 +65,43 @@ const imgArr = computed(() => {
         </n-collapse-item>
       </n-collapse>
     </div>
-    <Transition name="slide-up" mode="out-in">
-      <!-- 这里需要v-show把所有节点渲染出来 否则切换会导致show动画丢失show类型导致不可见 -->
-      <!-- 如果采用v-if 会有多次比较导致 出现闪烁 -->
-      <!-- TODO 垃圾代码 先占位 render重写 -->
-      <div v-if="imgArr[0] === curImg">
-        <n-image
-          preview-disabled
-          :src="curImg"
-        />
-      </div>
-      <div v-else-if="imgArr[1] === curImg">
-        <n-image
-          preview-disabled
-          :src="curImg"
-        />
-      </div>
-      <div v-else-if="imgArr[2] === curImg">
-        <n-image
-          preview-disabled
-          :src="curImg"
-        />
-      </div>
-      <div v-else-if="imgArr[3] === curImg">
-        <n-image
-          preview-disabled
-          :src="curImg"
-        />
-      </div>
-      <div v-else>
-        <n-image
-          preview-disabled
-          :src="curImg"
-        />
-      </div>
-    </Transition>
+    <div flex-none w-700px>
+      <Transition name="slide-up" mode="out-in">
+        <!-- 这里需要v-show把所有节点渲染出来 否则切换会导致show动画丢失show类型导致不可见 -->
+        <!-- 如果采用v-if 会有多次比较导致 出现闪烁 -->
+        <!-- TODO 垃圾代码 先占位 render重写 -->
+        <div v-if="imgArr[0] === curImg">
+          <n-image
+            preview-disabled
+            :src="curImg"
+          />
+        </div>
+        <div v-else-if="imgArr[1] === curImg">
+          <n-image
+            preview-disabled
+            :src="curImg"
+          />
+        </div>
+        <div v-else-if="imgArr[2] === curImg">
+          <n-image
+            preview-disabled
+            :src="curImg"
+          />
+        </div>
+        <div v-else-if="imgArr[3] === curImg">
+          <n-image
+            preview-disabled
+            :src="curImg"
+          />
+        </div>
+        <div v-else>
+          <n-image
+            preview-disabled
+            :src="curImg"
+          />
+        </div>
+      </Transition>
+    </div>
   </div>
 </template>
 

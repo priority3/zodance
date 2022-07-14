@@ -1,8 +1,9 @@
 <script setup lang='ts'>
 import { NImage } from 'naive-ui'
+import businessSection from '@/assets/home/business-section.png'
 const info = {
   title: '先进企业的选择',
-  src: '/src/assets/home/business-section.png',
+  src: businessSection,
 }
 </script>
 

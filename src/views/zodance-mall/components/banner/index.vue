@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import { NImage } from 'naive-ui'
+import mallbanner from '@/assets/mall/mall-banner.png'
 const info = {
   title: '零一商城',
   subTitle: '快速拥有适合自己的小程序商城，获取流量销量双增长',
@@ -51,9 +51,9 @@ const info = {
       <div absolute right-0 top-30>
         <n-image
           preview-disabled
-          lazy
-          src="/src/assets/mall/mall-banner.png"
+          :src="mallbanner"
         />
+        <!-- <img :src="mallbanner" alt=""> -->
       </div>
     </div>
   </div>

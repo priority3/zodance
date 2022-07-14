@@ -2,11 +2,12 @@
 import { ref } from 'vue'
 import card from './card.vue'
 import { useAnimation } from '@/hooks/useAnimation'
+import xiaolingSection from '@/assets/home/xiaoling-section.png'
 const leftInfo = {
   title: '小零同学',
   subTitle: '帮助企业低成本实现销售数字化',
   subscribe: '构建企业增长、运营、转化于一体的私域运营体系',
-  src: '/src/assets/home/xiaoling-section.png',
+  src: xiaolingSection,
 }
 const cardInfo = [{
   title: '增长',

@@ -1,20 +1,21 @@
 <script setup lang='ts'>
+import hometab2 from '@/assets/home/home-tab2.png'
 const tabspanel = [{
   'tab-key': '定制商城',
   'tab-name': '定制商城',
-  'tab-src': '/src/assets/home/home-tab2.png',
+  'tab-src': hometab2,
 }, {
   'tab-key': '券码核销',
   'tab-name': '券码核销',
-  'tab-src': '/src/assets/home/home-tab2.png',
+  'tab-src': hometab2,
 }, {
   'tab-key': 'PDA出入库',
   'tab-name': 'PDA出入库',
-  'tab-src': '/src/assets/home/home-tab2.png',
+  'tab-src': hometab2,
 }, {
   'tab-key': 'AI外呼',
   'tab-name': 'AI外呼',
-  'tab-src': '/src/assets/home/home-tab2.png',
+  'tab-src': hometab2,
 }]
 </script>
 

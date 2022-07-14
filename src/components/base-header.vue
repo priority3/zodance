@@ -1,6 +1,7 @@
 <script setup lang='ts'>
 import { useRouter } from 'vue-router'
 import { nextTick, ref } from 'vue'
+import logopng from '@/assets/zodance-logo.png'
 const itemMap = [{
   name: '零一商城',
   path: '/zodance-mall',
@@ -39,8 +40,14 @@ function getisAvtive({ path }) {
   <div>
     <header class="header-container">
       <div class="w-3/5" flex mxa my0 h60px items-center>
-        <div cursor-pointer @click="$router.push('home')">
-          <img src="@/assets/zodance-logo.png" alt="">
+        <div
+          cursor-pointer flex items-center
+          @click="$router.push('home')"
+        >
+          <n-image
+            preview-disabled
+            :src="logopng"
+          />
         </div>
         <div
           class="header-box"

@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import { NImage } from 'naive-ui'
+import resultSection from '@/assets/mall/result-section.png'
 const info = {
   title: '做小程序商城的6大理由',
   leftRes: [{
@@ -34,7 +34,7 @@ const info = {
         </div>
         <div flex-none>
           <n-image
-            src="/src/assets/mall/result-section.png"
+            :src="resultSection"
             width="414"
             preview-disabled
           />

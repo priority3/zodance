@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 import { computed, ref } from 'vue'
 import { useAnimation } from '@/hooks/useAnimation'
-
+import coveritem1 from '@/assets/home/allcover-item1.png'
 const tabBox = [{
   title: '数据监控中心',
   desc: '实时、动态、多维度展示企业经营数据',
@@ -52,13 +52,13 @@ useAnimation(cards, 'fade')
         <div v-if="0 === curNum">
           <n-image
             preview-disabled
-            src="/src/assets/home/allcover-item1.png"
+            :src="coveritem1"
           />
         </div>
         <div v-else>
           <n-image
             preview-disabled
-            src="/src/assets/home/allcover-item1.png"
+            :src="coveritem1"
           />
         </div>
       </Transition>

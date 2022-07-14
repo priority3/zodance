@@ -1,10 +1,10 @@
 <script setup lang='ts'>
 import common from './common.vue'
-
+import quicktab from '@/assets/mall/quick-tab.png'
 const info = {
   title: '0基础搭建高颜值商城',
   descArr: ['50+行业模板', '在线客服', '数据看板', '店铺管理'],
-  image: '/src/assets/mall/quick-tab.png',
+  image: quicktab,
 }
 </script>
 

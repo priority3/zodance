@@ -6,10 +6,12 @@ import xiaolingSection from './components/xiaoling-section/index.vue'
 import digitSection from './components/digit-section/index.vue'
 import allcoverSection from './components/allcover-section/index.vue'
 import { setupHandleScroll } from '@/hooks/useAnimation'
+import banner1 from '@/assets/home/banner1.png'
+import banner2 from '@/assets/home/xiaoling-logo.png'
 const bannerInfo = reactive<Array<BannerInfo>>([
   {
     image: {
-      url: '/src/assets/home/banner1.png',
+      url: banner1,
       right: 0,
     },
     title: {
@@ -48,7 +50,7 @@ const bannerInfo = reactive<Array<BannerInfo>>([
   },
   {
     image: {
-      url: '/src/assets/home/xiaoling-logo.png',
+      url: banner2,
       right: 0,
       top: 129,
     },

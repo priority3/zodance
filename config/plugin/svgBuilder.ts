@@ -3,9 +3,7 @@ import type { Plugin } from 'vite'
 let idPerfix = ''
 const svgTitle = /<svg([^>+].*?)>/
 const clearHeightWidth = /(width|height)="([^>+].*?)"/g
-
 const hasViewBox = /(viewBox="[^>+].*?")/g
-
 const clearReturn = /(\r)|(\n)/g
 
 function findSvgFile(dir: string) {
@@ -51,6 +49,7 @@ export const setupSvgBuilder = (path = 'D:/vs/zodance/zodance-fe/src/assets/svg/
 
   idPerfix = perfix
   const res = findSvgFile(path)
+  console.dir(res)
   return {
     name: 'svg-transform',
     transformIndexHtml(html) {
