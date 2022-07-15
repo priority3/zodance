@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "ali-oss": "^6.17.1",
     "axios": "^0.27.2",
     "nprogress": "^0.2.0",
     "vue": "^3.2.25",
@@ -30,5 +31,33 @@
     "vite": "^2.9.9",
     "vite-plugin-mock": "^2.9.6",
     "vue-tsc": "^0.34.7"
+  },
+  "web": {
+    "aliOss": {
+      "dev": {
+        "region": "oss-cn-chengdu",
+        "accessKeyId": "LTAI5tCHCTVyAs2YEFeKv3L6",
+        "accessKeySecret": "UocLbj7Oflspvr0fOR9ItH9uMkzwNq",
+        "bucket": "zodance-web",
+        "source": {
+          "dir": "dist"
+        },
+        "target": {
+          "dir": ""
+        }
+      },
+      "prod": {
+        "region": "oss-cn-chengdu",
+        "accessKeyId": "LTAI5tCHCTVyAs2YEFeKv3L6",
+        "accessKeySecret": "UocLbj7Oflspvr0fOR9ItH9uMkzwNq",
+        "bucket": "zodance-web",
+        "source": {
+          "dir": "dist"
+        },
+        "target": {
+          "dir": ""
+        }
+      }
+    }
   }
 }
