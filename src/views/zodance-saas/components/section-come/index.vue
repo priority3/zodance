@@ -1,5 +1,6 @@
 <script setup lang='ts'>
 // import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import comeCard from './come-card.vue'
 import saascard1 from '@/assets/saas/saas-card1.png'
 import saascard2 from '@/assets/saas/saas-card2.png'
@@ -7,6 +8,8 @@ import saascard3 from '@/assets/saas/saas-card3.png'
 import saascard4 from '@/assets/saas/saas-card4.png'
 import saascard5 from '@/assets/saas/saas-card5.png'
 import saascard6 from '@/assets/saas/saas-card6.png'
+import { useAnimation } from '@/hooks/useAnimation'
+
 const info = {
   title: '你想要的，都能帮你实现',
   contPara1: '零一拥有专业的互联网软件开发团队，基于强大的研发能力',
@@ -46,6 +49,8 @@ const info = {
     },
   ],
 }
+const cards = ref(null)
+useAnimation(cards, 'fade')
 </script>
 
 <template>
@@ -59,15 +64,18 @@ const info = {
     mt-100px class="w-7/10" mx-auto my-0
     gap-20px
   >
-    <come-card
+    <div
       v-for="{ position, title, content, src, subContent } in info.cardArr"
-      :key="title"
-      :position="position"
-      :title="title"
-      :content="content"
-      :src="src"
-      :sub-content="subContent"
-    />
+      :key="title" ref="cards" class="fade-init"
+    >
+      <come-card
+        :position="position"
+        :title="title"
+        :content="content"
+        :src="src"
+        :sub-content="subContent"
+      />
+    </div>
   </div>
 </template>
 

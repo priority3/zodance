@@ -30,7 +30,7 @@ const info = {
           {{ info?.subTitle || '' }}
         </h2>
       </div>
-      <div class="banner-fun-box" mt56px flex gap-40px>
+      <div class="banner-fun-box" mt31px flex gap-40px>
         <template v-for="item in info.bannerFun" :key="item">
           <div
             flex items-center gap-12px
@@ -42,12 +42,39 @@ const info = {
           </div>
         </template>
       </div>
-      <self-button
-        type="middle"
-        style="margin-top: 42px;"
+      <div
+        flex gap-20px mt-102px
       >
-        立即咨询
-      </self-button>
+        <self-button
+          :style="{
+            width: '168px',
+            height: '36px',
+            borderRadius: '5px',
+            background: 'linear-gradient(180deg, rgba(92,178,254,1) 0%, rgba(23,144,250,1) 100%)',
+            border: '0',
+          }"
+          :text-style="{
+            color: 'rgba(255,255,255,1)',
+            font: '500 18px OPPOSans',
+          }"
+        >
+          免费申领
+        </self-button>
+        <self-button
+          :style="{
+            width: '168px',
+            height: '36px',
+            borderRadius: '5px',
+            border: '1px solid rgba(193,193,193,1)',
+          }"
+          :text-style="{
+            color: 'rgba(29,33,41,1)',
+            font: '500 18px OPPOSans',
+          }"
+        >
+          立即咨询
+        </self-button>
+      </div>
       <div absolute right-0 top-30>
         <n-image
           preview-disabled

@@ -37,8 +37,8 @@ const { title, subTitle, content, price } = defineProps<{
       </div>
       <self-button
         type="primary"
-        style="width:128px;height:43px;border-radius:5px"
-        text-style="font:400 22px PingFang SC"
+        :style="{ width: '128px', height: '43px', borderRadius: '5px' }"
+        :text-style="{ font: '400 22px PingFang SC' }"
       >
         立即咨询
       </self-button>

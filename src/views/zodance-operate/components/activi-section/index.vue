@@ -8,6 +8,7 @@ import activiItem3 from '@/assets/operate/activi-item3.png'
 import activiItem4 from '@/assets/operate/activi-item4.png'
 import activiItem5 from '@/assets/operate/activi-item5.png'
 import activiItem6 from '@/assets/operate/activi-item6.png'
+import activibgc from '@/assets/operate/activi-bgc.png'
 const title = '活动带动转化，提升成交总额'
 const srcArr = [
   {
@@ -57,7 +58,7 @@ useAnimation(img)
     >
       <n-image
         preview-disabled
-        src="/src/assets/operate/activi-bgc.png"
+        :src="activibgc"
       />
       <div>
         <div

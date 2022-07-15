@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import type { StrategyInfo } from '../../type'
 import strategyItem from './strategy-item.vue'
 import { useAnimation } from '@/hooks/useAnimation'
+import strategybgc from '@/assets/home/strategy-bgc.png'
 const info: StrategyInfo[] = [{
   title: '销售数字化',
   content: '首先，以销售环节为突破口，完成企业用户增长、运营、转化的体系构建，协助企业获得稳定现金流。',
@@ -42,7 +43,7 @@ useAnimation(cards)
     <div absolute bottom-0 left-0>
       <n-image
         preview-disabled
-        src="/src/assets/home/strategy-bgc.png"
+        :src="strategybgc"
       />
     </div>
     <div

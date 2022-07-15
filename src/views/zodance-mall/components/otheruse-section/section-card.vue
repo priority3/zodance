@@ -44,8 +44,8 @@ function handleToHideCode() {
     <div flex justify-end>
       <self-button
         type="primary"
-        style="width:88px;height:25px;border-radius:2px"
-        text-style="font:400 12px PingFang SC"
+        :style="{ width: '88px', height: '25px', borderRadius: '2px' }"
+        :text-style="{ font: '400 12px PingFang SC' }"
         absolute
         right-20px bottom-15px @click="handleToShowCode"
       >
