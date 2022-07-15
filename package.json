@@ -1,0 +1,63 @@
+{
+  "name": "zodance-fe",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "ali-oss": "^6.17.1",
+    "axios": "^0.27.2",
+    "nprogress": "^0.2.0",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.16"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.25.2",
+    "@iconify-json/carbon": "^1.1.6",
+    "@types/node": "^18.0.3",
+    "@unocss/reset": "^0.42.0",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "eslint": "^8.18.0",
+    "mockjs": "^1.1.0",
+    "naive-ui": "^2.30.7",
+    "sass": "^1.53.0",
+    "typescript": "^4.5.4",
+    "unocss": "^0.41.1",
+    "unplugin-auto-import": "^0.9.2",
+    "unplugin-vue-components": "^0.20.1",
+    "vite": "^2.9.9",
+    "vite-plugin-mock": "^2.9.6",
+    "vue-tsc": "^0.34.7"
+  },
+  "web": {
+    "aliOss": {
+      "dev": {
+        "region": "oss-cn-chengdu",
+        "accessKeyId": "LTAI5tCHCTVyAs2YEFeKv3L6",
+        "accessKeySecret": "UocLbj7Oflspvr0fOR9ItH9uMkzwNq",
+        "bucket": "zodance-web",
+        "source": {
+          "dir": "dist"
+        },
+        "target": {
+          "dir": ""
+        }
+      },
+      "prod": {
+        "region": "oss-cn-chengdu",
+        "accessKeyId": "LTAI5tCHCTVyAs2YEFeKv3L6",
+        "accessKeySecret": "UocLbj7Oflspvr0fOR9ItH9uMkzwNq",
+        "bucket": "zodance-web",
+        "source": {
+          "dir": "dist"
+        },
+        "target": {
+          "dir": ""
+        }
+      }
+    }
+  }
+}
