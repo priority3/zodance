@@ -6,11 +6,11 @@ const itemMap = [{
   name: '零一商城',
   path: '/zodance-mall',
 }, {
-  name: '服务价格',
-  path: '/zodance-price',
-}, {
   name: '小零运营',
   path: '/zodance-operate',
+}, {
+  name: '服务价格',
+  path: '/zodance-price',
 }, {
   name: 'SaaS定制',
   path: '/zodance-saas',
@@ -19,17 +19,20 @@ const itemMap = [{
   path: '',
 }, {
   name: '关于我们',
-  path: '/home',
+  path: '',
 }]
 const router = useRouter()
 const modal = ref<MODAL | null>(null)
-function handleTonext(item: string) {
+function handleTonext(item) {
+  const { path, name } = item
+  if (name === '关于我们')
+    return
   // router.push(item)
-  !item && nextTick(() => {
+  !path && nextTick(() => {
     // TODO any ----
     modal.value && modal.value.setShowModal()
   })
-  item && router.push(item)
+  path && router.push(path)
 }
 function getisAvtive({ path }) {
   return path && router.currentRoute.value.path === path
@@ -53,12 +56,10 @@ function getisAvtive({ path }) {
           class="header-box"
           flex justify-around w-full ml64px items-center
         >
-          <template v-for="item in itemMap" :key="item.name">
+          <template v-for="(item, index) in itemMap" :key="item.name">
             <div
-              class="header-box-item"
-              :class="{ 'is-active': getisAvtive(item) }"
-              cursor-pointer
-              @click="handleTonext(item.path)"
+              :class="{ 'is-active': getisAvtive(item), 'header-box-item': index !== 5 ? true : false }"
+              @click="handleTonext(item)"
             >
               {{ item.name }}
             </div>
@@ -82,6 +83,7 @@ function getisAvtive({ path }) {
 }
 .header-box-item{
   position: relative;
+  cursor: pointer;
   &::after{
     content: "";
     position: absolute;

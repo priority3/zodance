@@ -21,7 +21,7 @@ useAnimation(otherIconsRef)
 
 const otherIcons = ['yongyou-icon', 'kingdee-icon']
 function getKingClass(num: number) {
-  return num === 1 ? 'kingdee-icon' : ''
+  return num === 1 ? 'kingdee-icon' : 'yongyou-icon'
 }
 </script>
 
@@ -59,7 +59,7 @@ function getKingClass(num: number) {
           </div>
         </div>
         <h2 mt-40px>
-          对接第三方ERP
+          ERP
         </h2>
         <p>打通企业现有ERP系统</p>
         <div
@@ -118,6 +118,10 @@ function getKingClass(num: number) {
   .kingdee-icon{
     width: 200px;
     height: 90px;
+  }
+  .yongyou-icon{
+    width: 106px;
+    height: 70px;
   }
 }
 </style>

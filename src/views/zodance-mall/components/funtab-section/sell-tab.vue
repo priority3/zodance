@@ -2,8 +2,8 @@
 import common from './common.vue'
 import selltab from '@/assets/mall/sell-tab.png'
 const info = {
-  title: '0基础搭建高颜值商城',
-  descArr: ['50+行业模板', '在线客服', '数据看板', '店铺管理'],
+  title: '更多人帮你卖货',
+  descArr: ['导购分销', '社群分销', '网红分销', '成为供货商'],
   image: selltab,
 }
 </script>

@@ -20,17 +20,17 @@ const tabspanel = [{
   'tab-src': operatab3,
 }]
 const cardInfo = [{
+  icon: 'operate-tab-card2',
+  title: '拉新速度快',
+  content: '运用定制化的线上裂变工具，通过客户的社交关系网，帮助企业快速提升私域池客户数',
+}, {
   icon: 'operate-tab-card1',
   title: '获客成本低',
-  content: '人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低',
-}, {
-  icon: 'operate-tab-card2',
-  title: '拉新效率高',
-  content: '人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低',
+  content: '百次的裂变活动经验，对不同行业，不同企业，采用最高效的裂变方式，降低企业的获客成本',
 }, {
   icon: 'operate-tab-card3',
-  title: '活动针对性强',
-  content: '人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低',
+  title: '用户体验好',
+  content: '从用户看到活动，参与活动，到最后下单付款，每一步都给到用户最丝滑的体验',
 }]
 const cards = ref(null)
 const tab = ref(null)

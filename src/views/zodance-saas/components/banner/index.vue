@@ -1,4 +1,7 @@
 <script setup lang='ts'>
+import { ref } from 'vue'
+
+const modal = ref<MODAL | null>(null)
 </script>
 
 <template>
@@ -30,8 +33,13 @@
           color: 'rgba(255,255,255,1)',
           font: '400 20px PingFang SC',
         }"
+        @click="modal && modal.setShowModal()"
       />
     </div>
+    <base-modal
+      ref="modal"
+      title="HI,我是你的专属SaaS顾问"
+    />
   </div>
 </template>
 

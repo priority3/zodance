@@ -1,6 +1,6 @@
 <script setup lang='ts'>
-const { title, contentInfo, width = '100%' } = defineProps<{
-  title: string
+const { icon, contentInfo, width = '100%' } = defineProps<{
+  icon: string
   contentInfo: Array<{
     subTitle: string
     desc: Array<string>
@@ -14,9 +14,12 @@ const { title, contentInfo, width = '100%' } = defineProps<{
     ref="card" class="card-container"
     :style="{ width: `${width}` }" flex items-center gap-35px
   >
-    <h1>{{ title }}</h1>
+    <self-svgicon
+      :name="icon"
+      :style-name="{ width: '35px', height: '100px' }"
+    />
     <div
-      flex justify-between items-center w-full
+      flex justify-between items-start w-full
     >
       <div
         v-for="{ subTitle, desc } in contentInfo" :key="subTitle"
@@ -34,11 +37,11 @@ const { title, contentInfo, width = '100%' } = defineProps<{
 
 <style scoped lang='scss'>
 .card-container{
-  border-radius: 10px 0px 0px 0;
+  border-radius: 10px 10px 0px 0;
   background: rgba(248,255,255,1);
   box-shadow: 0 4px 20px 0px rgba(62,143,255,0.15);
   padding: 13px 30px;
-  height: 180px;
+  height: 160px;
   box-sizing: border-box;
   border: 2px solid transparent;
   background-clip: padding-box, border-box;
@@ -47,11 +50,6 @@ const { title, contentInfo, width = '100%' } = defineProps<{
   border-left: 0;
   border-right: 0;
   border-bottom: 0;
-  h1{
-    width: 50px;
-    color: rgba(0,0,0,1);
-    font: 500 32px "PingFang SC";
-  }
   h2{
     color: rgba(0,0,0,1);
     font: 400 14px "PingFang SC";

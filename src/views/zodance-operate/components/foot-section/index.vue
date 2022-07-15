@@ -1,7 +1,17 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
+import xiaolingcode from '@/assets/xiaoling-code.png'
 import { useAnimation } from '@/hooks/useAnimation'
-
+const modal = ref<MODAL | null>(null)
+function handleToShowModal() {
+  modal.value && modal.value.setShowModal()
+}
+const modalInfo = {
+  title: 'HI,我是你的首席私域运营官',
+  desc: '扫码加微信，送你专属大礼包',
+  avator: 'xiaoling',
+  src: xiaolingcode,
+}
 const info = [{
   icon: 'foot-item1',
   desc: '运营成本下降',
@@ -64,11 +74,19 @@ useAnimation(cards)
             color: '#fff',
             font: '400 24px PingFang SC',
           }"
+          @click="handleToShowModal"
         >
           免费咨询
         </self-button>
       </div>
     </div>
+    <base-modal
+      ref="modal"
+      :avator="modalInfo.avator"
+      :src="modalInfo.src"
+      :title="modalInfo.title"
+      :desc="modalInfo.desc"
+    />
   </div>
 </template>
 

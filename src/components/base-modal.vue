@@ -18,7 +18,7 @@ interface ModalProps {
 //   },
 // )
 const {
-  title = 'HI,我是你的专属SaaS顾问',
+  title = 'HI,我是你的专属增长顾问',
   avator = 'zavator',
   desc = '扫码加微信，送你专属大礼包',
   src = defaultCode,

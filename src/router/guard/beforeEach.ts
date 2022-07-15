@@ -5,9 +5,10 @@ export function setupBeforeEachGuard(router: Router): void {
   router.beforeEach((_: RouteLocationNormalized, {}, next: NavigationGuardNext) => {
     // from.name && NProgress.start()
     NProgress.start()
-    setTimeout(() => {
-      next()
-    }, 1000)
+    // setTimeout(() => {
+    //   next()
+    // }, 1000)
+    next()
   })
   router.afterEach((to: RouteLocationNormalized, _: RouteLocationNormalized) => {
     NProgress.done()
