@@ -55,7 +55,6 @@ function handleResize() {
 }
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
-  window.addEventListener('resize', handleResize)
 })
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
