@@ -1,4 +1,5 @@
 <script setup lang='ts'>
+import { ref } from 'vue'
 import resultSection from '@/assets/mall/result-section.png'
 const info = {
   title: '做小程序商城的6大理由',
@@ -23,6 +24,7 @@ const info = {
     contPara: '优良服务和良好的使用体验大大提高小程序的准化率',
   }],
 }
+const modal = ref<MODAL | null>(null)
 </script>
 
 <template>
@@ -40,7 +42,7 @@ const info = {
             >
               <!-- TODO 布局 段落换行 -->
               <h3>{{ item.contTitle }}</h3>
-              <h4 class="w-2/3">
+              <h4 w-200px>
                 {{ item.contPara }}
               </h4>
             </div>
@@ -54,11 +56,11 @@ const info = {
           />
         </div>
         <div class="content-left" flex="~ col" gap-70px>
-          <template v-for="item in info.leftRes" :key="item.conTitle">
+          <template v-for="item in info.rightRes" :key="item.conTitle">
             <div text-left>
               <h3>{{ item.contTitle }}</h3>
               <h4
-                class="w-2/3"
+                w-200px
               >
                 {{ item.contPara }}
               </h4>
@@ -69,10 +71,14 @@ const info = {
       <self-button
         type="primary"
         style="margin-top: 48px;width:224px;height:50px"
+        @click="modal && modal.setShowModal()"
       >
         立即咨询
       </self-button>
     </div>
+    <base-modal
+      ref="modal"
+    />
   </div>
 </template>
 

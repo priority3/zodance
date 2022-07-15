@@ -1,10 +1,12 @@
 <script setup lang='ts'>
+import { ref } from 'vue'
 const { title, subTitle, content, price } = defineProps<{
   title: string
   subTitle: string
   content: string
   price: number
 }>()
+const modal = ref<MODAL | null>()
 </script>
 
 <template>
@@ -39,9 +41,11 @@ const { title, subTitle, content, price } = defineProps<{
         type="primary"
         :style="{ width: '128px', height: '43px', borderRadius: '5px' }"
         :text-style="{ font: '400 22px PingFang SC' }"
+        @click="modal && modal.setShowModal()"
       >
         立即咨询
       </self-button>
+      <base-modal ref="modal" />
     </div>
   </div>
 </template>

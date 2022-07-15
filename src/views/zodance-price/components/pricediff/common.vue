@@ -1,9 +1,9 @@
 <script setup lang='ts'>
 import { computed, nextTick, onMounted, onUnmounted, ref, watchEffect } from 'vue'
-import { bgcMap, priceMap, versionMap } from '../../constants'
+import { bgcMap, contentMap, priceMap, versionMap } from '../../constants'
 import type { versionType } from '../../constants/type'
 import { useStyle } from './_utils'
-const { title, type, isActive, contentInfo, titleCont, maxHeight, freeCont } = defineProps<{
+const { title, type, isActive, contentInfo, maxHeight, freeCont } = defineProps<{
   title: string
   type: versionType
   titleCont: string
@@ -38,7 +38,7 @@ nextTick(() => {
   clientWidth.value = window.pageXOffset || document.documentElement.clientWidth || document.body.clientWidth
 })
 // TODO failed fixed value
-const titleBoxHeight = 85
+const titleBoxHeight = 1
 const isTop = computed(() => {
   return scrollTop.value > (titleBoxTop.value || 0) && scrollTop.value < (titleBoxBottom.value || 0)
 })
@@ -50,16 +50,11 @@ const isToBottom = computed(() => {
 function handleScroll() {
   scrollTop.value = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
 }
-function handleResize() {
-  clientWidth.value = window.pageXOffset || document.documentElement.clientWidth || document.body.clientWidth
-}
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
-  window.addEventListener('resize', handleResize)
 })
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
-  window.removeEventListener('resize', handleResize)
 })
 
 const {
@@ -74,8 +69,8 @@ const {
   type,
   isActive,
   isTop,
-  clientWidth,
 })
+const modal = ref<MODAL | null>()
 </script>
 
 <template>
@@ -92,6 +87,7 @@ const {
       </div>
       <div i-carbon-thumbs-up-filled />
     </div>
+    <!-- stricky top -->
     <div
       ref="titleBox"
       :style="{ color: getTitlecolor, backgroundColor: bgcMap[type], width: getTitleBoxWidth }" text-center
@@ -123,14 +119,15 @@ const {
       <self-button
         type="info"
         :style="getselfBtnStyle"
+        @click="modal && modal.setShowModal()"
       >
         联系我们
       </self-button>
       <p
-        my-8px
-        :style="{ color: getTitlePara }"
+        my-8px px-12px
+        :style="{ color: getTitlePara }" text-start flex
       >
-        {{ titleCont }}
+        {{ contentMap[type] }}
       </p>
     </div>
     <div class="conmon-info-bgc">
@@ -189,6 +186,9 @@ const {
       </div>
     </div>
   </div>
+  <base-modal
+    ref="modal"
+  />
 </template>
 
 <style scoped lang='scss'>
@@ -199,10 +199,12 @@ const {
   min-width: 292px;
   margin-bottom: 20px;
   border-radius:5px;
-  overflow: hidden;
+  background-color: rgba(247,249,255,1);
+  // overflow: hidden;
   box-sizing: border-box;
   .common-title-box{
     width: 100%;
+    height: 220px;
     .common-title{
       font: 400 20px "PingFang SC";
     }
@@ -217,7 +219,7 @@ const {
     }
   }
   .common-title-box-top{
-    position:fixed;
+    position:sticky;
     top: 0;
     width: 20%;
     min-width: 290px;
@@ -248,8 +250,7 @@ const {
   }
 
   .conmon-info-bgc{
-    background-color: rgba(247,249,255,1);
-    height: 100%;
+    height: max-content;
     width: 100%;
     padding-bottom: 20px;
   }
@@ -304,7 +305,7 @@ const {
       display: block;
       position: absolute;
       top: 0;
-      left: 0;
+      left: -1px;
       display: flex;
       justify-content: center;
       align-items: center;

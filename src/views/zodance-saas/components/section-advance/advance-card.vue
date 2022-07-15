@@ -20,7 +20,7 @@ const { icon, desc, dotbgc } = defineProps<{
     </div>
     <div
       mt-23px
-      :style="[isLast ? `border-left-color: ${dotbgc}  ` : `border-color:${dotbgc}`]"
+      :style="[isLast ? `border-left-color: ${dotbgc}  ` : `background-color:${dotbgc}`]"
       :class="[isLast ? 'dot-last' : 'normal-dot']"
     />
   </div>
@@ -35,13 +35,14 @@ const { icon, desc, dotbgc } = defineProps<{
 
 }
 .dot-last{
-  border: 9px solid transparent;
+  border: 8px solid transparent;
   border-right: 12px solid transparent;
   border-left: 12px solid ;
   border-radius: 0;
 }
 .normal-dot{
-  border: 7px solid;
+  width: 10px;
+  height: 10px;
   border-radius: 100%;
 }
 </style>

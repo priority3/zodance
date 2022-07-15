@@ -1,4 +1,5 @@
 <script setup lang='ts'>
+import { ref } from 'vue'
 import mallbanner from '@/assets/mall/mall-banner.png'
 const info = {
   title: '零一商城',
@@ -17,6 +18,7 @@ const info = {
     text: '超强粘性',
   }],
 }
+const modal = ref<MODAL | null>(null)
 </script>
 
 <template>
@@ -57,6 +59,7 @@ const info = {
             color: 'rgba(255,255,255,1)',
             font: '500 18px OPPOSans',
           }"
+          @click="modal && modal.setShowModal()"
         >
           免费申领
         </self-button>
@@ -71,11 +74,12 @@ const info = {
             color: 'rgba(29,33,41,1)',
             font: '500 18px OPPOSans',
           }"
+          @click="modal && modal.setShowModal()"
         >
           立即咨询
         </self-button>
       </div>
-      <div absolute right-0 top-30>
+      <div absolute right-60px top-30>
         <n-image
           preview-disabled
           :src="mallbanner"
@@ -83,6 +87,9 @@ const info = {
         <!-- <img :src="mallbanner" alt=""> -->
       </div>
     </div>
+    <base-modal
+      ref="modal"
+    />
   </div>
 </template>
 

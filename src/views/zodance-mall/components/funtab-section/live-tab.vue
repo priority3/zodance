@@ -2,8 +2,8 @@
 import common from './common.vue'
 import livetab from '@/assets/mall/live-tab.png'
 const info = {
-  title: '0基础搭建高颜值商城',
-  descArr: ['50+行业模板', '在线客服', '数据看板', '店铺管理'],
+  title: '直播风口引爆销量',
+  descArr: ['主播讲解展示', '在线互动氛围', '分享裂变吸粉', '直接下单转化'],
   image: livetab,
 }
 </script>

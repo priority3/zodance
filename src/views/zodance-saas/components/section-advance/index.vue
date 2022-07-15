@@ -67,7 +67,10 @@ function handleToshowModal() {
     >
       立即定制
     </self-button>
-    <base-modal ref="modal" />
+    <base-modal
+      ref="modal"
+      title="HI,我是你的专属SaaS顾问"
+    />
   </div>
 </template>
 

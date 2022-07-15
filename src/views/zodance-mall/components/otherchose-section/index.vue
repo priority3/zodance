@@ -4,7 +4,7 @@ const info = [{
   title: '基础版',
   subTitle: '移动商城+小程序',
   content: '适合单门店商家，满足商品销售、推广营销等基础经营需求',
-  price: 3000,
+  price: 3800,
 }, {
   title: '定制版',
   subTitle: '移动商城+小程序+22个营销应用',

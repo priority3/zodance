@@ -2,8 +2,8 @@
 import common from './common.vue'
 import viptab from '@/assets/mall/vip-tab.png'
 const info = {
-  title: '0基础搭建高颜值商城',
-  descArr: ['50+行业模板', '在线客服', '数据看板', '店铺管理'],
+  title: '精细化会员管理',
+  descArr: ['智能客户画像', '搭建会员体系', '激活客户互动', '沉淀不断复购'],
   image: viptab,
 }
 </script>

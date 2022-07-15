@@ -1,8 +1,7 @@
 <script setup lang='ts'>
-const { icon, title, desc } = defineProps<{
+const { icon, title } = defineProps<{
   icon: string
   title: string
-  desc: string
 }>()
 </script>
 
@@ -15,16 +14,16 @@ const { icon, title, desc } = defineProps<{
     <h1 mt-16px>
       {{ title }}
     </h1>
-    <p mt-10px>
+    <!-- <p mt-10px>
       {{ desc }}
-    </p>
+    </p> -->
   </div>
 </template>
 
 <style scoped lang='scss'>
 .card-container{
   h1{
-    color: rgba(29,33,41,1);
+    color: rgba(134,144,156,1);
     font: 400 20px "PingFang SC";
   }
   p{
