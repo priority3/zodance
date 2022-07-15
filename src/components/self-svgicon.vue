@@ -12,6 +12,7 @@ interface Props {
   name: string
   color?: string
   className?: string
+  styleName?: object
 }
 /* data */
 const props = defineProps<Props>()
@@ -28,7 +29,7 @@ const svgClass = computed((): string => {
 </script>
 
 <template>
-  <svg :class="svgClass" aria-hidden="true" :style="{ color: props.color }" v-on="$attrs">
+  <svg :class="svgClass" aria-hidden="true" :style="{ color: props.color, ...styleName }" v-on="$attrs">
     <use :xlink:href="iconName" />
   </svg>
 </template>

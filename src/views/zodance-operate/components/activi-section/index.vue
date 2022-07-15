@@ -2,35 +2,41 @@
 import { ref } from 'vue'
 import commonTitle from '../common-title.vue'
 import { useAnimation } from '@/hooks/useAnimation'
+import activiItem1 from '@/assets/operate/activi-item1.png'
+import activiItem2 from '@/assets/operate/activi-item2.png'
+import activiItem3 from '@/assets/operate/activi-item3.png'
+import activiItem4 from '@/assets/operate/activi-item4.png'
+import activiItem5 from '@/assets/operate/activi-item5.png'
+import activiItem6 from '@/assets/operate/activi-item6.png'
 const title = '活动带动转化，提升成交总额'
 const srcArr = [
   {
-    src: '/src/assets/operate/activi-item4.png',
+    src: activiItem4,
     left: 209,
     top: 145,
   },
   {
-    src: '/src/assets/operate/activi-item2.png',
+    src: activiItem2,
     left: 282,
     top: 419,
   },
   {
-    src: '/src/assets/operate/activi-item3.png',
+    src: activiItem3,
     left: 1036,
     top: 67,
   },
   {
-    src: '/src/assets/operate/activi-item1.png',
+    src: activiItem1,
     left: 497,
     top: -22,
   },
   {
-    src: '/src/assets/operate/activi-item5.png',
+    src: activiItem5,
     left: 565,
     top: 270,
   },
   {
-    src: '/src/assets/operate/activi-item6.png',
+    src: activiItem6,
     left: 888,
     top: 391,
   },

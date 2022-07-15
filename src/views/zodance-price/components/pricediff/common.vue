@@ -3,13 +3,14 @@ import { computed, nextTick, onMounted, onUnmounted, ref, watchEffect } from 'vu
 import { bgcMap, priceMap, versionMap } from '../../constants'
 import type { versionType } from '../../constants/type'
 import { useStyle } from './_utils'
-const { title, type, isActive, contentInfo, titleCont, maxHeight } = defineProps<{
+const { title, type, isActive, contentInfo, titleCont, maxHeight, freeCont } = defineProps<{
   title: string
   type: versionType
   titleCont: string
   isActive: boolean
   contentInfo: Array<any>
   maxHeight: number
+  freeCont?: string
 }>()
 const emits = defineEmits<{
   (e: 'update:maxHeight', type: number): void
@@ -67,7 +68,7 @@ const {
   getTitleBoxWidth,
   getCommonTitleTop,
   getTitlecolor,
-  getinfoPara,
+  // getinfoPara,
   getTitlePara,
 } = useStyle({
   type,
@@ -132,58 +133,59 @@ const {
         {{ titleCont }}
       </p>
     </div>
-    <div
-      ref="infoBox"
-      class="conmon-info-box"
-      :style="{ 'padding-top': isTop ? `${titleBoxHeight}px` : 0 }"
-    >
+    <div class="conmon-info-bgc">
       <div
-        v-if="type !== 'start'"
-        flex justify-center gap-10px items-center
-        m="10px 0"
+        ref="infoBox"
+        class="conmon-info-box"
+        :style="{ 'padding-top': isTop ? `${titleBoxHeight}px` : 0 }"
       >
-        <div i-carbon-arrow-left mb-3px text="xl true-gray-600" />
-        <p>{{ getinfoPara }}</p>
-      </div>
-      <div flex="~ col">
-        <template v-for="item in contentInfo" :key="item.title">
-          <div>
-            <h3
-              border="b light-900"
-              p="10px 0" flex items-center justify-start gap-8px
-            >
-              <!-- <div class="iconfont" :class="[item.titleIcon]" /> -->
-              <self-svgicon :name="item.titleIcon" />
-              <div class="common-item-title">
-                {{ item.title }}
-              </div>
-            </h3>
-            <div
-              flex="~ col" justify-center items-center gap-20px mt-16px w-full
-            >
-              <template v-for="it in item.infoContext" :key="it.subTitle">
-                <div
-                  flex="~ col" items-center justify-center w-full
-                >
-                  <span
-                    class="info-sub"
-                  >{{ it.subTitle }}</span>
+        <div
+          v-if="freeCont"
+          flex justify-center gap-10px items-center
+          m="10px 0"
+        >
+          <p>{{ freeCont }}</p>
+        </div>
+        <div flex="~ col">
+          <template v-for="item in contentInfo" :key="item.title">
+            <div>
+              <h3
+                border="b light-900"
+                p="10px 0" flex items-center justify-start gap-8px
+              >
+                <!-- <div class="iconfont" :class="[item.titleIcon]" /> -->
+                <self-svgicon :name="item.titleIcon" />
+                <div class="common-item-title">
+                  {{ item.title }}
+                </div>
+              </h3>
+              <div
+                flex="~ col" justify-center items-center gap-20px mt-16px w-full
+              >
+                <template v-for="it in item.infoContext" :key="it.subTitle">
                   <div
-                    class="w-1/2 ml-20"
+                    flex="~ col" items-center justify-center w-full
                   >
+                    <span
+                      class="info-sub"
+                    >{{ it.subTitle }}</span>
                     <div
-                      v-for="text in it.text"
-                      :key="text" mt-10px
-                      class="info-text"
+                      class="w-1/2 ml-20"
                     >
-                      {{ text }}
+                      <div
+                        v-for="text in it.text"
+                        :key="text" mt-10px
+                        class="info-text"
+                      >
+                        {{ text }}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </template>
+                </template>
+              </div>
             </div>
-          </div>
-        </template>
+          </template>
+        </div>
       </div>
     </div>
   </div>
@@ -195,7 +197,6 @@ const {
   // width: 20%;
   width: 292px;
   min-width: 292px;
-  padding-bottom: 20px;
   margin-bottom: 20px;
   border-radius:5px;
   overflow: hidden;
@@ -246,12 +247,18 @@ const {
     display: none;
   }
 
+  .conmon-info-bgc{
+    background-color: rgba(247,249,255,1);
+    height: 100%;
+    width: 100%;
+    padding-bottom: 20px;
+  }
   .conmon-info-box{
     width: 90%;
     margin: 0 auto;
     p{
-      color: rgba(134,144,156,1);
-      font:300 14px "PingFang SC";
+      color: rgba(29,33,41,1);
+      font: 400 15px "PingFang SC";
     }
     h3{
       color: rgba(29,33,41,1);
@@ -281,7 +288,7 @@ const {
         height: 1px;
         background-color: rgba(148,158,179,1);
         position: absolute;
-        left: -20px;
+        left: -25px;
         top: 50%;
       }
     }

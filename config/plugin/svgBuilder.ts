@@ -49,7 +49,6 @@ export const setupSvgBuilder = (path = 'D:/vs/zodance/zodance-fe/src/assets/svg/
 
   idPerfix = perfix
   const res = findSvgFile(path)
-  console.dir(res)
   return {
     name: 'svg-transform',
     transformIndexHtml(html) {

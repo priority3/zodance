@@ -68,9 +68,9 @@ const tabspanel = [{
     padding-bottom: 20px;
     // margin-top: 20px;
   }
-  .tab-content{
-    background-color:  rgba(208,244,255,1);
-  }
+  // .tab-content{
+  //   background-color:  rgba(208,244,255,1);
+  // }
   :deep(.n-tabs .n-tabs-bar){
     display: none;
   }
@@ -90,8 +90,18 @@ const tabspanel = [{
   :deep(.n-tabs-tab.n-tabs-tab--active){
     width: 100%;
     justify-content: center;
-    background: rgba(208,244,255,1);
+    background: rgba(249,253,255,1);
     color:rgba(72,115,192,1) !important;
+    position: relative;
+    &::after{
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-image:linear-gradient(to right, #3E8FFF, #8EEBFF);
+      top: 0;
+      z-index: 100;
+    }
   }
 }
 </style>

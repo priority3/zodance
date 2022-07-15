@@ -1,6 +1,7 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
 import baseModal from '@/components/base-modal.vue'
+import xiaolingcode from '@/assets/xiaoling-code.png'
 const modal = ref<MODAL | null>(null)
 function handleToShowModal() {
   modal.value && modal.value.setShowModal()
@@ -9,7 +10,7 @@ const modalInfo = {
   title: 'HI,我是你的首席私域运营官',
   desc: '扫码加微信，送你专属大礼包',
   avator: 'xiaoling',
-  src: '/src/assets/xiaoling-code.png',
+  src: xiaolingcode,
 }
 </script>
 
@@ -51,9 +52,6 @@ const modalInfo = {
       >
         免费咨询
       </self-button>
-      <self-svgicon
-        name="xiaoling" text-5xl
-      />
     </div>
     <base-modal
       ref="modal"

@@ -97,7 +97,7 @@ const linkInfo = [
   width: 100%;
   height: 760px;
   object-fit: cover;
-  background-color: rgba(247,249,255,1);
+  background: rgba(244,253,255,1);
   position: relative;
   img{
     max-width: 50%;

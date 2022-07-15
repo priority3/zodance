@@ -1,20 +1,24 @@
 <script setup lang='ts'>
+import abilityitem1 from '@/assets/saas/ability-item1.png'
+import abilityitem2 from '@/assets/saas/ability-item2.png'
+import abilityitem3 from '@/assets/saas/ability-item3.png'
+import abilityitem4 from '@/assets/saas/ability-item4.png'
 const info = [{
   title: '5年研发能力',
   desc: '专业支持',
-  src: '/src/assets/saas/ability-item1.png',
+  src: abilityitem1,
 }, {
   title: '优良防护机制',
   desc: '安全稳定',
-  src: '/src/assets/saas/ability-item2.png',
+  src: abilityitem2,
 }, {
   title: '满足自定义需求',
   desc: '个性化定制',
-  src: '/src/assets/saas/ability-item3.png',
+  src: abilityitem3,
 }, {
   title: '迭代功能，数据备份',
   desc: '持续保障',
-  src: '/src/assets/saas/ability-item4.png',
+  src: abilityitem4,
 }]
 </script>
 

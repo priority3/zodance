@@ -50,7 +50,6 @@ const { tabspanel } = defineProps<{
     width: 20%;
     height: 72px;
     justify-content: center;
-    border: 1px solid rgba(0,0,0,.2);
   }
   :deep(.n-tabs-tab){
     width: 100%;
@@ -63,6 +62,16 @@ const { tabspanel } = defineProps<{
     justify-content: center;
     background-color: rgba(249,252,255,1);
     color: rgba(21,76,139,1) !important;
+    position: relative;
+    &::after{
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-image:linear-gradient(to right, #3E8FFF, #8EEBFF);
+      top: 0;
+      z-index: 100;
+    }
   }
 
 }

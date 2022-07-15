@@ -1,31 +1,36 @@
 <script setup lang='ts'>
 import { computed, ref } from 'vue'
+import alloperaitem1 from '@/assets/operate/alloperate-item1.png'
+import alloperaitem2 from '@/assets/operate/alloperate-item2.png'
+import alloperaitem3 from '@/assets/operate/alloperate-item3.png'
+import alloperaitem4 from '@/assets/operate/alloperate-item4.png'
+import alloperaitem5 from '@/assets/operate/alloperate-item5.png'
 
 const info = [{
   icon: 'collicon1',
   title: '社群日常运营',
   desc: '人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低',
-  src: '/src/assets/operate/alloperate-item1.png',
+  src: alloperaitem1,
 }, {
   icon: 'collicon2',
   title: 'IP号日常运营',
   desc: '人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低',
-  src: '/src/assets/operate/alloperate-item2.png',
+  src: alloperaitem2,
 }, {
   icon: 'collicon3',
   title: '运营海报制作',
   desc: '人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低',
-  src: '/src/assets/operate/alloperate-item3.png',
+  src: alloperaitem3,
 }, {
   icon: 'collicon4',
   title: '专属红包制作',
   desc: '人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低',
-  src: '/src/assets/operate/alloperate-item4.png',
+  src: alloperaitem4,
 }, {
   icon: 'collicon5',
   title: '促销活动操盘',
   desc: '人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低人均获客成本低低',
-  src: '/src/assets/operate/alloperate-item5.png',
+  src: alloperaitem5,
 }]
 const curImg = ref(info[0].src)
 const imgArr = computed(() => {

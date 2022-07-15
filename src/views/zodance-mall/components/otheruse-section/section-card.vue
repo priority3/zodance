@@ -6,6 +6,10 @@ const info = defineProps<{
   content: string
   src: string
   codeSrc: string
+  selfStyle?: {
+    width: string
+    height: string
+  }
 }>()
 const codeInfo = ref<HTMLElement | null>(null)
 function handleToShowCode() {
@@ -26,7 +30,10 @@ function handleToHideCode() {
         :src="src"
       /> -->
       <!-- <i class="iconfont icon-a-Frame11090" /> -->
-      <self-svgicon :name="src" text-4xl />
+      <self-svgicon
+        :name="src"
+        :style-name="info.selfStyle"
+      />
       <h1>
         {{ info.title }}
       </h1>
@@ -36,9 +43,11 @@ function handleToHideCode() {
     </p>
     <div flex justify-end>
       <self-button
-        type="small"
-        style="width:88px;height:25px;border-radius:0"
-        @click="handleToShowCode"
+        type="primary"
+        style="width:88px;height:25px;border-radius:2px"
+        text-style="font:400 12px PingFang SC"
+        absolute
+        right-20px bottom-15px @click="handleToShowCode"
       >
         查看商城
       </self-button>
@@ -73,7 +82,9 @@ function handleToHideCode() {
   background: rgba(255,255,255,1);
   box-shadow: 0 4px 20px 0 rgba(21,76,139,0.2);
   box-sizing: border-box;
-  padding: 20px;
+  padding: 15px 20px 10px 20px;
+  box-sizing: border-box;
+  height: 210px;
   p{
     color: rgba(134,144,156,1);
     font: 400 15px "PingFang SC";

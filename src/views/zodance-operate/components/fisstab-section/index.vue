@@ -3,18 +3,21 @@ import { ref } from 'vue'
 import commonTitle from '../common-title.vue'
 import card from './card.vue'
 import { useAnimation } from '@/hooks/useAnimation'
+import operatab1 from '@/assets/operate/operate-tab1.png'
+import operatab2 from '@/assets/operate/operate-tab2.png'
+import operatab3 from '@/assets/operate/operate-tab3.png'
 const tabspanel = [{
   'tab-key': 'activity-tab',
   'tab-name': '活动裂变',
-  'tab-src': '/src/assets/operate/operate-tab1.png',
+  'tab-src': operatab1,
 }, {
   'tab-key': 'daily-tab',
   'tab-name': '日常裂变',
-  'tab-src': '/src/assets/operate/operate-tab2.png',
+  'tab-src': operatab2,
 }, {
   'tab-key': 'offline-tab',
   'tab-name': '线下活动',
-  'tab-src': '/src/assets/operate/operate-tab3.png',
+  'tab-src': operatab3,
 }]
 const cardInfo = [{
   icon: 'operate-tab-card1',

@@ -1,5 +1,6 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
+import defaultCode from '@/assets/binaryCode.png'
 interface ModalProps {
   title?: string
   avator?: string
@@ -20,7 +21,7 @@ const {
   title = 'HI,我是你的专属SaaS顾问',
   avator = 'zavator',
   desc = '扫码加微信，送你专属大礼包',
-  src = '/src/assets/binaryCode.png',
+  src = defaultCode,
 } = defineProps<ModalProps>()
 
 const showModal = ref(false)

@@ -44,14 +44,25 @@ function hasSetRefDom(dom: Ref, type: string) {
   }
   !isExist && domRef.value.set(dom, type)
 }
+function throttle(func: Function, wait: number) {
+  let previous = 0
+  return function (this: any, ...args: any[]) {
+    const now = Date.now()
+    if (now - previous > wait) {
+      func.apply(this, args)
+      previous = now
+    }
+  }
+}
+
 // 单个页面上 多个组件 但是保证只需要一个滚动就可以了 所以需要在当前页面的根组件上挂载监听
 export function setupHandleScroll() {
   function handleScroll() {
     scrollTop.value = (window.innerHeight / 5) * 4
-    traversalDom(domRef as any)
+    traversalDom(domRef as Ref<DomRef>)
   }
   onMounted(() => {
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', throttle(handleScroll, 100))
     // domRef.value = new Map()
   })
   onBeforeUnmount(() => {

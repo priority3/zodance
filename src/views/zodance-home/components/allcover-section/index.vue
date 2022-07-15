@@ -90,7 +90,6 @@ h1{
 }
 .is-active{
   box-shadow: 0 4px 10px 0px rgba(62,143,255,0.15);
-
   border: 2px solid transparent;
   background-clip: padding-box, border-box;
   background-origin: padding-box, border-box;

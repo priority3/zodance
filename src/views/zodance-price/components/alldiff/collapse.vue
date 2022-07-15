@@ -53,17 +53,17 @@ const info = [
       {
         text: '品牌营销素材设计',
         subText: '营销海报',
-        isAccord: [0, 0, 1, 1],
+        isAccord: [1, 1, 1, 1],
       },
       {
         text: '',
         subText: '品牌故事',
-        isAccord: [0, 0, 1, 1],
+        isAccord: [0, 1, 1, 1],
       },
       {
         text: '',
         subText: '产品图册',
-        isAccord: [0, 0, 1, 1],
+        isAccord: [0, 1, 1, 1],
       },
       {
         text: '',
@@ -96,17 +96,17 @@ const info = [
       {
         text: '私域渠道构建',
         subText: '微信公众',
-        isAccord: [0, 0, 1, 1],
+        isAccord: [1, 1, 1, 1],
       },
       {
         text: '',
         subText: '微信视频号',
-        isAccord: [0, 0, 1, 1],
+        isAccord: [1, 1, 1, 1],
       },
       {
         text: '',
         subText: '企业微信',
-        isAccord: [0, 0, 1, 1],
+        isAccord: [1, 1, 1, 1],
       },
       {
         text: '',
@@ -116,23 +116,224 @@ const info = [
     ],
   },
   {
-    title: '定制微信小程序商城',
+    title: '用户增长',
     funArr: [
       {
-        text: '商城风格定制',
-        subText: '品牌标识LOGO',
+        text: '公域增长',
+        subText: '朋友圈广告投放',
         isAccord: [0, 0, 1, 1],
       },
       {
-        subText: '商品管理',
+        subText: '抖音/快手广告投放',
         isAccord: [0, 0, 1, 1],
       },
       {
-        subText: '订单管理',
+        subText: '搜索引擎排名优化',
         isAccord: [0, 0, 1, 1],
       },
       {
-        subText: '基础营销',
+        subText: '其它信息流广告投放',
+        isAccord: [0, 0, 1, 1],
+      },
+      {
+        text: '公域导私域',
+        subText: '包裹卡导流',
+        isAccord: [1, 1, 1, 1],
+      },
+      {
+        subText: '短信导流',
+        isAccord: [1, 1, 1, 1],
+      },
+      {
+        subText: '1V1私发导流',
+        isAccord: [1, 1, 1, 1],
+      },
+      {
+        subText: '门店物料导流',
+        isAccord: [0, 1, 1, 1],
+      },
+      {
+        subText: '限时活动导流',
+        isAccord: [0, 0, 1, 1],
+      },
+      {
+        subText: '一物一码导流',
+        isAccord: [0, 0, 1, 1],
+      },
+      {
+        text: '私域增长',
+        subText: '助力裂变',
+        isAccord: [1, 1, 1, 1],
+      },
+      {
+        subText: '抽奖裂变',
+        isAccord: [1, 1, 1, 1],
+      },
+      {
+        subText: '红包裂变',
+        isAccord: [0, 1, 1, 1],
+      },
+      {
+        subText: '游戏裂变',
+        isAccord: [0, 0, 1, 1],
+      },
+      {
+        subText: '任务裂变',
+        isAccord: [0, 0, 1, 1],
+      },
+    ],
+  },
+  {
+    title: '用户运营',
+    funArr: [
+      {
+        text: 'IP号运营',
+        subText: '1V1问答',
+        isAccord: [1, 1, 1, 1],
+      },
+      {
+        subText: '节日问答',
+        isAccord: [1, 1, 1, 1],
+      },
+      {
+        subText: '活动提醒',
+        isAccord: [1, 1, 1, 1],
+      },
+      {
+        text: '朋友圈运营',
+        subText: '每日触达',
+        isAccord: [1, 1, 1, 1],
+      },
+      {
+        subText: '产品种草',
+        isAccord: [1, 1, 1, 1],
+      },
+      {
+        subText: '活动发布',
+        isAccord: [1, 1, 1, 1],
+      },
+      {
+        text: '社区运营',
+        subText: '知识分享',
+        isAccord: [0, 1, 1, 1],
+      },
+      {
+        subText: '互动游戏',
+        isAccord: [0, 0, 1, 1],
+      },
+      {
+        subText: '产品推介',
+        isAccord: [0, 1, 1, 1],
+      },
+      {
+        text: '活动运营',
+        subText: '增长活动运营',
+        isAccord: [1, 1, 1, 1],
+      },
+      {
+        subText: '促活活动运营',
+        isAccord: [0, 1, 1, 1],
+      },
+      {
+        subText: '转化活动运营',
+        isAccord: [1, 1, 1, 1],
+      },
+    ],
+  },
+  {
+    title: '用户转化',
+    funArr: [
+      {
+        text: '用户分层',
+        subText: '用户标签',
+        isAccord: [0, 1, 1, 1],
+      },
+      {
+        subText: '用户画像',
+        isAccord: [0, 1, 1, 1],
+      },
+      {
+        subText: '精准营销',
+        isAccord: [0, 1, 1, 1],
+      },
+      {
+        text: '转化触达',
+        subText: '短信群发',
+        isAccord: [0, 1, 1, 1],
+      },
+      {
+        subText: '企微群发',
+        isAccord: [1, 1, 1, 1],
+      },
+      {
+        subText: '朋友圈种草',
+        isAccord: [1, 1, 1, 1],
+      },
+      {
+        subText: '直播种草',
+        isAccord: [0, 0, 1, 1],
+      },
+      {
+        text: '转化活动',
+        subText: '拼团购',
+        isAccord: [0, 1, 1, 1],
+      },
+      {
+        subText: '秒杀购',
+        isAccord: [0, 1, 1, 1],
+      },
+      {
+        subText: '加价购',
+        isAccord: [0, 1, 1, 1],
+      },
+      {
+        subText: '套餐购',
+        isAccord: [0, 1, 1, 1],
+      },
+      {
+        subText: '专属购',
+        isAccord: [0, 1, 1, 1],
+      },
+      {
+        text: '会员体系',
+        subText: '会员身份',
+        isAccord: [0, 0, 1, 1],
+      },
+      {
+        subText: '会员折扣',
+        isAccord: [0, 0, 1, 1],
+      },
+      {
+        subText: '会员储值',
+        isAccord: [0, 0, 1, 1],
+      },
+      {
+        subText: '会员积分',
+        isAccord: [0, 0, 1, 1],
+      },
+    ],
+  },
+  {
+    title: '数据驱动',
+    funArr: [
+      {
+        text: '',
+        subText: '数据整合',
+        isAccord: [0, 0, 1, 1],
+      },
+      {
+        text: '',
+        subText: '数据分析',
+        isAccord: [0, 1, 1, 1],
+      },
+      {
+        text: '',
+        subText: '数据报告',
+        isAccord: [0, 1, 1, 1],
+      },
+      {
+        text: '',
+        subText: '数据大屏',
         isAccord: [0, 0, 1, 1],
       },
     ],

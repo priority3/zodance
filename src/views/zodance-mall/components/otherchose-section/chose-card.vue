@@ -14,9 +14,13 @@ const { title, subTitle, content, price } = defineProps<{
   >
     <div
       class="card-title"
-      flex justify-center items-center flex-none
+      flex-none
     >
-      <h1>{{ title }}</h1>
+      <h1
+        mt-32px ml-26px
+      >
+        {{ title }}
+      </h1>
     </div>
     <div flex-auto ml-20px mr-20px>
       <h2>{{ subTitle }}</h2>
@@ -32,8 +36,9 @@ const { title, subTitle, content, price } = defineProps<{
         </span>
       </div>
       <self-button
-        type="small"
-        style="width:128px;height:43px"
+        type="primary"
+        style="width:128px;height:43px;border-radius:5px"
+        text-style="font:400 22px PingFang SC"
       >
         立即咨询
       </self-button>
@@ -46,12 +51,23 @@ const { title, subTitle, content, price } = defineProps<{
   width: 100%;
   height: 150px;
   min-height: 150px;
-  border: 1px solid rgba(0,0,0,.4);
   border-radius: 8px;
+  opacity: 1;
+  background: rgba(255,255,255,1);
+  box-shadow: 0 4px 20px 0px rgba(21,76,139,0.1);
   .card-title{
-    height: 90%;
+    height: 135px;
     width: 160px;
-    border-right: 1px solid rgba(0,0,0,.4);
+    position: relative;
+    &::after{
+      content: "";
+      position: absolute;
+      height: 90%;
+      width: 1px;
+      background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgb(0, 0, 0,.3), rgba(255,255,255,1) 100%);
+      right: 0;
+      top: 0;
+    }
   }
   h1{
     color: rgba(29,33,41,1);

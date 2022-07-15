@@ -11,10 +11,10 @@ export const bgcMap = {
   plus: 'rgba(0,0,0,1)',
 }
 export const priceMap = {
-  start: 3000,
-  basic: 5000,
-  major: 10000,
-  plus: 20000,
+  start: 3500,
+  basic: 4500,
+  major: 6800,
+  plus: 9800,
 }
 
 export const SCROLL_TOP = 313
