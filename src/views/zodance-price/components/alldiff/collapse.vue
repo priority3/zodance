@@ -6,7 +6,7 @@ const info = [
     funArr: [
       {
         subText: '商城风格定制',
-        isAccord: [0, 1, 1, 1],
+        isAccord: [0, 0, 1, 1],
       },
       {
         subText: '商品管理',

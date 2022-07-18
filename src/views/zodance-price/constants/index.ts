@@ -23,4 +23,4 @@ export const contentMap = {
   plus: '以构建增长、运营、转化体系为核心，帮助企业建立高效稳定的私域运营模式（完全托管）',
 }
 
-export const SCROLL_TOP = 313
+// export const SCROLL_TOP = 313

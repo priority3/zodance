@@ -20,7 +20,7 @@ const info = {
       flex="~ col" justify-center items-center
       mt-48px
     >
-      <h1 m0>
+      <h1 m0 class="title-linear">
         {{ info.title }}
       </h1>
       <h2 m0>

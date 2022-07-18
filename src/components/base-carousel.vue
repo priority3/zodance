@@ -20,6 +20,7 @@ const linkInfo = [
   },
 ]
 const modal = ref<MODAL | null>(null)
+const autoplay = ref(true)
 const router = useRouter()
 function handleToClickBtn(ismodal: boolean, link = '') {
   if (!ismodal) {
@@ -28,15 +29,21 @@ function handleToClickBtn(ismodal: boolean, link = '') {
   }
   modal.value && modal.value.setShowModal()
 }
-
 // TODO 图片 缩放
 </script>
 
 <template>
   <div relative of-hidden absolute>
-    <n-carousel autoplay :interval="6000">
+    <n-carousel
+      :autoplay="autoplay"
+      :interval="6000"
+      @mouseenter.self="autoplay = false"
+      @mouseleave.self="autoplay = true"
+    >
       <template v-for="{ image, title, subTitle, button } in bannerInfo" :key="image.url">
-        <div class="carousel-item" of-hidden z-0>
+        <div
+          class="carousel-item" of-hidden z-0 cursor-pointer
+        >
           <!-- TODO 加载 -->
           <div
             absolute z--100
@@ -71,7 +78,7 @@ function handleToClickBtn(ismodal: boolean, link = '') {
           </div>
           <div
             flex m="0 auto" mt-147px z-100
-            justify-between items-center
+            items-center
             class="w-7/10" gap-44px
           >
             <template v-for="item in linkInfo" :key="item.title">
