@@ -68,6 +68,12 @@ export function useStyle(options: StyleOptions) {
 
     return res
   })
+  const getTitleHeight = (() => {
+    let res = '220px'
+    if (type === 'major')
+      res = '215px'
+    return res
+  })()
   return {
     getselfBtnStyle,
     getVersionType,
@@ -76,5 +82,6 @@ export function useStyle(options: StyleOptions) {
     getTitlecolor,
     getinfoPara,
     getTitlePara,
+    getTitleHeight,
   }
 }

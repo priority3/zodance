@@ -51,7 +51,9 @@ function handleScroll() {
   scrollTop.value = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
 }
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
+  const windowWidth = document.documentElement.clientWidth
+  // TODO 移动端下的滚动存在问题
+  windowWidth > 1440 && window.addEventListener('scroll', handleScroll)
 })
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
@@ -64,6 +66,7 @@ const {
   getCommonTitleTop,
   getTitlecolor,
   // getinfoPara,
+  getTitleHeight,
   getTitlePara,
 } = useStyle({
   type,
@@ -90,7 +93,7 @@ const modal = ref<MODAL | null>()
     <!-- stricky top -->
     <div
       ref="titleBox"
-      :style="{ color: getTitlecolor, backgroundColor: bgcMap[type], width: getTitleBoxWidth }" text-center
+      :style="{ color: getTitlecolor, backgroundColor: bgcMap[type], width: getTitleBoxWidth, height: getTitleHeight }" text-center
       :class="[isTop ? 'common-title-box-top' : 'common-title-box', isToBottom ? 'commmon-hidden' : '']"
       of-hidden
     >
@@ -205,6 +208,7 @@ const modal = ref<MODAL | null>()
   .common-title-box{
     width: 100%;
     height: 220px;
+    box-sizing: border-box;
     .common-title{
       font: 400 20px "PingFang SC";
     }
@@ -223,6 +227,7 @@ const modal = ref<MODAL | null>()
     top: 0;
     width: 20%;
     min-width: 290px;
+    height: 90px !important;
     opacity: 1;
     border-radius: 0 5px 5px 5px;
     z-index: 100;

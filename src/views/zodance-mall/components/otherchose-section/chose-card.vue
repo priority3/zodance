@@ -1,10 +1,11 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
-const { title, subTitle, content, price } = defineProps<{
+const { title, subTitle, content, price, desc } = defineProps<{
   title: string
   subTitle: string
   content: string
   price: number
+  desc: string
 }>()
 const modal = ref<MODAL | null>()
 </script>
@@ -34,7 +35,7 @@ const modal = ref<MODAL | null>()
       <div class="card-price" mb-10px>
         ￥{{ price }}
         <span>
-          /年
+          {{ desc }}
         </span>
       </div>
       <self-button

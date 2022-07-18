@@ -33,11 +33,11 @@ const modalInfo = {
         mt-160px class="title-box" ml-100px
       >
         <h2>
-          一个小零
+          小零同学
         </h2>
         <h1>你的首席私域运营官</h1>
         <p mt-4px>
-          一个小零，真的顶五个运营
+          拥有一个小零，相当于拥有5个运营
         </p>
         <div mt-80px flex gap-20px>
           <self-button
