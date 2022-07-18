@@ -71,10 +71,14 @@ export function setupHandleScroll() {
 }
 /**
  *
- * @param dom 需要添加show的组件
- * @param delay 是否需要延迟显示
+ * @param dom 需要添加的组件
+ * @param type 类型
  */
 export function useAnimation(dom: Ref, type = 'show') {
   // 动效叠加 之后考虑
   hasSetRefDom(dom, type)
+  return {
+    // 手动响应滚动
+    traversalDom,
+  }
 }

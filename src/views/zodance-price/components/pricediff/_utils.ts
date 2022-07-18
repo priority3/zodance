@@ -41,9 +41,7 @@ export function useStyle(options: StyleOptions) {
     }
   })
   function getVersionType(type: string) {
-    let res = type
-    if (isTop.value && type !== 'plus')
-      res = `运营${res}`
+    const res = type
     return res
   }
   const getTitleBoxWidth = computed(() => {
@@ -68,6 +66,12 @@ export function useStyle(options: StyleOptions) {
 
     return res
   })
+  const getTitleHeight = (() => {
+    let res = '220px'
+    if (type === 'major')
+      res = '215px'
+    return res
+  })()
   return {
     getselfBtnStyle,
     getVersionType,
@@ -76,5 +80,6 @@ export function useStyle(options: StyleOptions) {
     getTitlecolor,
     getinfoPara,
     getTitlePara,
+    getTitleHeight,
   }
 }

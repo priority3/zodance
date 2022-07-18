@@ -54,7 +54,7 @@ function getisAvtive({ path }) {
         </div>
         <div
           class="header-box"
-          flex justify-around w-full ml64px items-center
+          flex justify-around w-full ml64px items-center gap-64px
         >
           <template v-for="(item, index) in itemMap" :key="item.name">
             <div

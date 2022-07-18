@@ -1,5 +1,4 @@
 <script setup lang='ts'>
-import { ref } from 'vue'
 import resultSection from '@/assets/mall/result-section.png'
 const info = {
   title: '做小程序商城的6大理由',
@@ -24,7 +23,6 @@ const info = {
     contPara: '优良服务和良好的使用体验大大提高小程序的准化率',
   }],
 }
-const modal = ref<MODAL | null>(null)
 </script>
 
 <template>
@@ -68,17 +66,7 @@ const modal = ref<MODAL | null>(null)
           </template>
         </div>
       </div>
-      <self-button
-        type="primary"
-        style="margin-top: 48px;width:224px;height:50px"
-        @click="modal && modal.setShowModal()"
-      >
-        立即咨询
-      </self-button>
     </div>
-    <base-modal
-      ref="modal"
-    />
   </div>
 </template>
 

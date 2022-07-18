@@ -6,16 +6,16 @@ const info = {
   subTitle: '快速拥有适合自己的小程序商城，获取流量销量双增长',
   bannerFun: [{
     icon: 'mall-tag1',
-    text: '快速开发',
+    text: '个性定制',
   }, {
     icon: 'mall-tag2',
-    text: '流量风口',
+    text: '快速开发',
   }, {
     icon: 'mall-tag3',
     text: '极佳体验',
   }, {
     icon: 'mall-tag4',
-    text: '超强粘性',
+    text: '持续护航',
   }],
 }
 const modal = ref<MODAL | null>(null)
