@@ -1,4 +1,5 @@
 import { readFileSync, readdirSync } from 'fs'
+import { resolve } from 'path'
 import type { Plugin } from 'vite'
 let idPerfix = ''
 const svgTitle = /<svg([^>+].*?)>/
@@ -43,7 +44,7 @@ function findSvgFile(dir: string) {
   return svgRes
 }
 
-export const setupSvgBuilder = (path = 'D:/vs/zodance/zodance-fe/src/assets/svg/', perfix = 'icon') => {
+export const setupSvgBuilder = (path = `${resolve(process.cwd(), 'src/assets/svg')}/`, perfix = 'icon') => {
   // if (path === '')
   //   return
 
