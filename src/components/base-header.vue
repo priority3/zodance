@@ -42,7 +42,7 @@ function getisAvtive({ path }) {
 <template>
   <div>
     <header class="header-container">
-      <div class="w-3/5" flex mxa my0 h60px items-center>
+      <div w-900px flex mxa my0 h60px items-center>
         <div
           cursor-pointer flex items-center
           @click="$router.push('home')"
