@@ -29,6 +29,10 @@ const basicRoutes: RouteRecordRaw[] = [
     component: () => import('@/views/zodance-saas/index.vue'),
   },
   {
+    path: '/sms/:catchAll(.*)',
+    component: () => import('@/views/sms/index.vue'),
+  },
+  {
     path: '/404',
     component: () => import('@/views/zodance-404/index.vue'),
   },
