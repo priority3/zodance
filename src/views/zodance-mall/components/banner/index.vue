@@ -100,7 +100,7 @@ const modal = ref<MODAL | null>(null)
   background: linear-gradient(180deg, rgba(235,245,255,1) 0%, rgba(235,241,255,0) 100%);
   overflow: hidden;
   .banner-info-box{
-    width: 80%;
+    width: 1440px;
     margin: 0 auto;
     h1{
       color: rgba(29,33,41,1);

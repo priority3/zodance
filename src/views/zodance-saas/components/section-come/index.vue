@@ -61,8 +61,8 @@ useAnimation(cards, 'fade')
   </div>
   <div
     flex="~ col"
-    mt-100px class="w-7/10" mx-auto my-0
-    gap-20px
+    mt-100px mx-auto my-0
+    gap-20px w-1440px px-140px
   >
     <div
       v-for="{ position, title, content, src, subContent } in info.cardArr"
