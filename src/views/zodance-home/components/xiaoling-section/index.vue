@@ -104,6 +104,7 @@ useAnimation(cards)
         <n-image
           preview-disabled
           :src="leftInfo.src"
+          width="447"
         />
       </div>
     </div>

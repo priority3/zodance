@@ -76,7 +76,7 @@ const info = {
   height: 601px;
   margin: 0 auto;
   background: #fff;
-  background: url("/src/assets/mall/mall-resultbgc.png") no-repeat;
+  background: url("/src/assets/mall/mall-resultbgc.png") no-repeat center;
   .result-box{
     width: 80%;
     text-align: center;

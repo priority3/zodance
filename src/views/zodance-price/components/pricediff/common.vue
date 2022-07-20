@@ -40,7 +40,6 @@ nextTick(() => {
 // TODO failed fixed value
 const titleBoxHeight = 1
 const isTop = computed(() => {
-  console.log(scrollTop.value, titleBoxTop.value)
   return scrollTop.value > (titleBoxTop.value || 0) && scrollTop.value < (titleBoxBottom.value || 0)
 })
 // fixed 达到底部 页面抖动问题
@@ -259,6 +258,7 @@ const modal = ref<MODAL | null>()
     height: max-content;
     width: 100%;
     padding-bottom: 20px;
+    box-sizing: border-box;
   }
   .conmon-info-box{
     width: 90%;

@@ -62,6 +62,7 @@ export function setupHandleScroll() {
     traversalDom(domRef as Ref<DomRef>)
   }
   onMounted(() => {
+    handleScroll()
     window.addEventListener('scroll', throttle(handleScroll, 100))
     // domRef.value = new Map()
   })
