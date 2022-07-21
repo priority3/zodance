@@ -1,62 +1,18 @@
 <script setup lang='ts'>
-import { computed, nextTick, onMounted, onUnmounted, ref, watchEffect } from 'vue'
+import { computed, ref } from 'vue'
 import { bgcMap, contentMap, priceMap, versionMap } from '../../constants'
 import type { versionType } from '../../constants/type'
-import { useStyle } from './_utils'
-const { title, type, isActive, contentInfo, maxHeight, freeCont } = defineProps<{
+import { isBorT, useStyle } from './_utils'
+const { title, type, isActive, contentInfo, freeCont } = defineProps<{
   title: string
   type: versionType
   titleCont: string
   isActive: boolean
   contentInfo: Array<any>
-  maxHeight: number
   freeCont?: string
 }>()
-const emits = defineEmits<{
-  (e: 'update:maxHeight', type: number): void
-}>()
-
-// 固定元素的父盒子 实际的scrollTop以父盒子计算因为可能存在border
-const titleBox = ref<HTMLElement | null>(null)
-// 需要fixed元素
-const infoBox = ref<HTMLElement | null>(null)
-const boxContainer = ref<HTMLElement | null>(null)
-
-const scrollTop = ref<number>(0)
-const clientWidth = ref<number>(0)
-const titleBoxTop = ref<number | undefined>(0)
-const titleBoxBottom = ref<number | undefined>(0)
-
-const max = ref<number>(0)
-watchEffect(() => {
-  emits('update:maxHeight', max.value)
-  titleBoxBottom.value = maxHeight
-})
-nextTick(() => {
-  titleBoxTop.value = boxContainer.value?.getBoundingClientRect().top || 0
-  max.value = Math.max(maxHeight, 90 + (infoBox.value?.clientHeight || 0 + titleBoxTop.value || 0))
-  clientWidth.value = window.pageXOffset || document.documentElement.clientWidth || document.body.clientWidth
-})
-// TODO failed fixed value
-const titleBoxHeight = 1
-const isTop = computed(() => {
-  return scrollTop.value > (titleBoxTop.value || 0) && scrollTop.value < (titleBoxBottom.value || 0)
-})
-// fixed 达到底部 页面抖动问题
-const isToBottom = computed(() => {
-  return scrollTop.value >= (titleBoxBottom.value || Number.MAX_VALUE)
-})
-
-function handleScroll() {
-  scrollTop.value = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-}
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
-})
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
-})
-
+const isTop = computed(() => isBorT.isTop)
+const isBottom = computed(() => isBorT.isBottom)
 const {
   getselfBtnStyle,
   getVersionType,
@@ -66,6 +22,7 @@ const {
   // getinfoPara,
   getTitleHeight,
   getTitlePara,
+  getBorderTopColor,
 } = useStyle({
   type,
   isActive,
@@ -78,6 +35,9 @@ const modal = ref<MODAL | null>()
   <div
     ref="boxContainer"
     class="common-container" :class="{ 'is-active': isActive }"
+    :style="{
+      borderTop: getBorderTopColor,
+    }"
     relative
   >
     <div
@@ -92,7 +52,7 @@ const modal = ref<MODAL | null>()
     <div
       ref="titleBox"
       :style="{ color: getTitlecolor, backgroundColor: bgcMap[type], width: getTitleBoxWidth, height: getTitleHeight }" text-center
-      :class="[isTop ? 'common-title-box-top' : 'common-title-box', isToBottom ? 'commmon-hidden' : '']"
+      :class="[isTop ? 'common-title-box-top' : 'common-title-box', isBottom ? 'commmon-hidden' : '']"
       of-hidden
     >
       <div
@@ -135,7 +95,7 @@ const modal = ref<MODAL | null>()
       <div
         ref="infoBox"
         class="conmon-info-box"
-        :style="{ 'padding-top': isTop ? `${titleBoxHeight}px` : 0 }"
+        :style="{ 'padding-top': isTop ? `1px` : 0 }"
       >
         <div
           v-if="freeCont"

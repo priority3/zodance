@@ -28,7 +28,8 @@ declare global{
     style?: object
     textStyle?: object
     link?:string
-    modal: boolean
+    modal?: boolean,
+    modalInfo?: ModalTypeInfo,
   }
   interface BannerInfo {
     image: BannerInfoImg 
@@ -39,6 +40,13 @@ declare global{
   interface MODAL extends HTMLElement {
     setShowModal: () => void
     setHideModal: () => void
+  }
+
+  interface ModalTypeInfo {
+    title: string,
+    avator: string,
+    desc: string,
+    src: string
   }
   
 }

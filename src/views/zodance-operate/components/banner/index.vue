@@ -1,16 +1,11 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
-import xiaolingcode from '@/assets/xiaoling-code.png'
 import operatelogo from '@/assets/operate/operate-logo.png'
+import { ModalXiaoLing } from '@/enums/modal'
+
 const modal = ref<MODAL | null>(null)
 function handleToShowModal() {
   modal.value && modal.value.setShowModal()
-}
-const modalInfo = {
-  title: 'HI,我是你的首席私域运营官',
-  desc: '扫码加微信，送你专属大礼包',
-  avator: 'xiaoling',
-  src: xiaolingcode,
 }
 </script>
 
@@ -75,10 +70,7 @@ const modalInfo = {
       </div>
       <base-modal
         ref="modal"
-        :avator="modalInfo.avator"
-        :src="modalInfo.src"
-        :title="modalInfo.title"
-        :desc="modalInfo.desc"
+        :modal-info="ModalXiaoLing"
       />
     </div>
   </div>

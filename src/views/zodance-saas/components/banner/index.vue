@@ -20,7 +20,7 @@ const modal = ref<MODAL | null>(null)
       <h1 m0>
         零一定制
       </h1>
-      <p>以更低的成本更的高效率，满足商家个性化需求</p>
+      <p>以更低的成本更高的效率，满足商家个性化需求</p>
       <self-button
         mt-42px
         :style="{
