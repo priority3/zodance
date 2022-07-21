@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { priceMap, versionMap } from '../../constants'
 import collapse from './collapse.vue'
 const typeInfo = computed(() => Object.keys(versionMap))
@@ -8,6 +8,10 @@ function getVersionType(type: string) {
   type !== 'plus' && (res += versionMap[type])
   type === 'plus' && (res = versionMap[type])
   return res
+}
+const modal = ref<MODAL | null>(null)
+function handleToShowModal() {
+  modal.value && modal.value.setShowModal()
 }
 </script>
 
@@ -48,6 +52,7 @@ function getVersionType(type: string) {
               type="small"
               style="width:60%;height:28px;border-radius:0"
               mt-14px
+              @click="handleToShowModal"
             >
               立即咨询
             </self-button>
@@ -63,9 +68,13 @@ function getVersionType(type: string) {
       style="height: 48px;min-width:224px;width:15%;"
       :text-style="{ font: `500 24px 'OPPSSans'` }"
       mt-100px
+      @click="handleToShowModal"
     >
       立即咨询
     </self-button>
+    <base-modal
+      ref="modal"
+    />
   </div>
 </template>
 

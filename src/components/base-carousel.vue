@@ -1,4 +1,6 @@
 <script setup lang='ts'>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 const { bannerInfo } = defineProps<{
   bannerInfo: Array<BannerInfo>
 }>()
@@ -17,20 +19,32 @@ const linkInfo = [
     link: '/zodance-saas',
   },
 ]
-// const modal = ref<MODAL | null>(null)
-
-// function handleShowModal() {
-
-// }
-
+const modal = ref<MODAL | null>(null)
+const autoplay = ref(true)
+const router = useRouter()
+function handleToClickBtn(ismodal: boolean, link = '') {
+  if (!ismodal) {
+    router.push(link)
+    return
+  }
+  modal.value && modal.value.setShowModal()
+  autoplay.value = false
+}
 // TODO 图片 缩放
 </script>
 
 <template>
   <div relative of-hidden absolute>
-    <n-carousel autoplay :interval="6000">
+    <n-carousel
+      :autoplay="autoplay"
+      :interval="6000"
+      @mouseenter.self="autoplay = false"
+      @mouseleave.self="autoplay = true"
+    >
       <template v-for="{ image, title, subTitle, button } in bannerInfo" :key="image.url">
-        <div class="carousel-item" of-hidden z-0>
+        <div
+          class="carousel-item" of-hidden z-0 cursor-pointer
+        >
           <!-- TODO 加载 -->
           <div
             absolute z--100
@@ -57,6 +71,7 @@ const linkInfo = [
                 :type="btn?.type"
                 :style="btn?.style"
                 :text-style="btn?.textStyle"
+                @click="handleToClickBtn(btn.modal, btn.link)"
               >
                 {{ btn?.text || '了解更多' }}
               </self-button>
@@ -64,8 +79,8 @@ const linkInfo = [
           </div>
           <div
             flex m="0 auto" mt-147px z-100
-            justify-between items-center
-            class="w-4/5"
+            items-center
+            class="w-7/10" gap-44px
           >
             <template v-for="item in linkInfo" :key="item.title">
               <base-bannerlink
@@ -89,6 +104,9 @@ const linkInfo = [
         </ul>
       </template>
     </n-carousel>
+    <base-modal
+      ref="modal"
+    />
   </div>
 </template>
 
@@ -112,7 +130,7 @@ const linkInfo = [
   // width: 80%;
   // margin: 0 auto;
   position: absolute;
-  left: 10%;
+  left: 15%;
   bottom: 219px;
   li {
     display: inline-block;
@@ -125,14 +143,12 @@ const linkInfo = [
     cursor: pointer;
   }
   li.is-active{
-    background: rgba(130,192,255,1);
+    background: rgba(87,142,204,1);
   }
 }
 .carousel-content{
-  // position: absolute;
-  // top: 133px;
-  // left: 121px;
-  width: 80%;
+  width: 70%;
+  box-sizing: border-box;
   margin: 0 auto;
   margin-top: 127px;
 }

@@ -8,17 +8,14 @@ import { useAnimation } from '@/hooks/useAnimation'
 const info = [{
   title: '专人专项跟进，保障运营质量',
   icon: 'allcard1',
-  desc: '这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介',
 }, {
   title: '各环节数据统计，精准掌握用户动态',
   icon: 'allcard2',
-  desc: '这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介',
 }, {
   title: '全域自动化工具部署，充分节省人力',
   icon: 'allcard3',
-  desc: '这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介这是一段简介',
 }]
-const title = '全局操盘运营，培养忠实客户群'
+const title = '多触点运营，占据客户心智'
 const cards = ref(null)
 useAnimation(cards, 'fade')
 </script>
@@ -26,7 +23,7 @@ useAnimation(cards, 'fade')
 <template>
   <div
     flex="~ col" justify-center items-center
-    class="alloperate-container" mt-60px
+    class="alloperate-container" mt-60px w-full
   >
     <common-title :title="title" />
     <div
@@ -35,13 +32,13 @@ useAnimation(cards, 'fade')
       <collapse />
     </div>
     <div class="vertical-line" w-2px h-90px />
-    <div flex gap-100px mt-20px>
+    <div flex gap-100px mt-20px ml-40px>
       <div
-        v-for="({ title, icon, desc }) in info" :key="title"
+        v-for="({ title, icon }) in info" :key="title"
         ref="cards" class="fade-init"
       >
         <card
-          :title="title" :icon="icon" :desc="desc"
+          :title="title" :icon="icon"
         />
       </div>
     </div>

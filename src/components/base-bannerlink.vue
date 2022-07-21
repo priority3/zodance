@@ -22,7 +22,7 @@ const { title, desc, link } = defineProps<{
 
 <style scoped lang='scss'>
 .link-box{
-  width: 25%;
+  width: 370px;
   height:120px;
   font: 400 14px "PingFang SC";
   border-radius: 5px;

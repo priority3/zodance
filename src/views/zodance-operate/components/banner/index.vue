@@ -1,6 +1,5 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
-import baseModal from '@/components/base-modal.vue'
 import xiaolingcode from '@/assets/xiaoling-code.png'
 import operatelogo from '@/assets/operate/operate-logo.png'
 const modal = ref<MODAL | null>(null)
@@ -16,70 +15,72 @@ const modalInfo = {
 </script>
 
 <template>
-  <div
-    h-640px w-full relative
-    class="banner-container"
-    flex items-start justify-start
-  >
+  <div w-full class="banner-container">
     <div
-      absolute right-60px bottom-108px
+      h-640px relative w-1440px m="0 auto"
+      flex items-start justify-start
     >
-      <n-image
-        preview-disabled
-        :src="operatelogo"
+      <div
+        absolute right-60px bottom-108px
+      >
+        <n-image
+          preview-disabled
+          :src="operatelogo"
+        />
+      </div>
+      <div
+        flex="~ col" justify-start items-cenert
+        mt-160px class="title-box" ml-100px
+      >
+        <h2>
+          小零同学
+        </h2>
+        <h1>你的首席私域运营官</h1>
+        <p mt-4px>
+          拥有一个小零，相当于拥有5个运营
+        </p>
+        <div mt-80px flex gap-20px>
+          <self-button
+            :text-style="{
+              color: 'rgba(255,255,255,1)',
+              font: '500 18px OPPOSans',
+            }"
+            :style="{
+              'border': '0',
+              'border-radius': '5px',
+              'height': '36px',
+              'width': '168px',
+              'background': 'linear-gradient(225deg, rgba(72,203,227,1) 0%, rgba(50,154,239,1) 100%)',
+            }"
+            @click="handleToShowModal"
+          >
+            免费咨询
+          </self-button>
+          <self-button
+            :text-style="{
+              color: 'rgba(29,33,41,1)',
+              font: '500 18px OPPOSans',
+            }"
+            :style="{
+              'border': '1px solid rgba(193,193,193,1)',
+              'border-radius': '5px',
+              'height': '36px',
+              'width': '168px',
+            }"
+            @click="$router.push('/zodance-price')"
+          >
+            查看价格
+          </self-button>
+        </div>
+      </div>
+      <base-modal
+        ref="modal"
+        :avator="modalInfo.avator"
+        :src="modalInfo.src"
+        :title="modalInfo.title"
+        :desc="modalInfo.desc"
       />
     </div>
-    <div
-      flex="~ col" justify-start items-cenert
-      mt-160px class="title-box" ml-100px
-    >
-      <h2>
-        一个小零
-      </h2>
-      <h1>你的首席私域运营官</h1>
-      <p mt-4px>
-        一个小零，真的顶五个运营
-      </p>
-      <div mt-80px flex gap-20px>
-        <self-button
-          :text-style="{
-            color: 'rgba(255,255,255,1)',
-            font: '500 18px OPPOSans',
-          }"
-          :style="{
-            'border': '0',
-            'border-radius': '5px',
-            'height': '36px',
-            'width': '168px',
-            'background': 'linear-gradient(225deg, rgba(72,203,227,1) 0%, rgba(50,154,239,1) 100%)',
-          }"
-          @click="handleToShowModal"
-        >
-          免费咨询
-        </self-button>
-        <self-button
-          :text-style="{
-            color: 'rgba(29,33,41,1)',
-            font: '500 18px OPPOSans',
-          }"
-          :style="{
-            'border': '1px solid rgba(193,193,193,1)',
-            'border-radius': '5px',
-            'height': '36px',
-            'width': '168px',
-          }"
-        >
-          查看价格
-        </self-button>
-      </div>
-    </div>
-    <base-modal
-      ref="modal"
-      :avator="modalInfo.avator"
-      :src="modalInfo.src"
-      :title="modalInfo.title"
-      :desc="modalInfo.desc"
-    />
   </div>
 </template>
 
@@ -87,7 +88,6 @@ const modalInfo = {
 .banner-container{
   background: linear-gradient(180deg, rgba(240,253,255,1) 0%, rgba(240,253,255,1) 81%, rgba(232,245,255,1) 91%, rgba(232,245,255,1) 100%);
   .title-box{
-
     h1{
       font:900 80px "OPPOSans";
       background-image:-webkit-linear-gradient(bottom left,#007BE4,#44DAF5);

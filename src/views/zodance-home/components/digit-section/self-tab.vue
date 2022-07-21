@@ -1,9 +1,12 @@
 <script setup lang='ts'>
+import hometab1 from '@/assets/home/home-tab1.png'
 import hometab2 from '@/assets/home/home-tab2.png'
+import hometab3 from '@/assets/home/home-tab3.png'
+import hometab4 from '@/assets/home/home-tab4.png'
 const tabspanel = [{
   'tab-key': '定制商城',
   'tab-name': '定制商城',
-  'tab-src': hometab2,
+  'tab-src': hometab1,
 }, {
   'tab-key': '券码核销',
   'tab-name': '券码核销',
@@ -11,11 +14,11 @@ const tabspanel = [{
 }, {
   'tab-key': 'PDA出入库',
   'tab-name': 'PDA出入库',
-  'tab-src': hometab2,
+  'tab-src': hometab3,
 }, {
   'tab-key': 'AI外呼',
   'tab-name': 'AI外呼',
-  'tab-src': hometab2,
+  'tab-src': hometab4,
 }]
 </script>
 
@@ -44,6 +47,7 @@ const tabspanel = [{
             <n-image
               preview-disabled
               :src="item['tab-src']"
+              width="460"
             />
           </div>
         </template>

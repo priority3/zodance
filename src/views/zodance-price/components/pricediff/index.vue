@@ -298,15 +298,16 @@ const info = [
   },
 ]
 const maxHeight = ref<number>(0)
+const modal = ref<MODAL | null>(null)
 </script>
 
 <template>
   <div
-    flex="~ col" items-center gap-30px flex-wrap w-full
+    flex="~ col" items-center gap-30px flex-wrap w-full class="price-container"
   >
     <div
       class="w-9/10" my-0 mx-auto
-      flex justify-around of-auto flex-wrap
+      flex justify-around flex-wrap
     >
       <template
         v-for="item in info"
@@ -328,12 +329,17 @@ const maxHeight = ref<number>(0)
       style="height: 48px;min-width:224px;width:15%;"
       :text-style="{ font: `500 24px 'OPPSSans'` }"
       mt-110px
+      @click="modal && modal.setShowModal()"
     >
       立即咨询
     </self-button>
+    <base-modal ref="modal" />
   </div>
 </template>
 
 <style scoped lang='scss'>
-
+.price-container{
+  width: 1440px;
+  margin: 0 auto;
+}
 </style>

@@ -1,4 +1,7 @@
 <script setup lang='ts'>
+import { ref } from 'vue'
+
+const modal = ref<MODAL | null>(null)
 </script>
 
 <template>
@@ -17,7 +20,7 @@
       <h1 m0>
         零一定制
       </h1>
-      <p>以更低成本更高的效率，满足商家个性化需求</p>
+      <p>以更低的成本更的高效率，满足商家个性化需求</p>
       <self-button
         mt-42px
         :style="{
@@ -30,8 +33,13 @@
           color: 'rgba(255,255,255,1)',
           font: '400 20px PingFang SC',
         }"
+        @click="modal && modal.setShowModal()"
       />
     </div>
+    <base-modal
+      ref="modal"
+      title="HI,我是你的专属SaaS顾问"
+    />
   </div>
 </template>
 

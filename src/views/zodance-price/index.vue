@@ -5,7 +5,7 @@ import priceDiff from './components/pricediff/index.vue'
 // import { getTestApi } from '@/api'
 const info = {
   title: '专业的数字化团队服务',
-  subTitle: '服务简介语，例如：一个普通员工的薪资就能拥有',
+  subTitle: '一个普通员工的薪资就能拥有整个数字化运营团队',
 }
 // getTestApi().then((res) => {
 //   console.log(res)
@@ -20,7 +20,7 @@ const info = {
       flex="~ col" justify-center items-center
       mt-48px
     >
-      <h1 m0>
+      <h1 m0 class="title-linear">
         {{ info.title }}
       </h1>
       <h2 m0>

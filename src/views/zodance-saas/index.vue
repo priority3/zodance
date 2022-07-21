@@ -3,6 +3,8 @@ import sectionCome from './components/section-come/index.vue'
 import banner from './components/banner/index.vue'
 import sectionAbility from './components/section-ability/index.vue'
 import sectionAdvance from './components/section-advance/index.vue'
+import { setupHandleScroll } from '@/hooks/useAnimation'
+setupHandleScroll()
 </script>
 
 <template>

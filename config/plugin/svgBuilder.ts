@@ -6,9 +6,6 @@ const svgTitle = /<svg([^>+].*?)>/
 const clearHeightWidth = /(width|height)="([^>+].*?)"/g
 const hasViewBox = /(viewBox="[^>+].*?")/g
 const clearReturn = /(\r)|(\n)/g
-function pathResolve(dir: string) {
-  return resolve(process.cwd(), '.', dir)
-}
 function findSvgFile(dir: string) {
   const svgRes: Array<string | never> = []
   const dirents = readdirSync(dir, {
@@ -46,9 +43,10 @@ function findSvgFile(dir: string) {
   return svgRes
 }
 
-export const setupSvgBuilder = (path = `${pathResolve('src/assets/svg')}/`, perfix = 'icon') => {
-  if (path === '')
-    return
+export const setupSvgBuilder = (path = `${resolve(process.cwd(), 'src/assets/svg')}/`, perfix = 'icon') => {
+  // if (path === '')
+  //   return
+
   idPerfix = perfix
   const res = findSvgFile(path)
   return {

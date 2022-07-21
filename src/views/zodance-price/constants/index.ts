@@ -16,5 +16,11 @@ export const priceMap = {
   major: 6800,
   plus: 9800,
 }
+export const contentMap = {
+  start: '以运营为主，帮助企业搭建轻量级的私域运营模式',
+  basic: '以增长为主，帮助企业搭建有效的私域运营模式并快速获取首批用户',
+  major: '以构建增长、运营、转化体系为核心，帮助企业建立高效稳定的私域运营模式',
+  plus: '以构建增长、运营、转化体系为核心，帮助企业建立高效稳定的私域运营模式（完全托管）',
+}
 
-export const SCROLL_TOP = 313
+// export const SCROLL_TOP = 313

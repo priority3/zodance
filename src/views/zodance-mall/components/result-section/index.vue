@@ -40,7 +40,7 @@ const info = {
             >
               <!-- TODO 布局 段落换行 -->
               <h3>{{ item.contTitle }}</h3>
-              <h4 class="w-2/3">
+              <h4 w-200px>
                 {{ item.contPara }}
               </h4>
             </div>
@@ -54,11 +54,11 @@ const info = {
           />
         </div>
         <div class="content-left" flex="~ col" gap-70px>
-          <template v-for="item in info.leftRes" :key="item.conTitle">
+          <template v-for="item in info.rightRes" :key="item.conTitle">
             <div text-left>
               <h3>{{ item.contTitle }}</h3>
               <h4
-                class="w-2/3"
+                w-200px
               >
                 {{ item.contPara }}
               </h4>
@@ -66,12 +66,6 @@ const info = {
           </template>
         </div>
       </div>
-      <self-button
-        type="primary"
-        style="margin-top: 48px;width:224px;height:50px"
-      >
-        立即咨询
-      </self-button>
     </div>
   </div>
 </template>
@@ -82,7 +76,7 @@ const info = {
   height: 601px;
   margin: 0 auto;
   background: #fff;
-  background: url("/src/assets/mall/mall-resultbgc.png") no-repeat;
+  background: url("/src/assets/mall/mall-resultbgc.png") no-repeat center;
   .result-box{
     width: 80%;
     text-align: center;

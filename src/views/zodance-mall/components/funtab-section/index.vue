@@ -1,4 +1,5 @@
 <script setup lang='ts'>
+import { ref } from 'vue'
 import funtab from './funtab.vue'
 import quickTab from './quick-tab.vue'
 import liveTab from './live-tab.vue'
@@ -29,10 +30,11 @@ const info = {
     'tab-component': sellTab,
   }],
 }
+const modal = ref<MODAL | null>(null)
 </script>
 
 <template>
-  <div class="funtab-container" flex="~ col" items-center>
+  <div class="funtab-container" flex="~ col" items-center px-120px>
     <h1 mb-61px>
       {{ info.title }}
     </h1>
@@ -42,15 +44,17 @@ const info = {
     <self-button
       type="primary"
       style="margin-top: 40px;"
+      @click="modal && modal.setShowModal()"
     >
       立即咨询
     </self-button>
+    <base-modal ref="modal" />
   </div>
 </template>
 
 <style scoped lang='scss'>
 .funtab-container{
-  width: 80%;
+  width: 1440px;
   height: 850px;
   margin: 50px auto 0 auto;
   h1{

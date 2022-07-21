@@ -5,19 +5,19 @@ import { useAnimation } from '@/hooks/useAnimation'
 const info = [{
   icon: 'dailyoperate1',
   title: '低成本获客',
-  desc: '来有请运营总监讲几句需求点简述来有请运营总监讲几句需求点简述来有请运营总监讲几',
+  desc: '建立企业全域导流路径，定制化开发裂变工具，实现企业私域池客户数从0到1，从1到多的低成本获客',
+}, {
+  icon: 'dailyoperate3',
+  title: '精细化运营',
+  desc: '通过scrm系统对用户进行分层，建立3级社群运营体系，朋友圈内容定时，定量，定人发送，实现企业千人千面的客户',
 }, {
   icon: 'dailyoperate2',
   title: '高效率转化',
-  desc: '来有请运营总监讲几句需求点简述来有请运营总监讲几句需求点简述来有请运营总监',
-}, {
-  icon: 'dailyoperate3',
-  title: '忠实客户群',
-  desc: '来有请运营总监讲几句需求点简述来有请运营总监讲几句需求点简述来有请运营总监讲几句',
+  desc: '根据多触点，多场景结合企业自有特色，策划专属转化活动，去激发客户消费欲望',
 }, {
   icon: 'dailyoperate4',
-  title: '方案的执行运营',
-  desc: '来有请运营总监讲几句需求点简述来有请运营总监讲几句需求点简述来有请运营总监讲几',
+  title: '持续性复购',
+  desc: '通过会员权益体系，积分体系，专属福利活动等，提升客户在企业整个生命周期内的购买频次',
 }]
 
 //
@@ -39,7 +39,7 @@ useAnimation(cards)
     </p>
     <div
       flex flex-wrap justify-center gap-24px
-      mt-60px
+      mt-60px w-1250px
     >
       <div
         v-for="({ icon, title, desc }) in info" :key="title"

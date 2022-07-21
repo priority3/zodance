@@ -1,27 +1,29 @@
 <script setup lang='ts'>
+import { ref } from 'vue'
 import mallbanner from '@/assets/mall/mall-banner.png'
 const info = {
   title: '零一商城',
   subTitle: '快速拥有适合自己的小程序商城，获取流量销量双增长',
   bannerFun: [{
     icon: 'mall-tag1',
-    text: '快速开发',
+    text: '个性定制',
   }, {
     icon: 'mall-tag2',
-    text: '流量风口',
+    text: '快速开发',
   }, {
     icon: 'mall-tag3',
     text: '极佳体验',
   }, {
     icon: 'mall-tag4',
-    text: '超强粘性',
+    text: '持续护航',
   }],
 }
+const modal = ref<MODAL | null>(null)
 </script>
 
 <template>
   <div class="banner-container" relative>
-    <div class="banner-info-box">
+    <div class="banner-info-box" relative pl-120px>
       <div class="info-title">
         <h1 mt127px>
           {{ info?.title || '' }}
@@ -57,6 +59,7 @@ const info = {
             color: 'rgba(255,255,255,1)',
             font: '500 18px OPPOSans',
           }"
+          @click="modal && modal.setShowModal()"
         >
           免费申领
         </self-button>
@@ -71,18 +74,23 @@ const info = {
             color: 'rgba(29,33,41,1)',
             font: '500 18px OPPOSans',
           }"
+          @click="modal && modal.setShowModal()"
         >
           立即咨询
         </self-button>
       </div>
-      <div absolute right-0 top-30>
+      <div absolute right-60px top-0>
         <n-image
           preview-disabled
           :src="mallbanner"
+          width="620"
         />
         <!-- <img :src="mallbanner" alt=""> -->
       </div>
     </div>
+    <base-modal
+      ref="modal"
+    />
   </div>
 </template>
 
@@ -93,7 +101,7 @@ const info = {
   background: linear-gradient(180deg, rgba(235,245,255,1) 0%, rgba(235,241,255,0) 100%);
   overflow: hidden;
   .banner-info-box{
-    width: 80%;
+    width: 1440px;
     margin: 0 auto;
     h1{
       color: rgba(29,33,41,1);

@@ -27,6 +27,8 @@ declare global{
     height?: number
     style?: object
     textStyle?: object
+    link?:string
+    modal: boolean
   }
   interface BannerInfo {
     image: BannerInfoImg 

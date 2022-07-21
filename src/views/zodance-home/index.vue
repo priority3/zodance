@@ -39,6 +39,7 @@ const bannerInfo = reactive<Array<BannerInfo>>([
         'width': '168px',
         'height': '36px',
         'border-radius': '5px',
+        'background': 'linear-gradient(224.4deg, rgba(104,186,254,1) 0%, rgba(69,218,246,1) 100%)',
       },
       textStyle: {
         'color': ' rgba(255,255,255,1)',
@@ -46,6 +47,7 @@ const bannerInfo = reactive<Array<BannerInfo>>([
         'font-weight': '500',
         'font-family': 'OPPOSans',
       },
+      modal: true,
     }],
   },
   {
@@ -86,6 +88,7 @@ const bannerInfo = reactive<Array<BannerInfo>>([
         'font-weight': '500',
         'font-family': 'OPPOSans',
       },
+      modal: true,
     }, {
       text: '查看价格',
       style: {
@@ -101,6 +104,8 @@ const bannerInfo = reactive<Array<BannerInfo>>([
         'font-weight': '500',
         ' font-family': 'OPPOSans',
       },
+      modal: false,
+      link: '/zodance-price',
     }],
   },
 ])
