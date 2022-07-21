@@ -39,7 +39,7 @@ useAnimation(cards)
     </p>
     <div
       flex flex-wrap justify-center gap-24px
-      mt-60px
+      mt-60px w-1250px
     >
       <div
         v-for="({ icon, title, desc }) in info" :key="title"

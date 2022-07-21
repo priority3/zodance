@@ -46,7 +46,7 @@ const info = {
     },
   }, {
     title: '采蜜小镇',
-    content: '借助零一微商城快速切入在腾讯的零售布局，快速实现了去中心化流量聚合，客户粉丝沉淀。零一助力采蜜快速步入移动社交电商新时代。,增强了粉丝粘性。倔海马社交电商在未来社交商业模式探索之路上，更离不开微信小程序的助力。',
+    content: '借助零一微商城快速切入在腾讯的零售布局，快速实现了去中心化流量聚合，客户粉丝沉淀。零一助力采蜜快速步入移动社交电商新时代。',
     src: 'mall6',
     codeSrc: codecaimi,
     selfStyle: {
@@ -70,7 +70,7 @@ const info = {
   <div class="otheruse-container">
     <div class="otheruse-box" flex="~ col" items-center>
       <h1>{{ info.title }}</h1>
-      <div flex="~ wrap" justify-around gap-50px mt-50px>
+      <div flex="~ wrap" justify-between gap-50px mt-50px>
         <template v-for="{ title, content, src, codeSrc, selfStyle } in info.cardInfo" :key="title">
           <section-card
             :title="title"
@@ -87,6 +87,8 @@ const info = {
 
 <style scoped lang='scss'>
 .otheruse-container{
+  width: 1440px;
+  margin: 0 auto;
   margin-top:50px;
   h1{
     color: rgba(29,33,41,1);

@@ -28,7 +28,7 @@ function getKingClass(num: number) {
 <template>
   <div
     class="digit-container"
-    flex="~ col" items-center
+    flex="~ col" items-center w-full
   >
     <h1 class="title-linear">
       {{ title }}

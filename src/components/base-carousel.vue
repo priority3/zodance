@@ -28,6 +28,7 @@ function handleToClickBtn(ismodal: boolean, link = '') {
     return
   }
   modal.value && modal.value.setShowModal()
+  autoplay.value = false
 }
 // TODO 图片 缩放
 </script>

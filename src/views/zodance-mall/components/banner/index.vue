@@ -23,7 +23,7 @@ const modal = ref<MODAL | null>(null)
 
 <template>
   <div class="banner-container" relative>
-    <div class="banner-info-box">
+    <div class="banner-info-box" relative>
       <div class="info-title">
         <h1 mt127px>
           {{ info?.title || '' }}
@@ -79,10 +79,11 @@ const modal = ref<MODAL | null>(null)
           立即咨询
         </self-button>
       </div>
-      <div absolute right-60px top-30>
+      <div absolute right-60px top-0>
         <n-image
           preview-disabled
           :src="mallbanner"
+          width="620"
         />
         <!-- <img :src="mallbanner" alt=""> -->
       </div>
@@ -100,7 +101,7 @@ const modal = ref<MODAL | null>(null)
   background: linear-gradient(180deg, rgba(235,245,255,1) 0%, rgba(235,241,255,0) 100%);
   overflow: hidden;
   .banner-info-box{
-    width: 80%;
+    width: 1440px;
     margin: 0 auto;
     h1{
       color: rgba(29,33,41,1);
