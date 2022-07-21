@@ -258,6 +258,7 @@ const modal = ref<MODAL | null>()
     height: max-content;
     width: 100%;
     padding-bottom: 20px;
+    box-sizing: border-box;
   }
   .conmon-info-box{
     width: 90%;

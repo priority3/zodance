@@ -21,6 +21,7 @@ const info = defineProps<{
       <n-image
         :src="info.image"
         preview-disabled
+        width="540"
       />
     </div>
   </div>

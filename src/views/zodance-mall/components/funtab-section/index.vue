@@ -54,7 +54,7 @@ const modal = ref<MODAL | null>(null)
 
 <style scoped lang='scss'>
 .funtab-container{
-  width: 80%;
+  width: 1440px;
   height: 850px;
   margin: 50px auto 0 auto;
   h1{

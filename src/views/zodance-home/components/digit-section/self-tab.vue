@@ -47,6 +47,7 @@ const tabspanel = [{
             <n-image
               preview-disabled
               :src="item['tab-src']"
+              width="460"
             />
           </div>
         </template>

@@ -15,6 +15,7 @@ const info = {
     <n-image
       preview-disabled
       :src="info.src"
+      width="870"
     />
   </div>
 </template>
