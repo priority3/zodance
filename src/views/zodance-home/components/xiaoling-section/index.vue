@@ -53,6 +53,11 @@ const cardInfo = [{
     desc: ['用户标签', '用户画像', '精准营销'],
   }],
 }]
+cardInfo.forEach((item) => {
+  item.contentInfo.forEach((it) => {
+    it.desc.sort((a, b) => a.length - b.length)
+  })
+})
 function getWidth(num: number) {
   let res = ''
   switch (num) {
