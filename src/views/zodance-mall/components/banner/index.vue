@@ -23,7 +23,7 @@ const modal = ref<MODAL | null>(null)
 
 <template>
   <div class="banner-container" relative>
-    <div class="banner-info-box" relative>
+    <div class="banner-info-box" relative pl-120px>
       <div class="info-title">
         <h1 mt127px>
           {{ info?.title || '' }}

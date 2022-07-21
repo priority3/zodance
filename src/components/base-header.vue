@@ -50,6 +50,7 @@ function getisAvtive({ path }) {
           <n-image
             preview-disabled
             :src="logopng"
+            width="91"
           />
         </div>
         <div
@@ -87,7 +88,7 @@ function getisAvtive({ path }) {
   &::after{
     content: "";
     position: absolute;
-    top: 38px;
+    top: 38.5px;
     display: block;
     width: 100%;
     height: 2px;
@@ -104,7 +105,7 @@ function getisAvtive({ path }) {
   &::before{
     content: "";
     position: absolute;
-    top: 38px;
+    top: 38.5px;
     display: block;
     width: 100%;
     height: 2px;

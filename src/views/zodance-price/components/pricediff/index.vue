@@ -1,6 +1,7 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
 import common from './common.vue'
+import { setupHandleScroll } from './_utils'
 const info = [
   {
     title: '小零同学联合运营',
@@ -135,7 +136,7 @@ const info = [
         title: '品牌构建',
         infoContext: [{
           subTitle: '品牌VI设计',
-          text: ['品牌标识（logo）', '品牌标语（slogan）', 'IP形象'],
+          text: ['品牌标识（Logo）', '品牌标语（Slogan）', 'IP形象'],
         }, {
           subTitle: '品牌营销素材设计',
           text: ['微信红包封面', '品牌表情包', '营销海报', '品牌故事', '产品图册'],
@@ -221,7 +222,7 @@ const info = [
         title: '品牌构建',
         infoContext: [{
           subTitle: '品牌VI设计',
-          text: ['品牌标识（logo）', '品牌标语（slogan）', 'IP形象'],
+          text: ['品牌标识（Logo）', '品牌标语（Slogan）', 'IP形象'],
         }, {
           subTitle: '品牌营销素材设计',
           text: ['微信红包封面', '品牌表情包', '营销海报', '品牌故事', '产品图册'],
@@ -297,8 +298,16 @@ const info = [
     ],
   },
 ]
-const maxHeight = ref<number>(0)
+info.forEach((item) => {
+  item.contentInfo.forEach((it) => {
+    it.infoContext.forEach((i) => {
+      i.text.sort((a, b) => a.length - b.length)
+    })
+  })
+})
 const modal = ref<MODAL | null>(null)
+const container = ref<HTMLElement | null>(null)
+setupHandleScroll(container)
 </script>
 
 <template>
@@ -306,7 +315,7 @@ const modal = ref<MODAL | null>(null)
     flex="~ col" items-center gap-30px flex-wrap w-full class="price-container"
   >
     <div
-      class="w-9/10" my-0 mx-auto
+      ref="container" class="w-9/10" my-0 mx-auto
       flex justify-around flex-wrap
     >
       <template
@@ -314,7 +323,6 @@ const modal = ref<MODAL | null>(null)
         :key="item.type"
       >
         <common
-          v-model:max-height="maxHeight"
           :title="item.title"
           :is-active="item.isActive"
           :content-info="item.contentInfo"

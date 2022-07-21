@@ -1,27 +1,12 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
-import defaultCode from '@/assets/binaryCode.png'
+import { ModalDefault } from '@/enums/modal'
 interface ModalProps {
-  title?: string
-  avator?: string
-  desc?: string
-  src?: string
+  modalInfo?: ModalTypeInfo
 }
 
-// const { title, avator, desc, src } = withDefaults(
-//   defineProps<ModalProps>(),
-//   {
-//     title: '',
-//     avator: '',
-//     desc: '',
-//     src: '',
-//   },
-// )
 const {
-  title = 'HI,我是你的专属增长顾问',
-  avator = 'zavator',
-  desc = '扫码加微信，送你专属大礼包',
-  src = defaultCode,
+  modalInfo = ModalDefault,
 } = defineProps<ModalProps>()
 
 const showModal = ref(false)
@@ -52,20 +37,20 @@ defineExpose({
           border-b="solid 1px gray-300"
         >
           <self-svgicon
-            :name="avator"
+            :name="modalInfo.avator"
             text-5xl
           />
           <span>
-            {{ title }}
+            {{ modalInfo.title }}
           </span>
         </div>
         <div
           flex="~ col" items-center gap-22px mt-15px
         >
-          <p>{{ desc }}</p>
+          <p>{{ modalInfo.desc }}</p>
           <n-image
             preview-disabled
-            :src="src as any"
+            :src="modalInfo.src as any"
           />
         </div>
       </div>

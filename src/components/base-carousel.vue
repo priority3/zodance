@@ -1,6 +1,7 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { ModalDefault } from '@/enums/modal'
 const { bannerInfo } = defineProps<{
   bannerInfo: Array<BannerInfo>
 }>()
@@ -19,31 +20,31 @@ const linkInfo = [
     link: '/zodance-saas',
   },
 ]
+const curModalInfo = ref<ModalTypeInfo>(ModalDefault)
 const modal = ref<MODAL | null>(null)
-const autoplay = ref(true)
 const router = useRouter()
-function handleToClickBtn(ismodal: boolean, link = '') {
+function handleToClickBtn(ismodal: boolean, link = '', modalInfo: ModalTypeInfo) {
   if (!ismodal) {
     router.push(link)
     return
   }
+  curModalInfo.value = modalInfo
   modal.value && modal.value.setShowModal()
-  autoplay.value = false
 }
+// const modalInfo = computed(() => {
+
+// })
 // TODO 图片 缩放
 </script>
 
 <template>
   <div relative of-hidden absolute>
     <n-carousel
-      :autoplay="autoplay"
-      :interval="6000"
-      @mouseenter.self="autoplay = false"
-      @mouseleave.self="autoplay = true"
+      autoplay
     >
       <template v-for="{ image, title, subTitle, button } in bannerInfo" :key="image.url">
         <div
-          class="carousel-item" of-hidden z-0 cursor-pointer
+          class="carousel-item" of-hidden z-0
         >
           <!-- TODO 加载 -->
           <div
@@ -53,8 +54,10 @@ function handleToClickBtn(ismodal: boolean, link = '') {
             <n-image
               preview-disabled
               :src="image.url"
+              width="573"
             />
           </div>
+
           <div class="carousel-content" z-100>
             <h1 m0 :style="title.style">
               {{ title.desc }}
@@ -71,7 +74,7 @@ function handleToClickBtn(ismodal: boolean, link = '') {
                 :type="btn?.type"
                 :style="btn?.style"
                 :text-style="btn?.textStyle"
-                @click="handleToClickBtn(btn.modal, btn.link)"
+                @click="handleToClickBtn(btn.modal as boolean, btn.link, btn.modalInfo as ModalTypeInfo)"
               >
                 {{ btn?.text || '了解更多' }}
               </self-button>
@@ -106,6 +109,7 @@ function handleToClickBtn(ismodal: boolean, link = '') {
     </n-carousel>
     <base-modal
       ref="modal"
+      :modal-info="curModalInfo"
     />
   </div>
 </template>

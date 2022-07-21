@@ -33,7 +33,7 @@ const { title, icon, contentInfo, isLine } = defineProps<{
         <h2>
           {{ subTitle }}
         </h2>
-        <div>
+        <div flex="~ col" items-center>
           <div v-for="item in desc" :key="item">
             <p mt-10px>
               {{ item }}

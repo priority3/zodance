@@ -34,7 +34,7 @@ const modal = ref<MODAL | null>(null)
 </script>
 
 <template>
-  <div class="funtab-container" flex="~ col" items-center>
+  <div class="funtab-container" flex="~ col" items-center px-120px>
     <h1 mb-61px>
       {{ info.title }}
     </h1>

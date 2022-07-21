@@ -38,7 +38,7 @@ const basicRoutes: RouteRecordRaw[] = [
   },
   {
     path: '/:catchAll(.*)',
-    redirect: '/404',
+    redirect: '/home',
   },
 ]
 

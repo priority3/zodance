@@ -6,7 +6,6 @@ const svgTitle = /<svg([^>+].*?)>/
 const clearHeightWidth = /(width|height)="([^>+].*?)"/g
 const hasViewBox = /(viewBox="[^>+].*?")/g
 const clearReturn = /(\r)|(\n)/g
-
 function findSvgFile(dir: string) {
   const svgRes: Array<string | never> = []
   const dirents = readdirSync(dir, {

@@ -1,5 +1,6 @@
 import type { Ref } from 'vue'
-import { computed } from 'vue'
+import { computed, onMounted, onUnmounted, reactive } from 'vue'
+
 import type { versionType } from '../../constants/type'
 import { versionMap } from '../../constants/index'
 interface StyleOptions {
@@ -66,6 +67,11 @@ export function useStyle(options: StyleOptions) {
 
     return res
   })
+  const getBorderTopColor = computed(() => {
+    if (!isActive)
+      return ''
+    return isTop.value ? '0' : '5px rgba(0,97,207,1) solid'
+  })
   const getTitleHeight = (() => {
     let res = '220px'
     if (type === 'major')
@@ -81,5 +87,29 @@ export function useStyle(options: StyleOptions) {
     getinfoPara,
     getTitlePara,
     getTitleHeight,
+    getBorderTopColor,
   }
+}
+
+export const isBorT = reactive({
+  isTop: false,
+  isBottom: false,
+})
+let scrollTop = 0
+let containerBottom = 0
+let containerTop = 0
+function handleScroll() {
+  scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+  isBorT.isTop = scrollTop > containerTop
+  isBorT.isBottom = scrollTop >= containerBottom
+}
+export function setupHandleScroll(boxContainer: Ref<HTMLElement | null>) {
+  onMounted(() => {
+    window.addEventListener('scroll', handleScroll)
+    containerTop = boxContainer.value?.getBoundingClientRect().top || 0
+    containerBottom = (boxContainer.value?.getBoundingClientRect().bottom || 500) - 500
+  })
+  onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll)
+  })
 }

@@ -80,7 +80,7 @@ const title = '裂变引流，低成本获客'
         <template #tab>
           <div flex justify-center items-center gap10px>
             <div v-if="item['tab-icon']" :class="[item['tab-icon']]" text-xl class="active-icon" />
-            <span>{{ item['tab-name'] }}</span>
+            <span style="font: 400 20px PingFang SC">{{ item['tab-name'] }}</span>
           </div>
         </template>
       </n-tab-pane>

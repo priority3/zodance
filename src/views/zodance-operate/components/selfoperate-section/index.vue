@@ -6,7 +6,7 @@ const info = [{
   icon: 'selfoperate1',
   contentInfo: [{
     subTitle: '品牌VI设计',
-    desc: ['品牌标识LOGO', '品牌标语Slogan', 'IP形象'],
+    desc: ['品牌标识Logo', '品牌标语Slogan', 'IP形象'],
   }, {
     subTitle: '品牌营销素材设计',
     desc: ['营销海报', '品牌故事', '产品图册', '微信红包封面', '品牌表情包'],
@@ -88,6 +88,12 @@ const info = [{
     desc: [],
   }],
 }]
+
+info.forEach((item) => {
+  item.contentInfo.forEach((it) => {
+    it.desc.sort((a, b) => a.length - b.length)
+  })
+})
 </script>
 
 <template>

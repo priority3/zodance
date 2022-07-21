@@ -8,6 +8,7 @@ import allcoverSection from './components/allcover-section/index.vue'
 import { setupHandleScroll } from '@/hooks/useAnimation'
 import banner1 from '@/assets/home/banner1.png'
 import banner2 from '@/assets/home/xiaoling-logo.png'
+import { ModalDefault, ModalXiaoLing } from '@/enums/modal'
 const bannerInfo = reactive<Array<BannerInfo>>([
   {
     image: {
@@ -45,9 +46,9 @@ const bannerInfo = reactive<Array<BannerInfo>>([
         'color': ' rgba(255,255,255,1)',
         'font-size': '18px',
         'font-weight': '500',
-        'font-family': 'OPPOSans',
       },
       modal: true,
+      modalInfo: ModalDefault,
     }],
   },
   {
@@ -86,9 +87,9 @@ const bannerInfo = reactive<Array<BannerInfo>>([
         'color': 'rgba(255,255,255,1)',
         'font-size': '18px',
         'font-weight': '500',
-        'font-family': 'OPPOSans',
       },
       modal: true,
+      modalInfo: ModalXiaoLing,
     }, {
       text: '查看价格',
       style: {
@@ -102,7 +103,6 @@ const bannerInfo = reactive<Array<BannerInfo>>([
         'color': 'rgba(29,33,41,1)',
         'font-size': '18px',
         'font-weight': '500',
-        ' font-family': 'OPPOSans',
       },
       modal: false,
       link: '/zodance-price',

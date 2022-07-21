@@ -4,10 +4,7 @@ const info = [
   {
     title: '定制微信小程序商城',
     funArr: [
-      {
-        subText: '商城风格定制',
-        isAccord: [0, 0, 1, 1],
-      },
+
       {
         subText: '商品管理',
         isAccord: [0, 0, 1, 1],
@@ -32,6 +29,10 @@ const info = [
         subText: '数据看板',
         isAccord: [0, 0, 1, 1],
       },
+      {
+        subText: '商城风格定制',
+        isAccord: [0, 0, 1, 1],
+      },
     ],
   },
   {
@@ -39,15 +40,15 @@ const info = [
     funArr: [
       {
         text: '品牌VI设计',
-        subText: '品牌标识LOGO',
+        subText: 'IP形象',
+        isAccord: [0, 0, 1, 1],
+      },
+      {
+        subText: '品牌标识Logo',
         isAccord: [0, 0, 1, 1],
       },
       {
         subText: '品牌标语Slogan',
-        isAccord: [0, 0, 1, 1],
-      },
-      {
-        subText: 'IP形象',
         isAccord: [0, 0, 1, 1],
       },
       {
@@ -67,12 +68,12 @@ const info = [
       },
       {
         text: '',
-        subText: '微信红包封面',
+        subText: '品牌表情包',
         isAccord: [0, 0, 1, 1],
       },
       {
         text: '',
-        subText: '品牌表情包',
+        subText: '微信红包封面',
         isAccord: [0, 0, 1, 1],
       },
     ],
@@ -95,12 +96,11 @@ const info = [
       },
       {
         text: '私域渠道构建',
-        subText: '微信公众',
-        isAccord: [1, 1, 1, 1],
+        subText: '小程序',
+        isAccord: [0, 0, 1, 1],
       },
       {
-        text: '',
-        subText: '微信视频号',
+        subText: '微信公众',
         isAccord: [1, 1, 1, 1],
       },
       {
@@ -110,8 +110,8 @@ const info = [
       },
       {
         text: '',
-        subText: '小程序',
-        isAccord: [0, 0, 1, 1],
+        subText: '微信视频号',
+        isAccord: [1, 1, 1, 1],
       },
     ],
   },
@@ -124,11 +124,11 @@ const info = [
         isAccord: [0, 0, 1, 1],
       },
       {
-        subText: '抖音/快手广告投放',
+        subText: '搜索引擎排名优化',
         isAccord: [0, 0, 1, 1],
       },
       {
-        subText: '搜索引擎排名优化',
+        subText: '抖音/快手广告投放',
         isAccord: [0, 0, 1, 1],
       },
       {
@@ -137,11 +137,11 @@ const info = [
       },
       {
         text: '公域导私域',
-        subText: '包裹卡导流',
+        subText: '短信导流',
         isAccord: [1, 1, 1, 1],
       },
       {
-        subText: '短信导流',
+        subText: '包裹卡导流',
         isAccord: [1, 1, 1, 1],
       },
       {
@@ -265,13 +265,14 @@ const info = [
         subText: '企微群发',
         isAccord: [1, 1, 1, 1],
       },
-      {
-        subText: '朋友圈种草',
-        isAccord: [1, 1, 1, 1],
-      },
+
       {
         subText: '直播种草',
         isAccord: [0, 0, 1, 1],
+      },
+      {
+        subText: '朋友圈种草',
+        isAccord: [1, 1, 1, 1],
       },
       {
         text: '转化活动',
