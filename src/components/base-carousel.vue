@@ -31,14 +31,12 @@ function handleToClickBtn(ismodal: boolean, link = '', modalInfo: ModalTypeInfo)
   curModalInfo.value = modalInfo
   modal.value && modal.value.setShowModal()
 }
-// const modalInfo = computed(() => {
 
-// })
-// TODO 图片 缩放
+// TODO 轮播图 autoplay
 </script>
 
 <template>
-  <div relative of-hidden absolute>
+  <div relative of-hidden>
     <n-carousel
       autoplay
     >
@@ -80,19 +78,6 @@ function handleToClickBtn(ismodal: boolean, link = '', modalInfo: ModalTypeInfo)
               </self-button>
             </div>
           </div>
-          <div
-            flex m="0 auto" mt-147px z-100
-            items-center
-            class="w-7/10" gap-44px
-          >
-            <template v-for="item in linkInfo" :key="item.title">
-              <base-bannerlink
-                :title="item.title"
-                :desc="item.desc"
-                :link="item.link"
-              />
-            </template>
-          </div>
         </div>
       </template>
 
@@ -111,6 +96,19 @@ function handleToClickBtn(ismodal: boolean, link = '', modalInfo: ModalTypeInfo)
       ref="modal"
       :modal-info="curModalInfo"
     />
+    <div
+      flex m="0 auto" mt-147px z-100
+      items-center class="w-7/10" gap-44px
+      absolute left="15%" bottom-28px
+    >
+      <template v-for="item in linkInfo" :key="item.title">
+        <base-bannerlink
+          :title="item.title"
+          :desc="item.desc"
+          :link="item.link"
+        />
+      </template>
+    </div>
   </div>
 </template>
 

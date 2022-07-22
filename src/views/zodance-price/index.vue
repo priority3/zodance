@@ -50,7 +50,7 @@ const info = {
     font: 400 30px "PingFang SC";
   }
   .price-all-box{
-    width: 80%;
+    width: 1080px;
     margin: 0 auto;
   }
 

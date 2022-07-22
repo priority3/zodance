@@ -16,7 +16,9 @@ function handleToShowModal() {
 </script>
 
 <template>
-  <div flex="~ col" w-full justify-center items-center>
+  <div
+    flex="~ col" w-full justify-center items-center
+  >
     <div
       flex="~ col" justify-center items-center gap-20px
       mt-90px w-full

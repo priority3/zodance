@@ -68,7 +68,6 @@ const bannerInfo = reactive<Array<BannerInfo>>([
       desc: '你的首席私域运营官',
       style: `font-size: 60px;
               font-weight: 700;
-              font-family: "PingFang SC";
               background-image:-webkit-linear-gradient(bottom,#7CBCFF,#005EBF); 
               -webkit-background-clip:text; 
               -webkit-text-fill-color:transparent; `,
