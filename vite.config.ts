@@ -3,7 +3,7 @@ import { configVitePlugin } from './config/plugin'
 import { wrapperEnv } from './config/utils'
 // https://vitejs.dev/config/
 
-export default defineConfig(({ command, mode }) => {
+export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd())
   const viteEnv = wrapperEnv(env)
   return {
