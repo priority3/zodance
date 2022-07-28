@@ -42,9 +42,7 @@ export function useStyle(options: StyleOptions) {
     }
   })
   function getVersionType(type: string) {
-    if (type === 'plus')
-      return versionMap[type]
-    const res = `运营${versionMap[type]}`
+    const res = type
     return res
   }
   const getTitleBoxWidth = computed(() => {

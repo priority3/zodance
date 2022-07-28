@@ -1,6 +1,6 @@
 <script setup lang='ts'>
 import { computed, ref } from 'vue'
-import { bgcMap, contentMap, priceMap } from '../../constants'
+import { bgcMap, contentMap, priceMap, versionMap } from '../../constants'
 import type { versionType } from '../../constants/type'
 import { isBorT, useStyle } from './_utils'
 const { title, type, isActive, contentInfo, freeCont } = defineProps<{
@@ -68,7 +68,7 @@ const modal = ref<MODAL | null>()
         <span
           m0
         >
-          {{ getVersionType(type) }}
+          {{ getVersionType(versionMap[type]) }}
         </span>
       </div>
       <span
@@ -268,7 +268,7 @@ const modal = ref<MODAL | null>()
       padding: 0;
       display: block;
       position: absolute;
-      top: -1px;
+      top: 0;
       left: -1px;
       display: flex;
       justify-content: center;

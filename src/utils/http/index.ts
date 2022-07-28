@@ -26,7 +26,7 @@ interface PRIRequestConfig<T, R> extends RequestConfig<PRIResponse<R>> {
 }
 
 const request = new Request({
-  baseURL: import.meta.env.BASE_URL,
+  baseURL: import.meta.env.VITE_BASE_URL,
   timeout: 1000 * 60 * 5,
   // 实列拦截
   interceptors: {
@@ -48,8 +48,7 @@ const request = new Request({
  */
 const PRIRequest = <D = any, T = any>(config: PRIRequestConfig<D, T>) => {
   const { method = 'GET' } = config
-  if (method === 'get' || method === 'GET')
-    config.params = config.data
+  if (method === 'get' || method === 'GET') config.params = config.data
 
   return request.request<PRIResponse<T>>(config)
 }
