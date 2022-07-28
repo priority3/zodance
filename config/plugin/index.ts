@@ -5,8 +5,8 @@ import { setupVuePlugin } from './vue'
 import { setupVueComponents } from './vue-components'
 import { setupConfigMock } from './mock'
 import { setupSvgBuilder } from './svgBuilder'
-
-export function configVitePlugin() {
+import { setupPluginHtml } from './html'
+export function configVitePlugin(viteEnv: ImportMetaEnv) {
   // TODO isbuild
   const vitePlugins: (Plugin | Plugin[])[] = [
     setupVuePlugin(),
@@ -15,6 +15,7 @@ export function configVitePlugin() {
     setupSvgBuilder(),
     // setupAutoimport(),
     setupUnoCSS(),
+    setupPluginHtml(viteEnv),
   ]
   return vitePlugins
 }

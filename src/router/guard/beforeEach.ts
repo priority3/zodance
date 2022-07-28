@@ -15,6 +15,7 @@ export function setupBeforeEachGuard(router: Router): void {
   })
   router.afterEach((to: RouteLocationNormalized, _: RouteLocationNormalized) => {
     NProgress.done()
-    document.title = (to.meta.title || '零一跃动') as string
+    const { VITE_GLOBAL_TITLE } = import.meta.env
+    document.title = (to.meta.title || VITE_GLOBAL_TITLE) as string
   })
 }

@@ -1,11 +1,10 @@
 export {}
-import type { Type } from 'naive-ui/es/button/src/interface'
 declare global{
   type Recordable<T = any> = Record<string, T> 
   interface ImportMetaEnv {
     VITE_BASE_URL: string 
     VITE_PORT: number 
-    VITE_API_BASE_URL: string 
+    VITE_GLOBAL_TITLE: string
   }
   // banner
   interface BannerInfoImg {
