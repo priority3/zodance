@@ -8,5 +8,9 @@ export function setupUnoCSS() {
       // 暂定
       presetIcons(),
     ],
+    shortcuts: {
+      fc: 'flex justify-center items-center',
+      fcc: 'flex flex-col justify-center items-center',
+    },
   })
 }

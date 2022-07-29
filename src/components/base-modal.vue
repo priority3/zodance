@@ -62,14 +62,17 @@ defineExpose({
 .img-container{
   color: rgba(29,33,41,1);
   font-weight: 700;
+  border-radius: 8px;
   font-family: "PingFang SC";
   background: rgba(255,255,255,1);
   box-shadow: 0 4px 20px 0px rgba(0,0,0,0.25);
+  span{
+    font-size: 22px;
+    font-weight: 500;
+  }
   p{
     font-size: 24px;
-  }
-  span{
-    font-size: 23px;
+    font-weight: 700;
   }
 }
 </style>

@@ -1,12 +1,15 @@
 // fade
 import type { Ref } from 'vue'
-import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+
 import { isArray } from '@/utils/is'
 // import { isArray } from '@/utils/is'
 
 type DomRef = Map<Ref<HTMLElement | HTMLElement[]>, string>
 const scrollTop = ref(0)
 const domRef = ref<DomRef>(new Map())
+// tip:全局放一个 ref 当追加show时 去computed 判断当前的值是否显示到了页面
+const isComputed = ref(false)
 
 function traversalDom(el: Ref<DomRef>) {
   if (domRef.value?.size) {
@@ -28,10 +31,14 @@ function useShow(dom: HTMLElement, type: string) {
   if (!dom)
     return
   const boxTop = dom.getBoundingClientRect().top
-  if (boxTop < scrollTop.value)
+  if (boxTop < scrollTop.value) {
     dom.classList.add(type)
-  else
+    isComputed.value = true
+  }
+  else {
     dom.classList.remove(type)
+    isComputed.value = false
+  }
 }
 function hasSetRefDom(dom: Ref, type: string) {
   let isExist = false
@@ -44,6 +51,7 @@ function hasSetRefDom(dom: Ref, type: string) {
   }
   !isExist && domRef.value.set(dom, type)
 }
+
 function throttle(func: Function, wait: number) {
   let previous = 0
   return function (this: any, ...args: any[]) {
@@ -58,13 +66,14 @@ function throttle(func: Function, wait: number) {
 // 单个页面上 多个组件 但是保证只需要一个滚动就可以了 所以需要在当前页面的根组件上挂载监听
 export function setupHandleScroll() {
   function handleScroll() {
-    scrollTop.value = (window.innerHeight / 5) * 4
+    scrollTop.value = (window.innerHeight / 5) * 4.5
     traversalDom(domRef as Ref<DomRef>)
   }
+  // 每次页面加载清楚掉上级页面监听的dom
+  domRef.value.clear()
   onMounted(() => {
     handleScroll()
     window.addEventListener('scroll', throttle(handleScroll, 100))
-    // domRef.value = new Map()
   })
   onBeforeUnmount(() => {
     window.removeEventListener('scroll', handleScroll)
@@ -72,7 +81,7 @@ export function setupHandleScroll() {
 }
 /**
  *
- * @param dom 需要添加的组件
+ * @param dom 需要添加的节点
  * @param type 类型
  */
 export function useAnimation(dom: Ref, type = 'show') {
@@ -81,5 +90,7 @@ export function useAnimation(dom: Ref, type = 'show') {
   return {
     // 手动响应滚动
     traversalDom,
+    // 是否到了页面显示区域，tip:数组dom不做是否显示 处理永远为false
+    isShow: !isArray(dom.value) && computed(() => isComputed.value && dom.value.classList.contains(type)),
   }
 }

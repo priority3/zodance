@@ -28,14 +28,14 @@ const { title, icon, contentInfo, isLine } = defineProps<{
     >
       <div
         v-for="{ subTitle, desc } in contentInfo" :key="subTitle"
-        mt-15px flex="~ col" items-center justify-start
+        mt-20px flex="~ col" items-center justify-start
       >
         <h2>
           {{ subTitle }}
         </h2>
         <div flex="~ col" items-center>
           <div v-for="item in desc" :key="item">
-            <p mt-10px>
+            <p mt-14px>
               {{ item }}
             </p>
           </div>
@@ -49,7 +49,6 @@ const { title, icon, contentInfo, isLine } = defineProps<{
 .card-container{
   font-weight: 400;
   font-family: "PingFang SC";
-
   h1{
     color: rgba(29,33,41,1);
     font-size: 20px;

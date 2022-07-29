@@ -25,14 +25,14 @@ function handleToShowModal() {
       </div>
       <div
         flex="~ col" justify-start items-cenert
-        mt-160px class="title-box" ml-100px
+        mt-160px class="title-box" ml-100px gap-10px
       >
         <h2>
           小零同学
         </h2>
         <h1>你的首席私域运营官</h1>
         <p mt-4px>
-          拥有一个小零，相当于拥有5个运营
+          3500元/月，持续陪伴，助力企业成功
         </p>
         <div mt-80px flex gap-20px>
           <self-button
@@ -49,7 +49,7 @@ function handleToShowModal() {
             }"
             @click="handleToShowModal"
           >
-            免费咨询
+            领取方案
           </self-button>
           <self-button
             :text-style="{
