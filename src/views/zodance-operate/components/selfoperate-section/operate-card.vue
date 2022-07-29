@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-const { title, icon, contentInfo, isLine, mgap } = defineProps<{
+const { title, icon, contentInfo, isLine, mgap, tmat } = defineProps<{
   title: string
   isLine: boolean
   icon: string
@@ -8,7 +8,13 @@ const { title, icon, contentInfo, isLine, mgap } = defineProps<{
     desc: string[]
   }[]
   mgap?: number
+  tmat?: number
 }>()
+function getTitleMargin(num: number) {
+  let res = 'margin-top:20px'
+  num && (res = `margin-top:${tmat}px`)
+  return res
+}
 </script>
 
 <template>
@@ -28,8 +34,8 @@ const { title, icon, contentInfo, isLine, mgap } = defineProps<{
       flex="~ col" items-center justify-start
     >
       <div
-        v-for="{ subTitle, desc } in contentInfo" :key="subTitle"
-        mt-20px flex="~ col" items-center justify-start
+        v-for="({ subTitle, desc }, index) in contentInfo" :key="subTitle"
+        :style="getTitleMargin(index)" flex="~ col" items-center justify-start
       >
         <h2>
           {{ subTitle }}
@@ -77,6 +83,7 @@ const { title, icon, contentInfo, isLine, mgap } = defineProps<{
     h2{
       color: rgba(30,34,48,1);
       font-size: 14px;
+      font-weight: 545;
     }
     p{
       color: rgba(134,144,156,1);
