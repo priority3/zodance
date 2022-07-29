@@ -43,7 +43,7 @@ function getCurIcon(num: number, icon: string, acicon: string) {
     <div of-hidden>
       <Transition name="slide-up" mode="out-in">
         <div :key="curImg">
-          <self-image :src="curImg" width="600px" />
+          <self-image :src="curImg" width="750px" />
         </div>
       </Transition>
     </div>

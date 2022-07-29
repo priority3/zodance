@@ -11,6 +11,7 @@ const info = [{
     subTitle: '营销素材',
     desc: ['营销海报', '品牌故事', '产品图册', '微信红包封面', '品牌表情包'],
   }],
+  mgap: 28,
 }, {
   title: '渠道构建',
   isLine: true,
@@ -22,6 +23,7 @@ const info = [{
     subTitle: '私域渠道',
     desc: ['社群', '小程序', '公众号', '视频号', '企业微信'],
   }],
+  mgap: 24,
 }, {
   title: '用户增长',
   isLine: true,
@@ -36,6 +38,7 @@ const info = [{
     subTitle: '裂变增长',
     desc: ['助力裂变', '抽奖裂变', '红包裂变', '游戏裂变', '任务裂变'],
   }],
+  mgap: 14,
 }, {
   title: '用户运营',
   isLine: true,
@@ -53,6 +56,7 @@ const info = [{
     subTitle: '朋友圈',
     desc: ['每日触达', '产品种草', '活动发布'],
   }],
+  mgap: 14,
 }, {
   title: '用户转化',
   isLine: true,
@@ -67,6 +71,7 @@ const info = [{
     subTitle: '用户转化',
     desc: ['新人购', '拼团购', '秒杀购', '满减购', '专属购'],
   }],
+  mgap: 14,
 }, {
   title: '用户管理',
   isLine: true,
@@ -78,6 +83,7 @@ const info = [{
     subTitle: '数据驱动',
     desc: ['数据提炼', '数据分析', '数据大屏', '数据驱动'],
   }],
+  mgap: 14,
 }]
 
 info.forEach((item) => {
@@ -97,10 +103,14 @@ info.forEach((item) => {
       mt-75px flex gap-22px
     >
       <div
-        v-for="{ title, isLine, icon, contentInfo } in info" :key="title"
+        v-for="({ title, isLine, icon, contentInfo, mgap }) in info" :key="title"
       >
         <operate-card
-          :title="title" :is-line="isLine" :icon="icon" :content-info="contentInfo"
+          :title="title"
+          :is-line="isLine"
+          :icon="icon"
+          :content-info="contentInfo"
+          :mgap="mgap"
         />
       </div>
     </div>

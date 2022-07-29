@@ -14,16 +14,16 @@ import tab42 from '@/assets/operate/tab42.png'
 import tab43 from '@/assets/operate/tab43.png'
 const titleInfo = [{
   text: '获客增长',
-  icon: '',
+  icon: 'tabtitleicon',
 }, {
   text: '留存促活',
-  icon: '',
+  icon: 'tabtitleicon',
 }, {
   text: '运营转化',
-  icon: '',
+  icon: 'tabtitleicon',
 }, {
   text: '数据分析',
-  icon: '',
+  icon: 'tabtitleicon',
 }]
 const tabspanel = [{
   'tab-name': '活动裂变',
@@ -64,54 +64,54 @@ const contentInfo = [{
   card: [{
     icon: 'tab2icon1',
     acicon: 'actab2icon1',
-    title: '门店导流',
-    desc: '定制门店导流活动，高效沉淀私域用户',
+    title: '私域搭建',
+    desc: '基于微信平台搭建私域用户留存矩阵/阵地',
   }, {
     icon: 'tab2icon2',
     acicon: 'actab2icon2',
-    title: '红包裂变',
-    desc: '分享越多，获得的红包越大，快速增长裂变',
+    title: '内容建设',
+    desc: '定制内容素材，提高用户品牌认知',
   }, {
     icon: 'tab2icon3',
     acicon: 'actab2icon3',
-    title: '活动裂变',
-    desc: '参与抽奖/助力拼团等裂变活动精准获客',
+    title: '互动促活',
+    desc: '通过社群/朋友圈/1对1互动提升用户活跃度',
   }],
   src: [tab21, tab22, tab23],
 }, {
   card: [{
     icon: 'tab3icon1',
     acicon: 'actab3icon1',
-    title: '门店导流',
-    desc: '定制门店导流活动，高效沉淀私域用户',
+    title: '日常运营',
+    desc: '通过节庆日海报、企业红包、早晚安等日常运营提升用户黏度',
   }, {
     icon: 'tab3icon2',
     acicon: 'actab3icon2',
-    title: '红包裂变',
-    desc: '分享越多，获得的红包越大，快速增长裂变',
+    title: 'IP号运营',
+    desc: '为打造IP影响力，通过IP号运营引导粉丝成交',
   }, {
     icon: 'tab3icon3',
     acicon: 'actab3icon3',
-    title: '活动裂变',
-    desc: '参与抽奖/助力拼团等裂变活动精准获客',
+    title: '活动运营',
+    desc: '通过新人福利/抽奖/拼团/秒杀等活动运营提升用户转化率',
   }],
   src: [tab31, tab32, tab33],
 }, {
   card: [{
     icon: 'tab4icon1',
     acicon: 'actab4icon1',
-    title: '门店导流',
-    desc: '定制门店导流活动，高效沉淀私域用户',
+    title: '用户标签',
+    desc: '支持分析多个渠道数据，帮助监测各渠道的活动效果',
   }, {
     icon: 'tab4icon2',
     acicon: 'actab4icon2',
-    title: '红包裂变',
-    desc: '分享越多，获得的红包越大，快速增长裂变',
+    title: '数据分析',
+    desc: '辅助运营者及时调整和优化运营策略',
   }, {
     icon: 'tab4icon3',
     acicon: 'actab4icon3',
-    title: '活动裂变',
-    desc: '参与抽奖/助力拼团等裂变活动精准获客',
+    title: '活动复盘',
+    desc: '判断活动的好坏情况，方便提炼可复用/可优化的点',
   }],
   src: [tab41, tab42, tab43],
 
@@ -135,10 +135,13 @@ function getTabActive(num: number) {
       flex="~ col" items-center justify-center
     >
       <h1>小零同学提供私域运营全链路解决方案</h1>
-      <div class="title-info" flex justify-center>
-        <template v-for="{ text, icon } in titleInfo" :key="text">
+      <div class="title-info" flex justify-center items-center>
+        <template v-for="({ text, icon }, index) in titleInfo" :key="text">
           <span>{{ text }}</span>
-          <self-svgicon :name="icon" />
+          <self-svgicon
+            v-if="index !== titleInfo.length - 1"
+            :name="icon" :style-name="{ width: '22px', height: '22px', margin: '0 10px' }"
+          />
         </template>
       </div>
     </div>

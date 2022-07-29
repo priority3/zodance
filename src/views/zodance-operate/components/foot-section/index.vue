@@ -23,7 +23,7 @@ function handleToShowModal() {
         flex="~ col" justify-center items-center
       >
         <h1
-          text-60px color="#FFFFFF"
+          text-60px color="#fff"
         >
           开始让小零同学助你高效运营
         </h1>

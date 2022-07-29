@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-const { title, icon, contentInfo, isLine } = defineProps<{
+const { title, icon, contentInfo, isLine, mgap } = defineProps<{
   title: string
   isLine: boolean
   icon: string
@@ -7,6 +7,7 @@ const { title, icon, contentInfo, isLine } = defineProps<{
     subTitle: string
     desc: string[]
   }[]
+  mgap?: number
 }>()
 </script>
 
@@ -35,7 +36,7 @@ const { title, icon, contentInfo, isLine } = defineProps<{
         </h2>
         <div flex="~ col" items-center>
           <div v-for="item in desc" :key="item">
-            <p mt-14px>
+            <p :style="{ 'margin-top': `${mgap}px` }">
               {{ item }}
             </p>
           </div>

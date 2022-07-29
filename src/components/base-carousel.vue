@@ -44,7 +44,6 @@ function handleToClickBtn(ismodal: boolean, link = '', modalInfo: ModalTypeInfo)
         <div
           class="carousel-item" of-hidden z-0
         >
-          <!-- TODO 加载 -->
           <div
             absolute z--100
             :style="{ top: `${image?.top}px`, left: `${image?.left}px`, right: `${image?.right}` }"

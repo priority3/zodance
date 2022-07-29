@@ -91,6 +91,7 @@ h1 {
     color: rgba(62,143,255,1);
     font-size: 60px;
     font-weight: 400;
+    font-family: 'YouSheBiaoTiHei';
   }
 }
 </style>
