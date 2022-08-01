@@ -10,6 +10,9 @@
 </template>
 
 <style lang="scss">
+// html {
+//   scroll-behavior: smooth;
+// }
 body{
   min-width: 1440px;
 }

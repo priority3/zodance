@@ -43,7 +43,8 @@ const modal = ref<MODAL | null>(null)
     />
     <self-button
       type="primary"
-      style="margin-top: 40px;"
+      mt-40px w-224px h-50px rounded-4px text-24px
+      style="background: linear-gradient(180deg, rgba(113,173,255,1) 0%, rgba(62,143,255,1) 100%)"
       @click="modal && modal.setShowModal()"
     >
       立即咨询

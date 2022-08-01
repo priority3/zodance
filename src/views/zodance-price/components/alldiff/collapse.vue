@@ -418,7 +418,7 @@ const info = [
 :deep(.n-collapse-item__header){
   height: 40px;
   box-sizing: border-box;
-  background: rgba(247,249,255,1);
+  background: rgba(243,252,255,1);
   box-shadow: 0 4px 10px 0 rgba(21,76,139,0.1);
   padding: 6px 0 !important;
   border-radius: 8px;

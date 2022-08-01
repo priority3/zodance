@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import { priceMap, versionMap } from '../../constants'
 import collapse from './collapse.vue'
+import { scrollToTop } from '@/utils'
 const typeInfo = computed(() => Object.keys(versionMap))
 function getVersionType(type: string) {
   let res = '运营'
@@ -17,10 +18,10 @@ function handleToShowModal() {
 
 <template>
   <div
-    flex="~ col" w-full justify-center items-center
+    fcc w-full
   >
     <div
-      flex="~ col" justify-center items-center gap-20px
+      fcc gap-20px
       mt-90px w-full
     >
       <div class="all-title">
@@ -34,7 +35,7 @@ function handleToShowModal() {
         flex
       >
         <div
-          flex-none flex justify-center items-center
+          flex-none fc
           class="service-cont"
         >
           服务内容
@@ -65,15 +66,24 @@ function handleToShowModal() {
         <collapse />
       </div>
     </div>
-    <self-button
-      type="small"
-      style="height: 48px;min-width:224px;width:15%;"
-      :text-style="{ font: `500 24px 'OPPSSans'` }"
-      mt-100px
-      @click="handleToShowModal"
-    >
-      立即咨询
-    </self-button>
+    <div mt-100px fc gap-32px>
+      <self-button
+        type="small"
+        style="background: linear-gradient(45deg, rgba(53,160,237,1) 0%, rgba(68,194,229,1) 100%);"
+        h-48px w-224px rounded-4px
+        :text-style="{ font: `500 24px 'OPPSSans'` }"
+        @click="handleToShowModal"
+      >
+        立即咨询
+      </self-button>
+      <self-button
+        h-48px w-224px rounded-4px
+        :text-style="{ font: `500 24px 'OPPSSans'`, color: '#4291C5' }"
+        @click="scrollToTop"
+      >
+        回到顶部
+      </self-button>
+    </div>
     <base-modal
       ref="modal"
     />
@@ -82,14 +92,14 @@ function handleToShowModal() {
 
 <style scoped lang='scss'>
 .all-title{
-  color: rgba(36,95,167,1);
+  color: #45A7E0;
   font: 700 36px "OPPOSans";
 }
 .all-arrow-down{
-  color: rgba(36,95,167,1);
+  color: #45A7E0;
 }
 .diff-cont-title{
-  background: rgba(233,239,255,1);
+  background: #DEF7FF;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   height: 106px;
   width: 100%;
@@ -105,7 +115,7 @@ function handleToShowModal() {
     // min-width: 160px;
     width: 19%;
     &:nth-child(even){
-    background: rgba(247,249,255,1);
+    background: #F3FCFF;
     }
     div:nth-child(1){
       color: rgba(30,34,48,1);
@@ -116,8 +126,5 @@ function handleToShowModal() {
       font: 700 20px "PingFang SC";
     }
   }
-  // .servic-cont-info:nth-child(even){
-  //   background: rgba(247,249,255,1);
-  // }
 }
 </style>

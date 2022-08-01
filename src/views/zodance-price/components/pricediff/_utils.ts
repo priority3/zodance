@@ -67,11 +67,6 @@ export function useStyle(options: StyleOptions) {
 
     return res
   })
-  const getBorderTopColor = computed(() => {
-    if (!isActive)
-      return ''
-    return isTop.value ? '0' : '5px rgba(0,97,207,1) solid'
-  })
   const getTitleHeight = (() => {
     let res = '220px'
     if (type === 'major')
@@ -87,7 +82,7 @@ export function useStyle(options: StyleOptions) {
     getinfoPara,
     getTitlePara,
     getTitleHeight,
-    getBorderTopColor,
+    // getBorderTopColor,
   }
 }
 
@@ -96,8 +91,8 @@ export const isBorT = reactive({
   isBottom: false,
 })
 let scrollTop = 0
-let containerBottom = 0
-let containerTop = 0
+let containerBottom = 0 // 310
+let containerTop = 0 // 2818
 function handleScroll() {
   scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
   isBorT.isTop = scrollTop > containerTop
@@ -105,9 +100,10 @@ function handleScroll() {
 }
 export function setupHandleScroll(boxContainer: Ref<HTMLElement | null>) {
   onMounted(() => {
+    containerTop = boxContainer.value?.offsetTop || 0
+    containerBottom = (boxContainer.value?.offsetHeight || 200) - 200
+    handleScroll()
     window.addEventListener('scroll', handleScroll)
-    containerTop = boxContainer.value?.getBoundingClientRect().top || 0
-    containerBottom = (boxContainer.value?.getBoundingClientRect().bottom || 500) - 500
   })
   onUnmounted(() => {
     window.removeEventListener('scroll', handleScroll)

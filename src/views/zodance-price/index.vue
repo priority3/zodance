@@ -1,15 +1,11 @@
 <script setup lang='ts'>
 import allDiff from './components/alldiff/index.vue'
 import priceDiff from './components/pricediff/index.vue'
-
-// import { getTestApi } from '@/api'
+import priceLogo from '@/assets/price/price-logo.png'
 const info = {
   title: '专业的数字化团队服务',
   subTitle: '一个普通员工的薪资就能拥有整个数字化运营团队',
 }
-// getTestApi().then((res) => {
-//   console.log(res)
-// })
 </script>
 
 <template>
@@ -17,9 +13,13 @@ const info = {
   <div class="price-container">
     <div
       class="price-title-box"
-      flex="~ col" justify-center items-center
-      mt-48px
+      fcc w-full
+      mt-80px relative
     >
+      <self-image
+        :src="priceLogo"
+        absolute left-60px
+      />
       <h1 m0 class="title-linear">
         {{ info.title }}
       </h1>
@@ -35,15 +35,31 @@ const info = {
       <all-diff />
     </div>
   </div>
-
   <base-footer mt-100px />
 </template>
 
 <style scoped lang='scss'>
 .price-container{
   margin: 0 auto;
+  width: 1440px;
+  .price-title-box {
+    &::after{
+      content: "";
+      position: absolute;
+      right: 19px;
+      top: 100px;
+      width: 294px;
+      height: 294px;
+      border-radius: 100%;
+      background: linear-gradient(201.1deg, rgba(237,251,255,1) 0%, rgba(235,250,255,1) 100%);
+    }
+  }
   h1{
-    font: 400 80px "YouSheBiaoTiHei";
+    font: 400 68px "PingFang SC";
+    background-image:-webkit-linear-gradient(right,#7CBCFF,#005EBF);
+    background-clip:text;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
   }
   h2{
     color: rgba(134,144,156,1);

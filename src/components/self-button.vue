@@ -28,7 +28,7 @@ const textType = {
 
 <template>
   <button
-    w-240px h-56px cursor-pointer
+    cursor-pointer
     flex justify-center items-center
     border="~  0"
 

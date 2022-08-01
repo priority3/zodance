@@ -334,7 +334,8 @@ setupHandleScroll(container)
     </div>
     <self-button
       type="small"
-      style="height: 48px;min-width:224px;width:15%;"
+      h-48px rounded-4px
+      style="min-width:224px;background: linear-gradient(45deg, rgba(53,160,237,1) 0%, rgba(68,194,229,1) 100%);"
       :text-style="{ font: `500 24px 'OPPSSans'` }"
       mt-110px
       @click="modal && modal.setShowModal()"

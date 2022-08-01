@@ -66,7 +66,7 @@ function throttle(func: Function, wait: number) {
 // 单个页面上 多个组件 但是保证只需要一个滚动就可以了 所以需要在当前页面的根组件上挂载监听
 export function setupHandleScroll() {
   function handleScroll() {
-    scrollTop.value = (window.innerHeight / 5) * 4.5
+    scrollTop.value = (window.innerHeight / 5) * 4.8
     traversalDom(domRef as Ref<DomRef>)
   }
   // 每次页面加载清楚掉上级页面监听的dom

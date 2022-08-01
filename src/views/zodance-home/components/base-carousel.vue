@@ -1,6 +1,7 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import baseBannerlink from './base-bannerlink.vue'
 import { ModalDefault } from '@/enums/modal'
 const { bannerInfo } = defineProps<{
   bannerInfo: Array<BannerInfo>
