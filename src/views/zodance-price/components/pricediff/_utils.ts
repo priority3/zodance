@@ -1,5 +1,5 @@
 import type { Ref } from 'vue'
-import { computed, onMounted, onUnmounted, reactive } from 'vue'
+import { computed, onMounted, onUnmounted, reactive, ref } from 'vue'
 
 import type { versionType } from '../../constants/type'
 import { versionMap } from '../../constants/index'
@@ -93,19 +93,29 @@ export const isBorT = reactive({
 let scrollTop = 0
 let containerBottom = 0 // 310
 let containerTop = 0 // 2818
+const headerContainer = ref<HTMLElement | null>(null)
 function handleScroll() {
   scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
   isBorT.isTop = scrollTop > containerTop
   isBorT.isBottom = scrollTop >= containerBottom
+  // 在显示区间
+  if (~~isBorT.isBottom ^ ~~isBorT.isTop)
+    headerContainer.value?.classList.add('display-none')
+  else
+    headerContainer.value?.classList.remove('display-none')
 }
-export function setupHandleScroll(boxContainer: Ref<HTMLElement | null>) {
+export function setupHandleScroll(boxContainer: Ref<HTMLElement | null>, headerDom: Ref<HTMLElement | null>) {
   onMounted(() => {
+    headerContainer.value = headerDom.value
     containerTop = boxContainer.value?.offsetTop || 0
-    containerBottom = (boxContainer.value?.offsetHeight || 200) - 200
+    containerBottom = (boxContainer.value?.offsetHeight || 500) - 500
     handleScroll()
     window.addEventListener('scroll', handleScroll)
   })
   onUnmounted(() => {
     window.removeEventListener('scroll', handleScroll)
   })
+  return {
+    isBorT,
+  }
 }

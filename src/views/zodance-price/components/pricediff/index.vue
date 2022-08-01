@@ -1,7 +1,6 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
 import common from './common.vue'
-import { setupHandleScroll } from './_utils'
 const info = [
   {
     title: '小零同学联合运营',
@@ -306,16 +305,14 @@ info.forEach((item) => {
   })
 })
 const modal = ref<MODAL | null>(null)
-const container = ref<HTMLElement | null>(null)
-setupHandleScroll(container)
 </script>
 
 <template>
   <div
-    flex="~ col" items-center gap-30px flex-wrap w-full class="price-container"
+    fcc gap-30px flex-wrap w-full class="price-container"
   >
     <div
-      ref="container" class="w-9/10" my-0 mx-auto
+      class="w-9/10" my-0 mx-auto
       flex justify-around flex-wrap
     >
       <template

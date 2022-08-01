@@ -1,11 +1,9 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
 import baseBannerlink from './base-bannerlink.vue'
-import { ModalDefault } from '@/enums/modal'
-const { bannerInfo } = defineProps<{
-  bannerInfo: Array<BannerInfo>
-}>()
+import { ModalDefault, ModalXiaoLing } from '@/enums/modal'
+import banner1 from '@/assets/home/banner1.png'
+import banner2 from '@/assets/home/banner2.png'
 const linkInfo = [
   {
     title: '零一商城',
@@ -21,66 +19,57 @@ const linkInfo = [
     link: '/zodance-saas',
   },
 ]
+const bannertHrefMap = {
+  0: ModalDefault,
+  1: ModalXiaoLing,
+}
 const curModalInfo = ref<ModalTypeInfo>(ModalDefault)
 const modal = ref<MODAL | null>(null)
-const router = useRouter()
-function handleToClickBtn(ismodal: boolean, link = '', modalInfo: ModalTypeInfo) {
-  if (!ismodal) {
-    router.push(link)
-    return
-  }
-  curModalInfo.value = modalInfo
+function handleToClickBtn() {
   modal.value && modal.value.setShowModal()
 }
-
+function handleToGetCur(curInd: number) {
+  curModalInfo.value = bannertHrefMap[curInd]
+}
 // TODO 轮播图 autoplay
 </script>
 
 <template>
-  <div relative of-hidden>
+  <div relative of-hidden w-full bg="#FBFBFD">
     <n-carousel
       autoplay
+      @update:current-index="handleToGetCur"
     >
-      <template v-for="{ image, title, subTitle, button } in bannerInfo" :key="image.url">
-        <div
-          class="carousel-item" of-hidden z-0
-        >
-          <div
-            absolute z--100
-            :style="{ top: `${image?.top}px`, left: `${image?.left}px`, right: `${image?.right}` }"
-          >
-            <n-image
-              preview-disabled
-              :src="image.url"
-              width="573"
-            />
-          </div>
-
-          <div class="carousel-content" z-100>
-            <h1 m0 :style="title.style">
-              {{ title.desc }}
-            </h1>
-            <div :style="subTitle.style">
-              {{ subTitle.desc }}
-            </div>
-            <div
-
-              flex gap-20px
-            >
-              <self-button
-                v-for="btn in button" :key="btn.text"
-                :type="btn?.type"
-                :style="btn?.style"
-                :text-style="btn?.textStyle"
-                @click="handleToClickBtn(btn.modal as boolean, btn.link, btn.modalInfo as ModalTypeInfo)"
-              >
-                {{ btn?.text || '了解更多' }}
-              </self-button>
-            </div>
-          </div>
+      <div
+        class="first-banner banner" flex="~ col" items-center
+      >
+        <div fc gap-32px text-48px font-500>
+          <span>中小企业一站式</span>
+          <span>数字化升级服务商</span>
         </div>
-      </template>
+        <p text="#154C8B 24px" font-500 mt-36px>
+          全场景SaaS + 私域联合运营，助力企业成功
+        </p>
 
+        <div mt-150px>
+          <self-image
+            :src="banner1"
+            width="906px"
+          />
+        </div>
+        <div
+          class="dou-color" absolute top="50%" left="50%"
+          w-450px h-200px z--1000 translate-x="-50%"
+        />
+      </div>
+      <div class="second-banner banner" flex="~ col" items-center>
+        <h1>你的首席私域运营官</h1>
+        <div mt-183px>
+          <self-image
+            :src="banner2"
+          />
+        </div>
+      </div>
       <template #dots="{ total, currentIndex, to }">
         <ul class="custom-dots">
           <li
@@ -96,10 +85,10 @@ function handleToClickBtn(ismodal: boolean, link = '', modalInfo: ModalTypeInfo)
       ref="modal"
       :modal-info="curModalInfo"
     />
+    <!-- banner link -->
     <div
-      flex m="0 auto" mt-147px z-100
-      items-center class="w-7/10" gap-44px
-      absolute left="15%" bottom-28px
+      z-100 gap-44px w-full
+      absolute bottom-20px fc
     >
       <template v-for="item in linkInfo" :key="item.title">
         <base-bannerlink
@@ -109,22 +98,92 @@ function handleToClickBtn(ismodal: boolean, link = '', modalInfo: ModalTypeInfo)
         />
       </template>
     </div>
+    <!-- button -->
+    <div fc gap-20px mt-32px absolute top-300px left="50%" translate-x="-50%">
+      <self-button
+        class="banner-btn1 btn"
+        @click="handleToClickBtn()"
+      >
+        免费咨询
+      </self-button>
+      <self-button
+        class="banner-btn2 btn"
+        @click="$router.push('/zodance-price')"
+      >
+        查看价格
+      </self-button>
+    </div>
   </div>
 </template>
 
 <style scoped lang='scss'>
-.carousel-item {
-  width: 100%;
-  height: 760px;
-  object-fit: cover;
-  background: rgba(244,253,255,1);
-  position: relative;
-  img{
-    max-width: 50%;
-    max-height: 100%;
+.banner{
+  height: 1106px;
+  width: 1440px;
+  padding-top: 140px;
+  margin: 0 auto;
+}
+.first-banner{
+  background: url("../../../assets/home/banner1bg.png") no-repeat ;
+  background-position: 50% 70%;
+  .dou-color {
+    background: linear-gradient(to right,rgba(173,0,254,1),rgba(0,224,238,1));
+    filter: blur(360px);
   }
 }
-
+.second-banner{
+  background: url('../../../assets/home/banner2-middle.png') no-repeat ;
+  background-position: 50% 87%;
+  position: relative;
+  &::before {
+    content: "";
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top: 40%;
+    left: 5%;
+    z-index: -1;
+    background: url("../../../assets/home/banner2-left.png");
+  }
+  &::after {
+    content: "";
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top: 30%;
+    right: 15%;
+    background: url("../../../assets/home/banner2-right.png");
+  }
+  h1 {
+    font-size: 60px;
+    font-weight: 700;
+    background-image:-webkit-linear-gradient(bottom,#7CBCFF,#005EBF);
+    background-clip:text;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+}
+.btn {
+    width: 168px;
+    height: 36px;
+    border-radius: 5px;
+    opacity: 1;
+  }
+  .banner-btn1{
+    background: linear-gradient(225deg, rgba(138,180,227,1) 0%, rgba(87,142,204,1) 100%);
+    box-shadow: 0 0px 10px 0px rgba(0,123,255,0), 0px 0px 9px 0px rgba(0,123,255,0.01), 0px 0px 8px 0px rgba(0,123,255,0.03), 0px 0px 6px 0px rgba(0,123,255,0.04), 0px 0px 3px 0px rgba(0,123,255,0.05), 0px 0px 0px 0px rgba(0,123,255,0.05);
+    color: rgba(255,255,255,1) !important;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .banner-btn2{
+    border: 1px solid rgba(237,237,237,1);
+    background: rgba(255,255,255,1);
+    box-shadow: 0 0px 10px 0px rgba(0,123,255,0), 0px 0px 9px 0px rgba(0,123,255,0.01), 0px 0px 8px 0px rgba(0,123,255,0.03), 0px 0px 6px 0px rgba(0,123,255,0.04), 0px 0px 3px 0px rgba(0,123,255,0.05), 0px 0px 0px 0px rgba(0,123,255,0.05);
+    color: rgba(29,33,41,1);
+    font-size: 18px;
+    font-weight: 400;
+  }
 .custom-dots {
   z-index: 100;
   display: flex;
@@ -132,8 +191,9 @@ function handleToClickBtn(ismodal: boolean, link = '', modalInfo: ModalTypeInfo)
   // width: 80%;
   // margin: 0 auto;
   position: absolute;
-  left: 15%;
-  bottom: 219px;
+  bottom: 200px;
+  left: 50%;
+  transform: translateX(-50%);
   li {
     display: inline-block;
     width: 60px;

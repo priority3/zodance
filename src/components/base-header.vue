@@ -75,8 +75,10 @@ function getisAvtive({ path }) {
 <style scoped lang="scss">
 .header-container{
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.1);
-  position: relative;
-  z-index: 100;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  backdrop-filter: saturate(150%) blur(20px);
 }
 .header-box{
   font: 400 16px "PingFang SC";

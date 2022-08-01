@@ -1,20 +1,27 @@
 <script setup lang='ts'>
+import { ref } from 'vue'
 import allDiff from './components/alldiff/index.vue'
 import priceDiff from './components/pricediff/index.vue'
+import { setupHandleScroll } from './components/pricediff/_utils'
 import priceLogo from '@/assets/price/price-logo.png'
 const info = {
   title: '专业的数字化团队服务',
   subTitle: '一个普通员工的薪资就能拥有整个数字化运营团队',
 }
+const headerContainer = ref<HTMLElement | null>(null)
+const priceContainer = ref<HTMLElement | null>(null)
+setupHandleScroll(priceContainer, headerContainer)
 </script>
 
 <template>
-  <base-header />
+  <div ref="headerContainer">
+    <base-header />
+  </div>
   <div class="price-container">
     <div
       class="price-title-box"
-      fcc w-full
-      mt-80px relative
+      fcc w-full pb-58px pt-120px
+      relative
     >
       <self-image
         :src="priceLogo"
@@ -28,7 +35,7 @@ const info = {
       </h2>
     </div>
 
-    <div class="price-diff-box" mt-58px>
+    <div ref="priceContainer" class="price-diff-box">
       <price-diff />
     </div>
     <div class="price-all-box">
@@ -47,7 +54,7 @@ const info = {
       content: "";
       position: absolute;
       right: 19px;
-      top: 100px;
+      top: 180px;
       width: 294px;
       height: 294px;
       border-radius: 100%;
