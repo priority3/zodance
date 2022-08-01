@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import { bgcMap, contentMap, priceMap, versionMap } from '../../constants'
 import type { versionType } from '../../constants/type'
 import { isBorT, useStyle } from './_utils'
+import { ModalXiaoLing } from '@/enums/modal'
 const { title, type, isActive, contentInfo, freeCont } = defineProps<{
   title: string
   type: versionType
@@ -149,6 +150,7 @@ const modal = ref<MODAL | null>()
   </div>
   <base-modal
     ref="modal"
+    :modal-info="ModalXiaoLing"
   />
 </template>
 

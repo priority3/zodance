@@ -1,6 +1,7 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
 import advanceCard from './advance-card.vue'
+import { modalSass } from '@/enums/modal'
 const info = [{
   icon: 'saas-advance1',
   desc: '前期沟通',
@@ -69,7 +70,7 @@ function handleToshowModal() {
     </self-button>
     <base-modal
       ref="modal"
-      title="HI,我是你的专属SaaS顾问"
+      :modal-info="modalSass"
     />
   </div>
 </template>
