@@ -9,7 +9,7 @@ import baseCarousel from './components/base-carousel.vue'
 import { setupHandleScroll } from '@/hooks/useAnimation'
 import banner1 from '@/assets/home/banner1.png'
 import banner2 from '@/assets/home/xiaoling-logo.png'
-import { ModalDefault, ModalXiaoLing } from '@/enums/modal'
+import { HomeMall, ModalXiaoLing } from '@/enums/modal'
 const bannerInfo = reactive<Array<BannerInfo>>([
   {
     image: {
@@ -49,7 +49,7 @@ const bannerInfo = reactive<Array<BannerInfo>>([
         'font-weight': '500',
       },
       modal: true,
-      modalInfo: ModalDefault,
+      modalInfo: HomeMall,
     }],
   },
   {
