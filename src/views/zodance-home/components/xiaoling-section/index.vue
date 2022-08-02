@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import card from './card.vue'
 import { useAnimation } from '@/hooks/useAnimation'
 import xiaolingSection from '@/assets/home/xiaoling-section.png'
-import xiaolingSection2 from '@/assets/home/xiaoling-section2.png'
+import xiaolingBgc from '@/assets/home/home-xiaolingbgc.svg'
 const leftInfo = {
   title: '销售数字化',
   subTitle: '帮助企业低成本实现销售数字化',
@@ -35,7 +35,7 @@ const cardInfo = [{
     desc: ['知识分享', '互动游戏', '产品推介'],
   }, {
     subTitle: '活动运营',
-    desc: ['增长活动运营', '促活活动运营', '转化活动运营'],
+    desc: ['增长活动', '促活活动', '转化活动'],
   }],
 }, {
   icon: 'xiaoling-card3',
@@ -53,6 +53,11 @@ const cardInfo = [{
     desc: ['用户标签', '用户画像', '精准营销'],
   }],
 }]
+cardInfo.forEach((item) => {
+  item.contentInfo.forEach((it) => {
+    it.desc.sort((a, b) => a.length - b.length)
+  })
+})
 function getWidth(num: number) {
   let res = ''
   switch (num) {
@@ -113,8 +118,20 @@ useAnimation(cards)
       flex="~ col" items-center justify-center
     >
       <div
+        absolute z--100
+        top-190px
+        left-380px
+      >
+        <n-image
+          preview-disabled
+          :src="xiaolingBgc"
+          width="500"
+          height="500"
+        />
+      </div>
+      <div
         v-for="({ icon, contentInfo }, index) in cardInfo" :key="icon"
-        ref="cards" class="show-init"
+        ref="cards" class="show-init" :class="`show-delay-${index}`"
       >
         <card
           :icon="icon"
@@ -125,12 +142,14 @@ useAnimation(cards)
       </div>
       <div
         absolute z--100
-        bottom--80px
+        bottom--20px
         right-350px
       >
         <n-image
           preview-disabled
-          :src="xiaolingSection2"
+          :src="xiaolingBgc"
+          width="500"
+          height="500"
         />
       </div>
     </div>
@@ -153,20 +172,6 @@ useAnimation(cards)
   h3{
     color: rgba(134,144,156,1);
     font: 400 24px "Noto Sans SC";
-  }
-}
-.card-box{
-  position: relative;
-  &::after{
-    content: "";
-    position:absolute;
-    left: 200px;
-    top: -40px;
-    border-radius: 100%;
-    width: 537px;
-    height: 537px;
-    background: linear-gradient(155.7deg, rgba(238,251,255,1) 0%, rgba(218,246,255,1) 100%);
-    z-index: -100;
   }
 }
 </style>

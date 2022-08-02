@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
 import baseBannerlink from './base-bannerlink.vue'
-import { ModalDefault, ModalXiaoLing } from '@/enums/modal'
+import { HomeMall, ModalXiaoLing } from '@/enums/modal'
 import banner1 from '@/assets/home/banner1.png'
 import banner2 from '@/assets/home/banner2.png'
 const linkInfo = [
@@ -20,16 +20,21 @@ const linkInfo = [
   },
 ]
 const bannertHrefMap = {
-  0: ModalDefault,
+  0: HomeMall,
   1: ModalXiaoLing,
 }
-const curModalInfo = ref<ModalTypeInfo>(ModalDefault)
+const curModalInfo = ref<ModalTypeInfo>(HomeMall)
 const modal = ref<MODAL | null>(null)
+const isAutoPlay = ref(true)
 function handleToClickBtn() {
+  isAutoPlay.value = false
   modal.value && modal.value.setShowModal()
 }
 function handleToGetCur(curInd: number) {
   curModalInfo.value = bannertHrefMap[curInd]
+}
+function afterLeave() {
+  isAutoPlay.value = true
 }
 // TODO 轮播图 autoplay
 </script>
@@ -37,7 +42,8 @@ function handleToGetCur(curInd: number) {
 <template>
   <div relative of-hidden w-full bg="#FBFBFD">
     <n-carousel
-      autoplay
+      :autoplay="isAutoPlay"
+      :interval="7000"
       @update:current-index="handleToGetCur"
     >
       <div
@@ -81,10 +87,6 @@ function handleToGetCur(curInd: number) {
         </ul>
       </template>
     </n-carousel>
-    <base-modal
-      ref="modal"
-      :modal-info="curModalInfo"
-    />
     <!-- banner link -->
     <div
       z-100 gap-44px w-full
@@ -102,6 +104,8 @@ function handleToGetCur(curInd: number) {
     <div fc gap-20px mt-32px absolute top-300px left="50%" translate-x="-50%">
       <self-button
         class="banner-btn1 btn"
+        :text-style="{ color: '#fff', fontSize: '18px' }"
+        style="border:0"
         @click="handleToClickBtn()"
       >
         免费咨询
@@ -113,6 +117,11 @@ function handleToGetCur(curInd: number) {
         查看价格
       </self-button>
     </div>
+    <base-modal
+      ref="modal"
+      :modal-info="curModalInfo"
+      :after-leave="afterLeave"
+    />
   </div>
 </template>
 

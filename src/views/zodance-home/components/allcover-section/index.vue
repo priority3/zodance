@@ -5,12 +5,12 @@ import allcoverCard2 from '@/assets/home/allcover-card2.png'
 
 <template>
   <div
-    flex="~ col" items-center justify-center mt-140px w-full class="allcover-container"
+    flex="~ col" items-center justify-center w-full class="allcover-container"
   >
     <h1 class="title-linear">
       经营智能化
     </h1>
-    <p mt-10px>
+    <p mt-24px>
       数据驱动经营，助力企业成为面向未来的智能商业体
     </p>
     <div class="card" mt-45px>
@@ -40,7 +40,7 @@ h1{
 }
 p{
   color: rgba(134,144,156,1);
-  font: 400 24px "Noto Sans SC";
+  font: 500 24px "Noto Sans SC";
 }
 .card{
   display: flex;

@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import { priceMap, versionMap } from '../../constants'
 import collapse from './collapse.vue'
+import { ModalXiaoLing } from '@/enums/modal'
 import { scrollToTop } from '@/utils'
 const typeInfo = computed(() => Object.keys(versionMap))
 function getVersionType(type: string) {
@@ -53,7 +54,7 @@ function handleToShowModal() {
             </div>
             <self-button
               type="small"
-              style="width:60%;height:28px;border-radius:0"
+              style="width:60%;height:28px;border-radius:4px;backgroundColor: #39A9EA;"
               mt-14px
               @click="handleToShowModal"
             >
@@ -86,6 +87,7 @@ function handleToShowModal() {
     </div>
     <base-modal
       ref="modal"
+      :modal-info="ModalXiaoLing"
     />
   </div>
 </template>

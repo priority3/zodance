@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import selfTab from './self-tab.vue'
 import { useAnimation } from '@/hooks/useAnimation'
-const title = '全环节覆盖，实现经营数字化'
 const togetherIcon = [{
   icon: 'wechat-icon',
   text: '客户关系管理',
@@ -31,8 +30,11 @@ function getKingClass(num: number) {
     flex="~ col" items-center w-full
   >
     <h1 class="title-linear">
-      {{ title }}
+      经营数字化
     </h1>
+    <h2 mt-24px>
+      打通企业经营全场景，低成本实现企业全面数字化
+    </h2>
     <div
       class="digit-box" mt-60px
       flex gap-125px
@@ -40,12 +42,12 @@ function getKingClass(num: number) {
       <div
         w-580px h-546px
       >
-        <h2>协同办公</h2>
+        <h3>协同办公</h3>
         <p>
           主流协同工具二次开发
         </p>
         <div
-          flex items-center justify-center gap-50px mt-32px
+          flex items-center justify-center gap-50px
         >
           <div
             v-for="({ icon, text }, index) in togetherIcon" :key="icon"
@@ -58,9 +60,9 @@ function getKingClass(num: number) {
             <span>{{ text }}</span>
           </div>
         </div>
-        <h2 mt-40px>
+        <h3 mt-40px>
           ERP
-        </h2>
+        </h3>
         <p>打通企业现有ERP系统</p>
         <div
           flex items-center justify-center gap-100px w-full
@@ -94,14 +96,18 @@ function getKingClass(num: number) {
 <style scoped lang='scss'>
 .digit-container{
   h1{
-    font: 700 48px "PingFang SC";
+    font: 700 64px "PingFang SC";
+  }
+  h2{
+    font: 500 24px "OPPOSans";
+    color: rgba(134,144,156,1);
   }
 }
 .digit-box {
   color: rgba(29,33,41,1);
   font-weight: 400;
   font-family: "PingFang SC";
-  h2{
+  h3{
     font-size: 28px;
     text-align: center;
   }

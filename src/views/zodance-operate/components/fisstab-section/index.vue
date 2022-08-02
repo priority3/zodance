@@ -26,7 +26,7 @@ const titleInfo = [{
   icon: 'tabtitleicon',
 }]
 const tabspanel = [{
-  'tab-name': '活动裂变',
+  'tab-name': '获客增长',
   'tab-icon': 'tab-icon1',
   'tab-acicon': 'actab-icon1',
 }, {

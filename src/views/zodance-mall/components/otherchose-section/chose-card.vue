@@ -1,5 +1,6 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
+import { ModalMall } from '@/enums/modal'
 const { title, subTitle, content, price, desc } = defineProps<{
   title: string
   subTitle: string
@@ -46,7 +47,7 @@ const modal = ref<MODAL | null>()
       >
         立即咨询
       </self-button>
-      <base-modal ref="modal" />
+      <base-modal ref="modal" :modal-info="ModalMall" />
     </div>
   </div>
 </template>
