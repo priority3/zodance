@@ -5,7 +5,7 @@ import allcoverCard2 from '@/assets/home/allcover-card2.png'
 
 <template>
   <div
-    flex="~ col" items-center justify-center w-full class="allcover-container"
+    fcc h-870px w-full class="allcover-container"
   >
     <h1 class="title-linear">
       经营智能化
@@ -34,9 +34,10 @@ import allcoverCard2 from '@/assets/home/allcover-card2.png'
 .allcover-container{
   background: url("/src/assets/home/allcover-bgc.png") no-repeat center;
   padding: 50px 0;
+  box-sizing: border-box;
 }
 h1{
-  font: 700 48px "PingFang SC";
+  font: 700 64px "PingFang SC";
 }
 p{
   color: rgba(134,144,156,1);

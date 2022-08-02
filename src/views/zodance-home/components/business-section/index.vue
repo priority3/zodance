@@ -88,7 +88,10 @@ const icons = [{
 </script>
 
 <template>
-  <div class="business-container" flex="~ col" items-center w-full pt-100px>
+  <div
+    class="business-container" h-870px
+    flex="~ col" items-center w-full pt-100px
+  >
     <h1 m0 mb-69px class="title-linear">
       {{ info.title }}
     </h1>
@@ -108,7 +111,6 @@ const icons = [{
 
 <style scoped lang='scss'>
 .business-container{
-  height: 840px;
   h1{
     color: rgba(29,33,41,1);
     font: 700 64px "OPPOSans";

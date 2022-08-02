@@ -159,7 +159,6 @@ useAnimation(cards)
 <style scoped lang='scss'>
 .xiaoling-container{
   width: 1440px;
-  height: 840px;
   margin: 0 auto;
 }
 .title-box{
