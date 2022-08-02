@@ -10,7 +10,6 @@ declare module '@vue/runtime-core' {
     BaseModal: typeof import('./src/components/base-modal.vue')['default']
     NCarousel: typeof import('naive-ui')['NCarousel']
     NImage: typeof import('naive-ui')['NImage']
-    NMessageProvider: typeof import('naive-ui')['NMessageProvider']
     NModal: typeof import('naive-ui')['NModal']
     NTabPane: typeof import('naive-ui')['NTabPane']
     NTabs: typeof import('naive-ui')['NTabs']

@@ -177,22 +177,22 @@ function afterLeave() {
     height: 36px;
     border-radius: 5px;
     opacity: 1;
-  }
-  .banner-btn1{
-    background: linear-gradient(225deg, rgba(138,180,227,1) 0%, rgba(87,142,204,1) 100%);
-    box-shadow: 0 0px 10px 0px rgba(0,123,255,0), 0px 0px 9px 0px rgba(0,123,255,0.01), 0px 0px 8px 0px rgba(0,123,255,0.03), 0px 0px 6px 0px rgba(0,123,255,0.04), 0px 0px 3px 0px rgba(0,123,255,0.05), 0px 0px 0px 0px rgba(0,123,255,0.05);
-    color: rgba(255,255,255,1) !important;
-    font-size: 18px;
-    font-weight: 400;
-  }
-  .banner-btn2{
-    border: 1px solid rgba(237,237,237,1);
-    background: rgba(255,255,255,1);
-    box-shadow: 0 0px 10px 0px rgba(0,123,255,0), 0px 0px 9px 0px rgba(0,123,255,0.01), 0px 0px 8px 0px rgba(0,123,255,0.03), 0px 0px 6px 0px rgba(0,123,255,0.04), 0px 0px 3px 0px rgba(0,123,255,0.05), 0px 0px 0px 0px rgba(0,123,255,0.05);
-    color: rgba(29,33,41,1);
-    font-size: 18px;
-    font-weight: 400;
-  }
+}
+.banner-btn1{
+  background: linear-gradient(225deg, rgba(138,180,227,1) 0%, rgba(87,142,204,1) 100%);
+  box-shadow: 0 0px 10px 0px rgba(0,123,255,0), 0px 0px 9px 0px rgba(0,123,255,0.01), 0px 0px 8px 0px rgba(0,123,255,0.03), 0px 0px 6px 0px rgba(0,123,255,0.04), 0px 0px 3px 0px rgba(0,123,255,0.05), 0px 0px 0px 0px rgba(0,123,255,0.05);
+  color: rgba(255,255,255,1) !important;
+  font-size: 18px;
+  font-weight: 400;
+}
+.banner-btn2{
+  border: 1px solid rgba(237,237,237,1);
+  background: rgba(255,255,255,1);
+  box-shadow: 0 0px 10px 0px rgba(0,123,255,0), 0px 0px 9px 0px rgba(0,123,255,0.01), 0px 0px 8px 0px rgba(0,123,255,0.03), 0px 0px 6px 0px rgba(0,123,255,0.04), 0px 0px 3px 0px rgba(0,123,255,0.05), 0px 0px 0px 0px rgba(0,123,255,0.05);
+  color: rgba(29,33,41,1);
+  font-size: 18px;
+  font-weight: 400;
+}
 .custom-dots {
   z-index: 100;
   display: flex;

@@ -3,16 +3,13 @@
 
 <template>
   <div>
-    <n-message-provider>
-      <RouterView />
-    </n-message-provider>
+    <RouterView />
   </div>
 </template>
 
 <style lang="scss">
-// TODO naive modal 弹窗页面会导致抖动
+// TODO naive modal
 html {
-  margin: 0 !important;
   overflow: visible !important;
 }
 body{
