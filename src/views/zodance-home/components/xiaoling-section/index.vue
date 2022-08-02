@@ -84,7 +84,7 @@ useAnimation(cards)
 
 <template>
   <div
-    h-840px w-full
+    h-870px w-full
     gap-174px items-center justify-between
     class="xiaoling-container" relative
   >
@@ -143,7 +143,7 @@ useAnimation(cards)
       <div
         absolute z--100
         bottom--20px
-        right-350px
+        right-150px
       >
         <n-image
           preview-disabled
@@ -164,7 +164,7 @@ useAnimation(cards)
 }
 .title-box{
   h1{
-    font: 700 48px "PingFang SC";
+    font: 700 64px "PingFang SC";
   }
   h2{
     font: 700 36px "PingFang SC";

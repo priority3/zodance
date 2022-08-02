@@ -40,7 +40,7 @@ function afterLeave() {
 </script>
 
 <template>
-  <div relative of-hidden w-full bg="#FBFBFD">
+  <div relative w-full bg="#FBFBFD" h-1106px>
     <n-carousel
       :autoplay="isAutoPlay"
       :interval="7000"

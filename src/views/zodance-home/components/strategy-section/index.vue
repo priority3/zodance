@@ -34,8 +34,8 @@ useAnimation(cards)
 </script>
 
 <template>
-  <div class="section-box" relative h-870px border-box w-full>
-    <div relative w-1440px mx-auto my-0 pt-80px h-full of-hidden>
+  <div class="section-box" relative h-870px border-box w-full of-hidden>
+    <div relative w-1440px mx-auto my-0 pt-80px h-full>
       <div class="section-title " fcc>
         <h1>{{ title }}</h1>
         <h2 mt-10px>

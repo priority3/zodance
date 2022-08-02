@@ -6,7 +6,7 @@ const modal = ref<MODAL | null>(null)
 </script>
 
 <template>
-  <div of-hidden w-full h-420px relative>
+  <div of-hidden w-full h-420px relative pt-60px>
     <!-- <n-image
       preview-disabled
       src="/src/assets/saas/saas-banner.png"

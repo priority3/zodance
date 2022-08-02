@@ -10,9 +10,11 @@
 </template>
 
 <style lang="scss">
-// html {
-//   scroll-behavior: smooth;
-// }
+// TODO naive modal 弹窗页面会导致抖动
+html {
+  margin: 0 !important;
+  overflow: visible !important;
+}
 body{
   min-width: 1440px;
 }
