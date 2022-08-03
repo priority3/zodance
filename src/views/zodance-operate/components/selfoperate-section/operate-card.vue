@@ -24,7 +24,7 @@ function getTitleMargin(num: number) {
   >
     <div relative flex justify-center items-center gap-8px>
       <div v-if="isLine" class="hor-line" absolute />
-      <self-svgicon :name="icon" text-3xl />
+      <self-svgicon :name="icon" text-36px />
       <h1>
         {{ title }}
       </h1>
@@ -64,7 +64,7 @@ function getTitleMargin(num: number) {
     height: 2px;
     width: 60px;
     background-color: rgba(134,144,156,1);
-    left: -60%;
+    left: -57%;
   }
   .content-box{
     width: 180px;

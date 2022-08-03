@@ -10,12 +10,15 @@ const { title, desc, link } = defineProps<{
 </script>
 
 <template>
-  <div class="link-box" @click="link && $router.push(link)">
+  <div
+    class="link-box"
+    @click="link && $router.push(link)"
+  >
     <h1>{{ title }}</h1>
     <p>{{ desc }}</p>
     <div class="link-box-other" flex items-center gap-10px>
       <span>立即查看</span>
-      <div i-carbon-arrow-right text-xl />
+      <div i-carbon-arrow-right text-20px font-550 />
     </div>
   </div>
 </template>
@@ -24,6 +27,9 @@ const { title, desc, link } = defineProps<{
 .link-box{
   width: 370px;
   height:120px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   font: 400 14px "PingFang SC";
   border-radius: 5px;
   opacity: 1;

@@ -579,7 +579,7 @@ packages:
     engines: {node: '>=14'}
     dependencies:
       '@unocss/core': 0.41.1
-      unconfig: 0.3.4
+      unconfig: 0.3.5
     dev: true
 
   /@unocss/core/0.41.1:
@@ -4210,8 +4210,8 @@ packages:
       which-boxed-primitive: 1.0.2
     dev: true
 
-  /unconfig/0.3.4:
-    resolution: {integrity: sha512-cf39F1brwQuLSuMLTYXOdWJH0O1CJee6a4QW1nYtO7SoBUfVvQCvEel6ssTNXtPfi17kop1ADmVtmC49NlFkIQ==}
+  /unconfig/0.3.5:
+    resolution: {integrity: sha512-YMnPPUSfW0pT4Zzy4inM8tRHJZmhH+KcuFW/3qxkLKPhswEw18gQYe1jt57jY6ctFB0fnpiCpQ2Jtkbg4y/IPA==}
     dependencies:
       '@antfu/utils': 0.5.2
       defu: 6.0.0

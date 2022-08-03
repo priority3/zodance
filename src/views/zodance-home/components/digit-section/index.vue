@@ -55,7 +55,8 @@ function getKingClass(num: number) {
             :class="index ? `show-delay-${index}` : ''"
           >
             <self-svgicon
-              :name="icon" text-8xl
+              :name="icon"
+              :style="{ width: '100px', height: '100px' }"
             />
             <span>{{ text }}</span>
           </div>
@@ -68,13 +69,6 @@ function getKingClass(num: number) {
           flex items-center justify-center gap-100px w-full
           mt-32px
         >
-          <!-- <self-svgicon
-            name="yongyou-icon" text-8xl
-          />
-          <self-svgicon
-            ref="kingicon" name="kingdee-icon" text-8xl
-            class="kingdee-icon "
-          /> -->
           <div
             v-for="(icon, index) in otherIcons" :key="icon"
             ref="otherIconsRef" class="show-init"

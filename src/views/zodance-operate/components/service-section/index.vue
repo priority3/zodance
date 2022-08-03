@@ -61,7 +61,7 @@ useAnimation(cardSecond)
           </div>
           <div
             ref="cardFirst" class="card show-init" fcc w-full h-full text-center color="#86909C"
-            text-18px px-1 z-20 :class="[`show-delay-${index + 1}`]"
+            text-18px px-1px :class="[`show-delay-${index + 1}`]" z-100
           >
             <span>{{ text1 }}</span>
             <span>{{ text2 }}</span>
@@ -87,7 +87,7 @@ useAnimation(cardSecond)
           </div>
           <div
             ref="cardSecond" class="card show-init" fcc w-full h-full text-center color="#86909C" text-18px
-            px-1 z-20 :class="[`show-delay-${index + 1}`]"
+            px-1px :class="[`show-delay-${index + 1}`]" z-100
           >
             <span>{{ text1 }}</span>
             <span>{{ text2 }}</span>

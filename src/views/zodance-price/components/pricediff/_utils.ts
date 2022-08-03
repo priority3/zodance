@@ -69,7 +69,7 @@ export function useStyle(options: StyleOptions) {
   })
   const getTitleHeight = (() => {
     let res = '220px'
-    if (type === 'major')
+    if (isActive)
       res = '215px'
     return res
   })()

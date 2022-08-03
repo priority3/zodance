@@ -119,17 +119,17 @@ const modal = ref<MODAL | null>()
                 </div>
               </h3>
               <div
-                flex="~ col" justify-center items-center gap-20px mt-16px w-full
+                fcc gap-20px mt-16px w-full
               >
                 <template v-for="it in item.infoContext" :key="it.subTitle">
                   <div
-                    flex="~ col" items-center justify-center w-full
+                    fcc w-full
                   >
                     <span
                       class="info-sub"
                     >{{ it.subTitle }}</span>
                     <div
-                      class="w-1/2 ml-20"
+                      class="w-1/2 ml-80px"
                     >
                       <div
                         v-for="text in it.text"

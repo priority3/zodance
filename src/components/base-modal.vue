@@ -40,7 +40,7 @@ defineExpose({
         >
           <self-svgicon
             :name="modalInfo.avator"
-            text-5xl
+            text-50px
           />
           <span>
             {{ modalInfo.title }}

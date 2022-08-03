@@ -10,6 +10,7 @@
 <style lang="scss">
 // TODO naive modal
 html {
+  margin-right: 0 !important;
   overflow: visible !important;
 }
 body{

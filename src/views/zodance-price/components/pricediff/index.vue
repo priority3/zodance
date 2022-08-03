@@ -63,7 +63,8 @@ const info = [
     title: '小零同学联合运营',
     type: 'basic',
     titleCont: '这里是推荐语，例：适合完全没有互联网经验的商家',
-    isActive: false,
+    isActive: true,
+    freeCont: '赠送价值3800/年的微信小程序商城',
     contentInfo: [
       {
         titleIcon: 'brand-tag',
@@ -128,7 +129,7 @@ const info = [
     title: '小零同学联合运营',
     type: 'major',
     titleCont: '这里是推荐语，例：适合完全没有互联网经验的商家',
-    isActive: true,
+    isActive: false,
     freeCont: '赠送价值3800/年的微信小程序商城',
     contentInfo: [
       {

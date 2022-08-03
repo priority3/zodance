@@ -38,7 +38,7 @@ const modal = ref<MODAL | null>(null)
           <div
             flex items-center gap-12px
           >
-            <self-svgicon :name="item.icon" text-2xl />
+            <self-svgicon :name="item.icon" text-30px />
             <div>
               {{ item.text }}
             </div>

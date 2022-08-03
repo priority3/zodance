@@ -28,7 +28,7 @@ function handleToShowModal() {
       <div class="all-title">
         比较所有版本
       </div>
-      <div i-carbon-arrow-down text-5xl class="all-arrow-down" />
+      <div i-carbon-arrow-down text-60px class="all-arrow-down" />
     </div>
     <div class="diff-cont-container" mt-74px pb-30px w-full>
       <div

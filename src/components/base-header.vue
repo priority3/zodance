@@ -41,8 +41,10 @@ function getisAvtive({ path }) {
 
 <template>
   <div>
-    <header class="header-container">
-      <div w-900px flex mxa my0 h60px items-center>
+    <header class="header-container" fc min-w-1440px>
+      <div
+        w-1440px flex mxa my0 h60px items-center px-280px
+      >
         <div
           cursor-pointer flex items-center
           @click="$router.push('home')"
@@ -79,6 +81,7 @@ function getisAvtive({ path }) {
   z-index: 1000;
   width: 100%;
   backdrop-filter: saturate(150%) blur(20px);
+
 }
 .header-box{
   font: 400 16px "PingFang SC";
