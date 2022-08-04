@@ -1,5 +1,5 @@
 import type { Ref } from 'vue'
-import { computed, onMounted, onUnmounted, reactive } from 'vue'
+import { computed, onMounted, onUnmounted, reactive, ref } from 'vue'
 
 import type { versionType } from '../../constants/type'
 import { versionMap } from '../../constants/index'
@@ -67,14 +67,9 @@ export function useStyle(options: StyleOptions) {
 
     return res
   })
-  const getBorderTopColor = computed(() => {
-    if (!isActive)
-      return ''
-    return isTop.value ? '0' : '5px rgba(0,97,207,1) solid'
-  })
   const getTitleHeight = (() => {
     let res = '220px'
-    if (type === 'major')
+    if (isActive)
       res = '215px'
     return res
   })()
@@ -87,7 +82,7 @@ export function useStyle(options: StyleOptions) {
     getinfoPara,
     getTitlePara,
     getTitleHeight,
-    getBorderTopColor,
+    // getBorderTopColor,
   }
 }
 
@@ -96,20 +91,31 @@ export const isBorT = reactive({
   isBottom: false,
 })
 let scrollTop = 0
-let containerBottom = 0
-let containerTop = 0
+let containerBottom = 0 // 310
+let containerTop = 0 // 2818
+const headerContainer = ref<HTMLElement | null>(null)
 function handleScroll() {
   scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
   isBorT.isTop = scrollTop > containerTop
   isBorT.isBottom = scrollTop >= containerBottom
+  // 在显示区间
+  if (~~isBorT.isBottom ^ ~~isBorT.isTop)
+    headerContainer.value?.classList.add('display-none')
+  else
+    headerContainer.value?.classList.remove('display-none')
 }
-export function setupHandleScroll(boxContainer: Ref<HTMLElement | null>) {
+export function setupHandleScroll(boxContainer: Ref<HTMLElement | null>, headerDom: Ref<HTMLElement | null>) {
   onMounted(() => {
+    headerContainer.value = headerDom.value
+    containerTop = boxContainer.value?.offsetTop || 0
+    containerBottom = (boxContainer.value?.offsetHeight || 500) - 500
+    handleScroll()
     window.addEventListener('scroll', handleScroll)
-    containerTop = boxContainer.value?.getBoundingClientRect().top || 0
-    containerBottom = (boxContainer.value?.getBoundingClientRect().bottom || 500) - 500
   })
   onUnmounted(() => {
     window.removeEventListener('scroll', handleScroll)
   })
+  return {
+    isBorT,
+  }
 }

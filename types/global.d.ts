@@ -39,6 +39,7 @@ declare global{
   interface MODAL extends HTMLElement {
     setShowModal: () => void
     setHideModal: () => void
+    showModal: () => Ref<Boolean>
   }
 
   interface ModalTypeInfo {

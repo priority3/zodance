@@ -5,17 +5,19 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    BaseBannerlink: typeof import('./src/components/base-bannerlink.vue')['default']
-    BaseCarousel: typeof import('./src/components/base-carousel.vue')['default']
     BaseFooter: typeof import('./src/components/base-footer.vue')['default']
     BaseHeader: typeof import('./src/components/base-header.vue')['default']
     BaseModal: typeof import('./src/components/base-modal.vue')['default']
+    NCarousel: typeof import('naive-ui')['NCarousel']
     NImage: typeof import('naive-ui')['NImage']
-    NMessageProvider: typeof import('naive-ui')['NMessageProvider']
     NModal: typeof import('naive-ui')['NModal']
+    NNumberAnimation: typeof import('naive-ui')['NNumberAnimation']
+    NTabPane: typeof import('naive-ui')['NTabPane']
+    NTabs: typeof import('naive-ui')['NTabs']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SelfButton: typeof import('./src/components/self-button.vue')['default']
+    SelfImage: typeof import('./src/components/self-image.vue')['default']
     SelfSvgicon: typeof import('./src/components/self-svgicon.vue')['default']
     SelfTabs: typeof import('./src/components/self-tabs.vue')['default']
   }

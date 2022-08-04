@@ -1,0 +1,25 @@
+<svg width="3504" height="3504" viewBox="0 0 3504 3504" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.25">
+<circle cx="1752" cy="1752" r="1523" stroke="#457DBC" stroke-width="4"/>
+<circle cx="1752" cy="1752" r="1425" fill="url(#paint0_radial_1081_18212)"/>
+<circle cx="1752" cy="1752" r="1723" stroke="#457DBC" stroke-width="4"/>
+<circle cx="1752" cy="1752" r="1623" stroke="#457DBC" stroke-width="4"/>
+<circle cx="917" cy="3140" r="20" fill="#457DBC"/>
+<circle cx="2686" cy="3080" r="20" fill="#457DBC"/>
+<circle cx="3128" cy="2402" r="20" fill="#457DBC"/>
+<circle cx="3117" cy="1074" r="20" fill="#457DBC"/>
+<circle cx="659" cy="690" r="22" fill="#457DBC"/>
+<circle cx="369" cy="2402" r="22" fill="#457DBC"/>
+<circle cx="2536" cy="327" r="20" fill="#457DBC"/>
+<circle cx="27" cy="1752" r="18" fill="#457DBC"/>
+<circle cx="1752" cy="3477" r="18" fill="#457DBC"/>
+<circle cx="3477" cy="1752" r="18" fill="#457DBC"/>
+<circle cx="1752" cy="27" r="18" fill="#457DBC"/>
+</g>
+<defs>
+<radialGradient id="paint0_radial_1081_18212" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1752 1752) rotate(90) scale(1425)">
+<stop offset="0.6875" stop-color="#60A8F9" stop-opacity="0"/>
+<stop offset="1" stop-color="#60A8F9"/>
+</radialGradient>
+</defs>
+</svg>

@@ -1,11 +1,12 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
+import { modalSass } from '@/enums/modal'
 
 const modal = ref<MODAL | null>(null)
 </script>
 
 <template>
-  <div of-hidden w-full h-420px relative>
+  <div of-hidden w-full h-420px relative pt-60px>
     <!-- <n-image
       preview-disabled
       src="/src/assets/saas/saas-banner.png"
@@ -38,7 +39,7 @@ const modal = ref<MODAL | null>(null)
     </div>
     <base-modal
       ref="modal"
-      title="HI,我是你的专属SaaS顾问"
+      :modal-info="modalSass"
     />
   </div>
 </template>

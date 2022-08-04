@@ -30,8 +30,9 @@ const tabspanel = [{
     <n-tabs
       animated
       justify-content="space-around"
-      tab-style="color:black"
+      tab-style="color:rgba(0,0,0,0.15)"
       size="large"
+      type="line"
     >
       <n-tab-pane
         v-for="item in tabspanel" :key="item['tab-key']"
@@ -89,21 +90,21 @@ const tabspanel = [{
   :deep(.n-tabs-tab){
     width: 100%;
     justify-content: center;
-    font: 400 18px "PingFang SC";
+    font: 500 18px "PingFang SC";
   }
   :deep(.n-tabs-tab.n-tabs-tab--active){
     width: 100%;
     justify-content: center;
-    background: rgba(249,253,255,1);
-    color:rgba(72,115,192,1) !important;
+    color:#3183F4 !important;
     position: relative;
+    font-weight: 550 !important;
     &::after{
       content: "";
       position: absolute;
-      width: 100%;
-      height: 2px;
-      background-image:linear-gradient(to right, #3E8FFF, #8EEBFF);
-      top: 0;
+      width: 72px;
+      height: 4px;
+      background: rgba(49,131,244,1);
+      bottom: 0;
       z-index: 100;
     }
   }

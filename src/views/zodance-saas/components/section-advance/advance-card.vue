@@ -15,7 +15,7 @@ const { icon, desc, dotbgc } = defineProps<{
       w-110px h-110px class="card-container"
       flex="~ col" items-center justify-center gap-23px
     >
-      <self-svgicon :name="icon" text-5xl />
+      <self-svgicon :name="icon" text-50px />
       <p>{{ desc }}</p>
     </div>
     <div

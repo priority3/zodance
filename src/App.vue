@@ -3,13 +3,16 @@
 
 <template>
   <div>
-    <n-message-provider>
-      <RouterView />
-    </n-message-provider>
+    <RouterView />
   </div>
 </template>
 
 <style lang="scss">
+// TODO naive modal
+html {
+  margin-right: 0 !important;
+  overflow: visible !important;
+}
 body{
   min-width: 1440px;
 }

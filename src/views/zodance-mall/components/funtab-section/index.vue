@@ -6,6 +6,7 @@ import liveTab from './live-tab.vue'
 import vipTab from './vip-tab.vue'
 import provideTab from './provide-tab.vue'
 import sellTab from './sell-tab.vue'
+import { ModalMall } from '@/enums/modal'
 const info = {
   title: '100+商城功能，助你收割流量红利',
   tabspanel: [{
@@ -43,12 +44,13 @@ const modal = ref<MODAL | null>(null)
     />
     <self-button
       type="primary"
-      style="margin-top: 40px;"
+      mt-40px w-224px h-50px rounded-4px text-24px
+      style="background: linear-gradient(180deg, rgba(113,173,255,1) 0%, rgba(62,143,255,1) 100%)"
       @click="modal && modal.setShowModal()"
     >
       立即咨询
     </self-button>
-    <base-modal ref="modal" />
+    <base-modal ref="modal" :modal-info="ModalMall" />
   </div>
 </template>
 

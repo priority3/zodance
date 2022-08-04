@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-const { title, icon, contentInfo, isLine } = defineProps<{
+const { title, icon, contentInfo, isLine, mgap, tmat } = defineProps<{
   title: string
   isLine: boolean
   icon: string
@@ -7,7 +7,14 @@ const { title, icon, contentInfo, isLine } = defineProps<{
     subTitle: string
     desc: string[]
   }[]
+  mgap?: number
+  tmat?: number
 }>()
+function getTitleMargin(num: number) {
+  let res = 'margin-top:20px'
+  num && (res = `margin-top:${tmat}px`)
+  return res
+}
 </script>
 
 <template>
@@ -17,7 +24,7 @@ const { title, icon, contentInfo, isLine } = defineProps<{
   >
     <div relative flex justify-center items-center gap-8px>
       <div v-if="isLine" class="hor-line" absolute />
-      <self-svgicon :name="icon" text-3xl />
+      <self-svgicon :name="icon" text-36px />
       <h1>
         {{ title }}
       </h1>
@@ -27,15 +34,15 @@ const { title, icon, contentInfo, isLine } = defineProps<{
       flex="~ col" items-center justify-start
     >
       <div
-        v-for="{ subTitle, desc } in contentInfo" :key="subTitle"
-        mt-15px flex="~ col" items-center justify-start
+        v-for="({ subTitle, desc }, index) in contentInfo" :key="subTitle"
+        :style="getTitleMargin(index)" flex="~ col" items-center justify-start
       >
         <h2>
           {{ subTitle }}
         </h2>
         <div flex="~ col" items-center>
           <div v-for="item in desc" :key="item">
-            <p mt-10px>
+            <p :style="{ 'margin-top': `${mgap}px` }">
               {{ item }}
             </p>
           </div>
@@ -49,7 +56,6 @@ const { title, icon, contentInfo, isLine } = defineProps<{
 .card-container{
   font-weight: 400;
   font-family: "PingFang SC";
-
   h1{
     color: rgba(29,33,41,1);
     font-size: 20px;
@@ -58,7 +64,7 @@ const { title, icon, contentInfo, isLine } = defineProps<{
     height: 2px;
     width: 60px;
     background-color: rgba(134,144,156,1);
-    left: -60%;
+    left: -57%;
   }
   .content-box{
     width: 180px;
@@ -77,6 +83,7 @@ const { title, icon, contentInfo, isLine } = defineProps<{
     h2{
       color: rgba(30,34,48,1);
       font-size: 14px;
+      font-weight: 545;
     }
     p{
       color: rgba(134,144,156,1);

@@ -8,7 +8,7 @@ export const bgcMap = {
   start: 'rgba(252,245,232,1)',
   basic: 'rgba(250,235,207,1)',
   major: 'rgba(255,226,172,1)',
-  plus: 'rgba(0,0,0,1)',
+  plus: 'linear-gradient(261.5deg, rgba(69,67,63,1) 0%, rgba(0,0,0,1) 100%)',
 }
 export const priceMap = {
   start: 3500,

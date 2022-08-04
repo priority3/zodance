@@ -6,6 +6,9 @@ import codedaimei from '@/assets/mall/code-daimei.png'
 import codedianmei from '@/assets/mall/code-dianmei.png'
 import codecaimi from '@/assets/mall/code-caimi.png'
 import codeniuma from '@/assets/mall/code-niuma.png'
+import codexiongmao from '@/assets/mall/code-xiongmao.png'
+import codechuannongniu from '@/assets/mall/code-chuannongniu.png'
+import codesandun from '@/assets/mall/code-sandun.png'
 const info = {
   title: '他们都在用小程序',
   cardInfo: [{
@@ -60,6 +63,33 @@ const info = {
     codeSrc: codehaima,
     selfStyle: {
       width: '38px',
+      height: '48px',
+    },
+  }, {
+    title: '熊猫井',
+    content: '在原有的销售模式中，客户购买之后，很难对其进行再次触达，借助零一的的销售工具，我们不仅保留了客户的相关数据，也实现了多场景再次触达用户，方便后续的营销触达。',
+    src: 'mall7',
+    codeSrc: codexiongmao,
+    selfStyle: {
+      width: '48px',
+      height: '48px',
+    },
+  }, {
+    title: '上贝小面馆',
+    content: '零一开发的SaaS管理系统，很好的帮助了我们分销部门的出货进货，帮助我们省去了原有的人工成本，为我们的后台管理实现了大幅度的降本增效。',
+    src: 'mall8',
+    codeSrc: codechuannongniu,
+    selfStyle: {
+      width: '50px',
+      height: '48px',
+    },
+  }, {
+    title: '三炖肥肠',
+    content: '零一跃动在结合数字化的工具和运用互联网的方法运营一段时间之后，我们老客户的数量明显增加，并且在周边小吃街中，经常来此消费的客户中，大多都对我们店有一定的印象。',
+    src: 'mall9',
+    codeSrc: codesandun,
+    selfStyle: {
+      width: '71px',
       height: '48px',
     },
   }],

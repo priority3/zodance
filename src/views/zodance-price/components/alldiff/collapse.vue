@@ -1,5 +1,6 @@
 <script setup lang='ts'>
 import { NCollapse, NCollapseItem } from 'naive-ui'
+import { computed } from 'vue'
 const info = [
   {
     title: '定制微信小程序商城',
@@ -339,14 +340,20 @@ const info = [
       },
     ],
   },
+
 ]
+
+const expandInd = computed(() => info.map((_, ind) => ind + 1))
 </script>
 
 <template>
   <div>
-    <n-collapse arrow-placement="right">
+    <n-collapse
+      arrow-placement="right"
+      :default-expanded-names="expandInd"
+    >
       <template v-for="({ title, funArr }, idx) in info" :key="title">
-        <n-collapse-item :name="idx + 1">
+        <n-collapse-item :name="expandInd[idx]">
           <template #header>
             <div class="n-coltitle" pl-24px>
               {{ title }}
@@ -371,8 +378,8 @@ const info = [
               </div>
               <template v-for="(accord, idx) in isAccord" :key="idx">
                 <div class="coll-item-cont" flex justify-center items-center>
-                  <div v-if="accord" i-carbon-checkmark :idx="idx" text-2xl text-green-700 />
-                  <div v-else i-carbon-close text-2xl text-red-700 />
+                  <div v-if="accord" i-carbon-checkmark :idx="idx" text-30px text-green-700 />
+                  <div v-else i-carbon-close text-30px text-red-700 />
                 </div>
               </template>
             </div>
@@ -394,14 +401,15 @@ const info = [
   color: rgba(30,34,48,1);
   font: 400 14px "PingFang SC";
   .coll-item-text{
-    width: 40%;
+    width: 50%;
+    text-align: center;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     overflow: hidden;
   }
   .coll-item-subtext{
-    width: 60%;
+    width: 50%;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
@@ -418,7 +426,7 @@ const info = [
 :deep(.n-collapse-item__header){
   height: 40px;
   box-sizing: border-box;
-  background: rgba(247,249,255,1);
+  background: rgba(243,252,255,1);
   box-shadow: 0 4px 10px 0 rgba(21,76,139,0.1);
   padding: 6px 0 !important;
   border-radius: 8px;

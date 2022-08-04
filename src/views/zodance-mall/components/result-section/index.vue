@@ -1,5 +1,6 @@
 <script setup lang='ts'>
 import resultSection from '@/assets/mall/result-section.png'
+
 const info = {
   title: '做小程序商城的6大理由',
   leftRes: [{

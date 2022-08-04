@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { ModalDefault } from '@/enums/modal'
 interface ModalProps {
   modalInfo?: ModalTypeInfo
+  afterLeave?: () => void
 }
 
 const {
@@ -19,6 +20,7 @@ const setHideModal = () => {
 defineExpose({
   setShowModal,
   setHideModal,
+  showModal: () => showModal,
 })
 </script>
 
@@ -26,19 +28,19 @@ defineExpose({
   <div
     display-directive="show"
   >
-    <NModal v-model:show="showModal">
+    <NModal v-model:show="showModal" @after-leave="afterLeave">
       <div
         class="img-container"
-        bg-white p-5px
+        bg-white py-5px px-10px
         w-360px h-476px
       >
         <div
-          flex items-center gap-6px h-71px
+          flex items-center gap-10px h-71px
           border-b="solid 1px gray-300"
         >
           <self-svgicon
             :name="modalInfo.avator"
-            text-5xl
+            text-50px
           />
           <span>
             {{ modalInfo.title }}
@@ -62,14 +64,17 @@ defineExpose({
 .img-container{
   color: rgba(29,33,41,1);
   font-weight: 700;
+  border-radius: 8px;
   font-family: "PingFang SC";
   background: rgba(255,255,255,1);
   box-shadow: 0 4px 20px 0px rgba(0,0,0,0.25);
+  span{
+    font-size: 22px;
+    font-weight: 550;
+  }
   p{
     font-size: 24px;
-  }
-  span{
-    font-size: 23px;
+    font-weight: 700;
   }
 }
 </style>

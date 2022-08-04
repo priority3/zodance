@@ -6,53 +6,61 @@ const info = [{
   icon: 'selfoperate1',
   contentInfo: [{
     subTitle: '品牌VI设计',
-    desc: ['品牌标识Logo', '品牌标语Slogan', 'IP形象'],
+    desc: ['品牌Logo', '品牌Slogan', 'IP形象'],
   }, {
-    subTitle: '品牌营销素材设计',
+    subTitle: '营销素材',
     desc: ['营销海报', '品牌故事', '产品图册', '微信红包封面', '品牌表情包'],
   }],
+  tmat: 36,
+  mgap: 28,
 }, {
   title: '渠道构建',
   isLine: true,
   icon: 'selfoperate2',
   contentInfo: [{
-    subTitle: '公域渠道构建',
-    desc: ['抖音&快手', '小红书&微博', '百度&今日头条'],
+    subTitle: '公域渠道',
+    desc: ['抖音', '快手', '小红书', '微博', '百度', '今日头条'],
   }, {
-    subTitle: '私域渠道构建',
-    desc: ['微信公众号', '微信视频号', '企业微信', '小程序'],
+    subTitle: '私域渠道',
+    desc: ['社群', '小程序', '公众号', '视频号', '企业微信'],
   }],
+  tmat: 40,
+  mgap: 24,
 }, {
   title: '用户增长',
   isLine: true,
   icon: 'selfoperate3',
   contentInfo: [{
-    subTitle: '公域增长',
-    desc: ['朋友圈广告投放', '抖音/快手广告投放', '搜索引擎排名优化', '其它信息流广告投放'],
+    subTitle: '公域投放',
+    desc: ['信息流', '微信/百度', '抖音/快手', '微博/小红书'],
   }, {
-    subTitle: '公域导私域',
-    desc: ['包裹卡导流', '短信导流', '1V1私发导流', '门店物料导流', '限时活动导流', '一物一码导流'],
+    subTitle: '私域导流',
+    desc: ['公众号', '包裹卡', '门店活动', '一物一码', '短信/外呼'],
   }, {
-    subTitle: '私域增长',
+    subTitle: '裂变增长',
     desc: ['助力裂变', '抽奖裂变', '红包裂变', '游戏裂变', '任务裂变'],
   }],
+  tmat: 20,
+  mgap: 14,
 }, {
   title: '用户运营',
   isLine: true,
   icon: 'selfoperate4',
   contentInfo: [{
-    subTitle: 'IP号运营',
+    subTitle: 'IP号',
     desc: ['1V1问答', '节日问答', '活动提醒'],
   }, {
-    subTitle: '朋友圈运营',
+    subTitle: '社群',
+    desc: ['知识分享', '游戏互动', '产品推介'],
+  }, {
+    subTitle: '活动',
+    desc: ['增长活动', '促活活动', '转化活动'],
+  }, {
+    subTitle: '朋友圈',
     desc: ['每日触达', '产品种草', '活动发布'],
-  }, {
-    subTitle: '社区运营',
-    desc: ['知识分享', '互动游戏', '产品推介'],
-  }, {
-    subTitle: '活动运营',
-    desc: ['增长活动运营', '促活活动运营', '转化活动运营'],
   }],
+  tmat: 30,
+  mgap: 14,
 }, {
   title: '用户转化',
   isLine: true,
@@ -61,32 +69,27 @@ const info = [{
     subTitle: '用户分层',
     desc: ['用户标签', '用户画像', '精准营销'],
   }, {
-    subTitle: '转化触达',
-    desc: ['短信群发', '企微群发', '朋友圈种草', '直播种草'],
+    subTitle: '用户触达',
+    desc: ['直播', '朋友圈', 'AI外呼', '短信群发', '企微社群', '1V1私聊'],
   }, {
-    subTitle: '转化活动',
-    desc: ['拼团购', '秒杀购', '加价购', '套餐购', '专属购'],
-  }, {
-    subTitle: '转化活动',
-    desc: ['会员身份', '会员折扣', '会员储值', '会员积分'],
+    subTitle: '用户转化',
+    desc: ['新人购', '拼团购', '秒杀购', '满减购', '专属购'],
   }],
+  tmat: 20,
+  mgap: 14,
 }, {
-  title: '数据驱动',
+  title: '用户管理',
   isLine: true,
   icon: 'selfoperate6',
   contentInfo: [{
-    subTitle: '数据整合',
-    desc: [],
+    subTitle: '用户管理',
+    desc: ['会员体系', '生命周期', '回访提醒', '群组管理', '在职继承', '离职继承'],
   }, {
-    subTitle: '数据分析',
-    desc: [],
-  }, {
-    subTitle: '数据报告',
-    desc: [],
-  }, {
-    subTitle: '数据大屏',
-    desc: [],
+    subTitle: '数据驱动',
+    desc: ['数据提炼', '数据分析', '数据大屏', '数据驱动'],
   }],
+  tmat: 30,
+  mgap: 24,
 }]
 
 info.forEach((item) => {
@@ -102,15 +105,19 @@ info.forEach((item) => {
     flex="~ col" items-center justify-center
   >
     <h1>私域运营全景图</h1>
-    <p>六大运营板块全面覆盖私域范畴</p>
     <div
-      mt-25px flex gap-22px
+      mt-75px flex gap-22px
     >
       <div
-        v-for="{ title, isLine, icon, contentInfo } in info" :key="title"
+        v-for="({ title, isLine, icon, contentInfo, mgap, tmat }) in info" :key="title"
       >
         <operate-card
-          :title="title" :is-line="isLine" :icon="icon" :content-info="contentInfo"
+          :title="title"
+          :is-line="isLine"
+          :icon="icon"
+          :content-info="contentInfo"
+          :mgap="mgap"
+          :tmat="tmat"
         />
       </div>
     </div>
@@ -123,11 +130,7 @@ info.forEach((item) => {
   background-color:rgba(245,253,255,1);
   h1{
     color: rgba(29,33,41,1);
-    font: 400 52px "PingFang SC";
-  }
-  p{
-    color: rgba(134,144,156,1);
-    font: 400 24px "PingFang SC";
+    font: 400 40px "PingFang SC";
   }
 }
 </style>

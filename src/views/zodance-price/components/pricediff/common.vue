@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import { bgcMap, contentMap, priceMap, versionMap } from '../../constants'
 import type { versionType } from '../../constants/type'
 import { isBorT, useStyle } from './_utils'
+import { ModalXiaoLing } from '@/enums/modal'
 const { title, type, isActive, contentInfo, freeCont } = defineProps<{
   title: string
   type: versionType
@@ -16,13 +17,12 @@ const isBottom = computed(() => isBorT.isBottom)
 const {
   getselfBtnStyle,
   getVersionType,
-  getTitleBoxWidth,
   getCommonTitleTop,
   getTitlecolor,
-  // getinfoPara,
-  getTitleHeight,
   getTitlePara,
-  getBorderTopColor,
+  // 为了推荐状态下的样式调整 高度和宽度误差
+  getTitleBoxWidth,
+  getTitleHeight,
 } = useStyle({
   type,
   isActive,
@@ -35,9 +35,6 @@ const modal = ref<MODAL | null>()
   <div
     ref="boxContainer"
     class="common-container" :class="{ 'is-active': isActive }"
-    :style="{
-      borderTop: getBorderTopColor,
-    }"
     relative
   >
     <div
@@ -48,10 +45,14 @@ const modal = ref<MODAL | null>()
       </div>
       <div i-carbon-thumbs-up-filled />
     </div>
-    <!-- stricky top -->
     <div
       ref="titleBox"
-      :style="{ color: getTitlecolor, backgroundColor: bgcMap[type], width: getTitleBoxWidth, height: getTitleHeight }" text-center
+      :style="{
+        color: getTitlecolor,
+        background: bgcMap[type],
+        width: getTitleBoxWidth,
+        height: getTitleHeight,
+      }" text-center
       :class="[isTop ? 'common-title-box-top' : 'common-title-box', isBottom ? 'commmon-hidden' : '']"
       of-hidden
     >
@@ -93,17 +94,17 @@ const modal = ref<MODAL | null>()
     </div>
     <div class="conmon-info-bgc">
       <div
+        v-if="freeCont"
+        flex justify-center items-center text-16px
+        my="10px" bg="#32C0F7" h-42px text-white
+      >
+        <p>{{ freeCont }}</p>
+      </div>
+      <div
         ref="infoBox"
         class="conmon-info-box"
         :style="{ 'padding-top': isTop ? `1px` : 0 }"
       >
-        <div
-          v-if="freeCont"
-          flex justify-center gap-10px items-center
-          m="10px 0"
-        >
-          <p>{{ freeCont }}</p>
-        </div>
         <div flex="~ col">
           <template v-for="item in contentInfo" :key="item.title">
             <div>
@@ -118,17 +119,17 @@ const modal = ref<MODAL | null>()
                 </div>
               </h3>
               <div
-                flex="~ col" justify-center items-center gap-20px mt-16px w-full
+                fcc gap-20px mt-16px w-full
               >
                 <template v-for="it in item.infoContext" :key="it.subTitle">
                   <div
-                    flex="~ col" items-center justify-center w-full
+                    fcc w-full
                   >
                     <span
                       class="info-sub"
                     >{{ it.subTitle }}</span>
                     <div
-                      class="w-1/2 ml-20"
+                      class="w-1/2 ml-80px"
                     >
                       <div
                         v-for="text in it.text"
@@ -149,6 +150,7 @@ const modal = ref<MODAL | null>()
   </div>
   <base-modal
     ref="modal"
+    :modal-info="ModalXiaoLing"
   />
 </template>
 
@@ -160,9 +162,9 @@ const modal = ref<MODAL | null>()
   min-width: 292px;
   margin-bottom: 20px;
   border-radius:5px;
-  background-color: rgba(247,249,255,1);
   // overflow: hidden;
   box-sizing: border-box;
+  background-color: #fff;
   .common-title-box{
     width: 100%;
     height: 220px;
@@ -262,7 +264,7 @@ const modal = ref<MODAL | null>()
 }
 
 .is-active{
-  border: 5px rgba(0,97,207,1) solid;
+  border: 5px #32C0F7 solid;
   &.common-container{
     .common-active{
       padding: 0;
@@ -275,15 +277,15 @@ const modal = ref<MODAL | null>()
       align-items: center;
       width: 80px;
       height: 24px;
-      background-color: rgba(0,97,207,1);
+      background-color: #32C0F7;
       gap: 10px;
     }
 
   }
   .common-title-box-top{
     min-width: 285px;
-    border-top: 5px rgba(0,97,207,1) solid;
-    border-right: 5px rgba(0,97,207,1) solid;
+    border-top: 5px #32C0F7 solid;
+    border-right: 5px #32C0F7 solid;
   }
   .conmon-info-box{
     width: 95%;

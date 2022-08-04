@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
 import common from './common.vue'
-import { setupHandleScroll } from './_utils'
+import { ModalXiaoLing } from '@/enums/modal'
 const info = [
   {
     title: '小零同学联合运营',
@@ -63,7 +63,8 @@ const info = [
     title: '小零同学联合运营',
     type: 'basic',
     titleCont: '这里是推荐语，例：适合完全没有互联网经验的商家',
-    isActive: false,
+    isActive: true,
+    freeCont: '赠送价值3800/年的微信小程序商城',
     contentInfo: [
       {
         titleIcon: 'brand-tag',
@@ -128,7 +129,7 @@ const info = [
     title: '小零同学联合运营',
     type: 'major',
     titleCont: '这里是推荐语，例：适合完全没有互联网经验的商家',
-    isActive: true,
+    isActive: false,
     freeCont: '赠送价值3800/年的微信小程序商城',
     contentInfo: [
       {
@@ -306,16 +307,14 @@ info.forEach((item) => {
   })
 })
 const modal = ref<MODAL | null>(null)
-const container = ref<HTMLElement | null>(null)
-setupHandleScroll(container)
 </script>
 
 <template>
   <div
-    flex="~ col" items-center gap-30px flex-wrap w-full class="price-container"
+    fcc gap-30px flex-wrap w-full class="price-container"
   >
     <div
-      ref="container" class="w-9/10" my-0 mx-auto
+      class="w-9/10" my-0 mx-auto
       flex justify-around flex-wrap
     >
       <template
@@ -334,14 +333,15 @@ setupHandleScroll(container)
     </div>
     <self-button
       type="small"
-      style="height: 48px;min-width:224px;width:15%;"
+      h-48px rounded-4px
+      style="min-width:224px;background: linear-gradient(45deg, rgba(53,160,237,1) 0%, rgba(68,194,229,1) 100%);"
       :text-style="{ font: `500 24px 'OPPSSans'` }"
       mt-110px
       @click="modal && modal.setShowModal()"
     >
       立即咨询
     </self-button>
-    <base-modal ref="modal" />
+    <base-modal ref="modal" :modal-info="ModalXiaoLing" />
   </div>
 </template>
 

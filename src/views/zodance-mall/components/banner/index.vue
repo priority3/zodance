@@ -1,6 +1,7 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
 import mallbanner from '@/assets/mall/mall-banner.png'
+import { ModalMall } from '@/enums/modal'
 const info = {
   title: '零一商城',
   subTitle: '快速拥有适合自己的小程序商城，获取流量销量双增长',
@@ -37,7 +38,7 @@ const modal = ref<MODAL | null>(null)
           <div
             flex items-center gap-12px
           >
-            <self-svgicon :name="item.icon" text-2xl />
+            <self-svgicon :name="item.icon" text-30px />
             <div>
               {{ item.text }}
             </div>
@@ -90,6 +91,7 @@ const modal = ref<MODAL | null>(null)
     </div>
     <base-modal
       ref="modal"
+      :modal-info="ModalMall"
     />
   </div>
 </template>
