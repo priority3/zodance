@@ -31,12 +31,4 @@ body{
     background-color: rgb(176, 176, 176);
     border-radius: 9999px;
 }
-@font-face {
-  font-family: "YouSheBiaoTiHei";
-  font-weight: 400;
-  font-style: normal;
-  font-display: auto;
-  // unicode-range: U+000-5FF;
-  src: url('./assets/font/UISDC-BiaoTiHei.ttf')  format('truetype'),;
-}
 </style>
