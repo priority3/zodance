@@ -1,5 +1,7 @@
 <script setup lang='ts'>
+import { onMounted, ref } from 'vue'
 import common from './common.vue'
+import { isIosMobile } from '@/utils'
 import tab11 from '@/assets/operate/tab11.png'
 import tab12 from '@/assets/operate/tab12.png'
 import tab13 from '@/assets/operate/tab13.png'
@@ -123,6 +125,13 @@ function changeTabActive(selectInd: number) {
 function getTabActive(num: number) {
   return tabspanel[num][num === curSelectInd ? 'tab-acicon' : 'tab-icon']
 }
+
+// TODO 移动端设备下 hover(点击)无效
+const triggerTab = ref<'click' | 'hover'>('hover')
+onMounted(() => {
+  if (isIosMobile())
+    triggerTab.value = 'click'
+})
 </script>
 
 <template>
@@ -149,7 +158,7 @@ function getTabActive(num: number) {
       <n-tabs
         animated type="line"
         justify-content="space-around"
-        size="large" trigger="hover"
+        size="large" :trigger="triggerTab"
         @update:value="changeTabActive"
       >
         <n-tab-pane

@@ -5,3 +5,8 @@ export function scrollToTop(isSmooth = true) {
     behavior: 'smooth',
   })
 }
+
+export function isIosMobile() {
+  const reg = /iphone|ipod|ipad/i
+  return reg.test(navigator.userAgent)
+}

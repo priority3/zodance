@@ -29,6 +29,7 @@ function getCurIcon(num: number, icon: string, acicon: string) {
           w-380px h-120px rounded="4px" class="card-container"
           flex gap-6px p-20px border-box cursor-pointer
           @mouseenter="curSelectInd = index"
+          @click="curSelectInd = index"
         >
           <self-svgicon :name="getCurIcon(index, icon, acicon)" :style-name="{ width: '22px', height: '22px' }" />
           <div flex="~ col" gap-16px>
