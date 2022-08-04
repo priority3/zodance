@@ -16,7 +16,7 @@ const itemMap = [{
   path: '/zodance-saas',
 }, {
   name: '代理合作',
-  path: '',
+  path: '/zodance-proxy',
 }, {
   name: '关于我们',
   path: '',
