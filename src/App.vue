@@ -13,9 +13,6 @@ html {
   margin-right: 0 !important;
   overflow: visible !important;
 }
-body{
-  min-width: 1440px;
-}
   /* 滚动槽 */
 ::-webkit-scrollbar {
     background-color: transparent;

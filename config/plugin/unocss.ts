@@ -11,6 +11,7 @@ export function setupUnoCSS() {
     shortcuts: {
       fc: 'flex justify-center items-center',
       fcc: 'flex flex-col justify-center items-center',
+      fic: 'flex flex-col items-center',
     },
   })
 }

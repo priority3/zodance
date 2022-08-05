@@ -12,16 +12,18 @@ setupHandleScroll()
 </script>
 
 <template>
-  <base-header />
-  <banner />
-  <pain-section />
-  <fisstab-section />
-  <selfoperate-section />
-  <chose-section />
-  <service-section />
-  <!-- <activi-section /> -->
-  <foot-section />
-  <base-footer />
+  <div min-w-1440px mx-auto>
+    <base-header />
+    <banner />
+    <pain-section />
+    <fisstab-section />
+    <selfoperate-section />
+    <chose-section />
+    <service-section />
+    <!-- <activi-section /> -->
+    <foot-section />
+    <base-footer />
+  </div>
 </template>
 
 <style scoped lang='scss'>

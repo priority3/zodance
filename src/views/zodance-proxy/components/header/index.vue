@@ -1,6 +1,6 @@
 <script setup lang='ts'>
 import { useRouter } from 'vue-router'
-import { nextTick, ref } from 'vue'
+import { ref } from 'vue'
 import logopng from '@/assets/zodance-logo.png'
 const itemMap = [{
   name: '零一商城',
@@ -21,17 +21,12 @@ const itemMap = [{
   name: '关于我们',
   path: '',
 }]
+const drawerActive = ref(false)
 const router = useRouter()
-const modal = ref<MODAL | null>(null)
 function handleTonext(item) {
   const { path, name } = item
   if (name === '关于我们')
     return
-  // router.push(item)
-  !path && nextTick(() => {
-    // TODO any ----
-    modal.value && modal.value.setShowModal()
-  })
   path && router.push(path)
 }
 function getisAvtive({ path }) {
@@ -41,9 +36,10 @@ function getisAvtive({ path }) {
 
 <template>
   <div>
-    <header class="header-container" fc min-w-1440px>
+    <header class="header-container" fc md:min-w-1440px md:fixed>
       <div
-        w-1440px flex h60px items-center px-280px
+        flex h60px items-center w-full justify-around
+        md:w-1440px md:px-280px
       >
         <div
           cursor-pointer flex items-center
@@ -55,33 +51,64 @@ function getisAvtive({ path }) {
             width="91"
           />
         </div>
-        <div
-          class="header-box"
-          flex justify-around w-full ml64px items-center gap-64px
-        >
-          <template v-for="(item, index) in itemMap" :key="item.name">
-            <div
-              :class="{ 'is-active': getisAvtive(item), 'header-box-item': index !== 5 ? true : false }"
-              @click="handleTonext(item)"
-            >
-              {{ item.name }}
-            </div>
-          </template>
+        <div w-full ml64px hidden md:block>
+          <div
+            class="header-box"
+            flex justify-around items-center gap-64px
+          >
+            <template v-for="(item, index) in itemMap" :key="item.name">
+              <div
+                :class="{ 'is-active': getisAvtive(item), 'header-box-item': index !== 5 ? true : false }"
+                @click="handleTonext(item)"
+              >
+                {{ item.name }}
+              </div>
+            </template>
+          </div>
         </div>
+        <!-- mobile -->
+        <div block md:hidden>
+          <n-button
+            round text-12px
+            @click="drawerActive = !drawerActive"
+          >
+            导航栏
+          </n-button>
+        </div>
+        <n-drawer v-model:show="drawerActive" placement="right">
+          <n-drawer-content closable>
+            <template #header>
+              <n-image
+                preview-disabled
+                :src="logopng"
+                width="91"
+              />
+            </template>
+            <div fcc w-full>
+              <template
+                v-for="{ name, path } in itemMap" :key="name"
+              >
+                <div
+                  h-60px border="b light-600" w-full
+                  text-16px font-500 flex items-center pl-25px @click="handleTonext({ name, path })"
+                >
+                  {{ name }}
+                </div>
+              </template>
+            </div>
+          </n-drawer-content>
+        </n-drawer>
       </div>
     </header>
-    <base-modal ref="modal" />
   </div>
 </template>
 
 <style scoped lang="scss">
 .header-container{
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.1);
-  position: fixed;
   z-index: 1000;
   width: 100%;
   backdrop-filter: saturate(150%) blur(20px);
-
 }
 .header-box{
   font: 400 16px "PingFang SC";
@@ -116,5 +143,8 @@ function getisAvtive({ path }) {
     height: 2px;
     background-color: #194ac3;
   }
+}
+:deep(.n-drawer-body-content-wrapper){
+  padding: 0;
 }
 </style>

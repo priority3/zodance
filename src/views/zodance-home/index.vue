@@ -11,17 +11,19 @@ setupHandleScroll()
 </script>
 
 <template>
-  <base-header />
-  <base-carousel />
-  <div flex justify-center flex-wrap>
-    <strategy-section />
-    <xiaoling-section />
-    <digit-section />
-    <allcover-section />
-    <business-section />
-    <footer-section />
+  <div min-w-1440px mx-auto>
+    <base-header />
+    <base-carousel />
+    <div flex justify-center flex-wrap>
+      <strategy-section />
+      <xiaoling-section />
+      <digit-section />
+      <allcover-section />
+      <business-section />
+      <footer-section />
+    </div>
+    <base-footer />
   </div>
-  <base-footer />
 </template>
 
 <style scoped lang='scss'>

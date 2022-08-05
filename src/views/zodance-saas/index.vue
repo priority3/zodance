@@ -8,7 +8,7 @@ setupHandleScroll()
 </script>
 
 <template>
-  <div>
+  <div min-w-1440px mx-auto>
     <base-header />
     <banner />
     <section-come />
