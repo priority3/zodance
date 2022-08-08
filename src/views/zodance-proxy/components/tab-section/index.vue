@@ -1,14 +1,36 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import tab1bgc from '@/assets/mall/mall-banner.png'
+// TODO 图片内容与operate下的一致
+import tab2bgc from '@/assets/operate/tab33.png'
+import tab3bgc from '@/assets/proxy/proxy-tabbgc3.png'
 const tabspanel = [{
   'tab-name': '获客增长',
-  'tab-icon': 'tab-icon1',
-  'tab-acicon': 'actab-icon1',
+  'tab-icon': 'proxy-tab1',
+  'tab-acicon': 'proxy-actab1',
+  'tab-content': {
+    title: '更高端的品牌形象店',
+    desc: '快速定制上线，100+商城功能助力企业收割流量红利',
+    img: tab1bgc,
+  },
 }, {
-  'tab-name': '获客增长',
-  'tab-icon': 'tab-icon1',
-  'tab-acicon': 'actab-icon1',
+  'tab-name': '小零运营',
+  'tab-icon': 'proxy-tab2',
+  'tab-acicon': 'proxy-actab2',
+  'tab-content': {
+    title: '更高效的数字经营模式',
+    desc: '运营10万粉丝、操盘300场活动的专业私域团队，助力企业用户销量双增长',
+    img: tab2bgc,
+  },
+}, {
+  'tab-name': 'SaaS定制',
+  'tab-icon': 'proxy-tab3',
+  'tab-acicon': 'proxy-actab3',
+  'tab-content': {
+    title: '更全面的SaaS解决方案',
+    desc: '专业开发团队，为企业提供个性化高品质定制开发服务',
+    img: tab3bgc,
+  },
 }]
 const curSelectInd = ref(0)
 function changeTabActive(selectInd: number) {
@@ -22,7 +44,7 @@ const modal = ref<MODAL>()
 
 <template>
   <div
-    h-340px w-375px fic
+    h-400px w-full fic
     md="h-995px min-w-1440px mx-auto" pt-24px
   >
     <h1
@@ -45,22 +67,24 @@ const modal = ref<MODAL>()
         >
           <template #default>
             <div
-              flex justify-center h-150px
-              md="h-500px " gap-65px mt-10px md:mt-60px
+              flex justify-center h-150px gap-30px mt-10px
+              md="h-500px gap-65px mt-60px"
             >
-              <div fcc gap-15px w-110px md="gap-40px w-330px">
+              <div flex flex-col justify-center gap-15px w="1/2" md="gap-40px w-330px" px-10px>
                 <h1 font-500 text="#3D3D3D 12px" md="text-28px">
-                  更高端的品牌形象店
+                  {{ item['tab-content'].title }}
                 </h1>
                 <p
-                  text="#86909C 9px" md="text-24px"
+                  text="#86909C 9px" md="text-24px leading-60px"
                 >
-                  快速定制上线，100+商城功能助力企业收割流量红利
+                  {{ item['tab-content'].desc }}
                 </p>
               </div>
-              <div w-180px md="w-665px">
+              <div w="1/2" md="w-665px">
                 <self-image
-                  :src="tab1bgc"
+                  :src="item['tab-content'].img"
+                  w-180px
+                  md:w-665px
                 />
               </div>
             </div>
@@ -89,7 +113,7 @@ const modal = ref<MODAL>()
       立即咨询
     </self-button>
   </div>
-  <base-modal ref="modal" />
+  <base-modal ref="modal" is-reactive />
 </template>
 
 <style lang="scss" scoped>
@@ -125,15 +149,15 @@ const modal = ref<MODAL>()
     height: 20px;
   }
   :deep(.n-tabs.n-tabs--flex .n-tabs-nav .n-tabs-wrapper){
-    width: 375px;
+    width: 100%;
   }
   :deep(.n-tabs-tab){
-    width: 50px;
+    width: 100%;
     justify-content: center;
     border-radius: 5px;
   }
   :deep(.n-tabs-tab.n-tabs-tab--active){
-    width: 50px;
+    width: 100%;
   }
   .btn {
     width: 96px;

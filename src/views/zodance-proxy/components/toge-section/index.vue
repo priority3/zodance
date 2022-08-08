@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import togeImg from '@/assets/proxy/toge-section.png'
+import { useAnimation } from '@/hooks/useAnimation'
 const cards = [{
   title: '0加盟费',
   desc: '阶梯奖金',
@@ -19,12 +20,16 @@ const cards = [{
   icon: 'icon-UP',
 }]
 const modal = ref<MODAL>()
+const imgRef = ref<HTMLElement | null>(null)
+const cardsRef = ref<HTMLElement | null>(null)
+useAnimation(cardsRef)
+useAnimation(imgRef, 'fade')
 </script>
 
 <template>
   <div
     flex="~ col" items-center w-full
-    h-385px pt-32px
+    pt-32px
     md="h-750px w-1440px mx-auto pt-80px"
   >
     <!-- title -->
@@ -44,15 +49,15 @@ const modal = ref<MODAL>()
       md="px-120px flex justify-between items-center mt-64px"
     >
       <div
-        fc flex-wrap gap-11px
+        fc flex-wrap gap-11px w-375px
         md="w-850px gap-32px"
       >
         <template v-for="{ title, desc, icon } in cards" :key="title">
           <div
-            w-170px h-86px flex="~ col" items-center
+            ref="cardsRef" w-160px h-86px flex="~ col"
+            items-center
             pt-12px
-            md="w-400px h-150px pt-24px"
-            class="card"
+            md="w-400px h-150px pt-24px" class="card show-init"
           >
             <div fc>
               <h2
@@ -77,11 +82,13 @@ const modal = ref<MODAL>()
           </div>
         </template>
       </div>
-      <self-image
-        hidden md:block
-        :src="togeImg"
-        width="340px"
-      />
+      <div ref="imgRef" class="fade-init">
+        <self-image
+          hidden md:block
+          :src="togeImg"
+          width="340px"
+        />
+      </div>
     </div>
 
     <self-button
@@ -93,7 +100,7 @@ const modal = ref<MODAL>()
       立即咨询
     </self-button>
   </div>
-  <base-modal ref="modal" />
+  <base-modal ref="modal" is-reactive />
 </template>
 
 <style lang="scss" scoped>

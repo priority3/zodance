@@ -13,14 +13,14 @@ const modal = ref<MODAL>()
     >
       <div flex="~ col" items-center md:items-start>
         <h1
-          text="white 22px" font-700
+          text="white 22px" font-500
           md:text="#1D2129 46px" md:font-500
         >
           零一跃动招募100名优质合伙人
         </h1>
         <p
           text="white 16px"
-          md:text="#86909C 30px"
+          md:text="#86909C 25px"
           mt-16px md:mt-36px
         >
           携手零一，共拓企业数字化亿万市场
@@ -41,7 +41,7 @@ const modal = ref<MODAL>()
         />
       </div>
     </div>
-    <base-modal ref="modal" />
+    <base-modal ref="modal" is-reactive />
   </div>
 </template>
 
@@ -63,7 +63,7 @@ const modal = ref<MODAL>()
 @media (max-width: 768px) {
   .banner-container{
     background: url('@/assets/proxy/mo-banner.png') no-repeat ;
-    background-size: 100%;
+    background-size: 100% 100%;
     .banner-btn {
       width: 144px;
       height: 38px;

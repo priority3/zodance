@@ -1,13 +1,20 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
 import { ModalDefault } from '@/enums/modal'
+/**
+ * modalInfo: 弹窗信息
+ * isReactive: 是否响应式 大小
+ * afterLeave: 离开后的回调
+ */
 interface ModalProps {
   modalInfo?: ModalTypeInfo
+  isReactive?: boolean
   afterLeave?: () => void
 }
 
 const {
   modalInfo = ModalDefault,
+  isReactive = false,
 } = defineProps<ModalProps>()
 
 const showModal = ref(false)
@@ -31,16 +38,18 @@ defineExpose({
     <NModal v-model:show="showModal" @after-leave="afterLeave">
       <div
         class="img-container"
-        bg-white py-5px px-10px
-        w-360px h-476px
+        :class="{ 'img-container-reactive': isReactive }"
+        bg-white py-5px px-10px w-360px h-476px
       >
         <div
           flex items-center gap-10px h-71px
           border-b="solid 1px gray-300"
+          class="title-box"
         >
           <self-svgicon
             :name="modalInfo.avator"
             text-50px
+            class-name="icon"
           />
           <span>
             {{ modalInfo.title }}
@@ -50,9 +59,10 @@ defineExpose({
           flex="~ col" items-center gap-22px mt-15px
         >
           <p>{{ modalInfo.desc }}</p>
-          <n-image
-            preview-disabled
-            :src="modalInfo.src as any"
+
+          <self-image
+            :src="modalInfo.src"
+            class-name="img"
           />
         </div>
       </div>
@@ -75,6 +85,31 @@ defineExpose({
   p{
     font-size: 24px;
     font-weight: 700;
+  }
+}
+
+@media (max-width:768px) {
+  .img-container-reactive{
+    width: 260px;
+    height: 330px;
+    padding: 5px 24px ;
+    .icon {
+      font-size: 34px;
+    }
+    span {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .title-box {
+      height: 50px;
+    }
+    p {
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .img {
+      width: 150px;
+    }
   }
 }
 </style>

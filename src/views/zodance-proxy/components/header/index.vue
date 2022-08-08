@@ -104,6 +104,11 @@ function getisAvtive({ path }) {
 </template>
 
 <style scoped lang="scss">
+@media (max-width: 768px) {
+  .header-container{
+    background-color: #fff;
+  }
+}
 .header-container{
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.1);
   z-index: 1000;

@@ -1,8 +1,9 @@
 <script setup lang="ts">
-const { width, height, src } = defineProps<{
+const { width, height, src, className } = defineProps<{
   height?: string
   width?: string
   src: string
+  className?: string
 }>()
 </script>
 
@@ -12,6 +13,7 @@ const { width, height, src } = defineProps<{
       width,
       height,
     }"
+    :class="className"
   >
     <n-image
       preview-disabled
