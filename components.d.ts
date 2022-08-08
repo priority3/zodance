@@ -14,6 +14,8 @@ declare module '@vue/runtime-core' {
     NDrawerContent: typeof import('naive-ui')['NDrawerContent']
     NImage: typeof import('naive-ui')['NImage']
     NModal: typeof import('naive-ui')['NModal']
+    NNumberAnimation: typeof import('naive-ui')['NNumberAnimation']
+    NResult: typeof import('naive-ui')['NResult']
     NTabPane: typeof import('naive-ui')['NTabPane']
     NTabs: typeof import('naive-ui')['NTabs']
     RouterLink: typeof import('vue-router')['RouterLink']
