@@ -39,7 +39,9 @@ useAnimation(imgRef, 'fade')
     </h1>
     <div block md:hidden>
       <div fcc gap-20px text="#1D2129 18px">
-        <h1>做零一合伙人</h1>
+        <h1 text-22px>
+          做零一合伙人
+        </h1>
         <h1>门槛低、收益高、返利快</h1>
       </div>
     </div>
@@ -57,7 +59,7 @@ useAnimation(imgRef, 'fade')
           <div
             ref="cardsRef" w-160px h-86px flex="~ col"
             items-center
-            pt-12px
+            pt-12px px-10px
             md="w-400px h-150px pt-24px" class="card show-init"
           >
             <div fc>

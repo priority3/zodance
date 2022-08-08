@@ -21,7 +21,7 @@ useAnimation(cardsRef)
 <template>
   <div
     fic w-full pt-24px md="min-w-1440px pt-40px"
-    h-430px md:h-430px
+    h-420px md:h-430px
   >
     <h1
       text="#1D2129 18px" font-500
