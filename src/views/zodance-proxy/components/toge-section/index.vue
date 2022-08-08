@@ -1,23 +1,24 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { getModalCodeInfo } from '../_utils'
 import togeImg from '@/assets/proxy/toge-section.png'
 import { useAnimation } from '@/hooks/useAnimation'
 const cards = [{
   title: '0加盟费',
-  desc: '阶梯奖金',
+  desc: '无加盟费无保证金',
   icon: '',
 }, {
   title: '阶梯奖金',
   desc: '根据签单量设置合伙人等级和等级奖励',
-  icon: 'icon-UP',
+  icon: '',
 }, {
   title: '冲单奖金',
   desc: '达成目标单量获得奖金激励',
   icon: 'icon-UP',
 }, {
-  title: '阶梯奖金',
+  title: '年度奖金',
   desc: '向年度优秀合伙人发放丰厚奖金',
-  icon: 'icon-UP',
+  icon: '',
 }]
 const modal = ref<MODAL>()
 const imgRef = ref<HTMLElement | null>(null)
@@ -30,7 +31,7 @@ useAnimation(imgRef, 'fade')
   <div
     flex="~ col" items-center w-full
     pt-32px
-    md="h-750px w-1440px mx-auto pt-80px"
+    md="h-720px w-1440px mx-auto pt-80px"
   >
     <!-- title -->
     <h1 hidden md:block text="#1D2129 36px" font-36px>
@@ -94,13 +95,16 @@ useAnimation(imgRef, 'fade')
     <self-button
       type="primary"
       class="btn"
-      mt-24px md:mt-80px
+      mt-24px md:mt-60px
       @click="modal && modal.setShowModal()"
     >
       立即咨询
     </self-button>
   </div>
-  <base-modal ref="modal" is-reactive />
+  <base-modal
+    ref="modal" is-reactive
+    :modal-info="getModalCodeInfo()"
+  />
 </template>
 
 <style lang="scss" scoped>

@@ -59,11 +59,12 @@ defineExpose({
           flex="~ col" items-center gap-22px mt-15px
         >
           <p>{{ modalInfo.desc }}</p>
-
-          <self-image
-            :src="modalInfo.src"
-            class-name="img"
-          />
+          <div>
+            <self-image
+              :src="modalInfo.src"
+              class-name="img"
+            />
+          </div>
         </div>
       </div>
     </NModal>

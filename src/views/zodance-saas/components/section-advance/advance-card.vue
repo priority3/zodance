@@ -30,7 +30,7 @@ const { icon, desc, dotbgc } = defineProps<{
 .card-container{
   box-shadow: 0 4px 4px 0px rgba(0,0,0,0.25);
   p{
-    font: 500 12px "PingFang SC";
+    font: 500 15px "PingFang SC";
   }
 
 }

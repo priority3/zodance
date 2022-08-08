@@ -23,13 +23,14 @@ const modal = ref<MODAL>()
         立即咨询
       </self-button>
     </div>
+
     <base-modal
       ref="modal"
     />
   </div>
   <div
-    h-38px class="footer-box"
-    fc text-10px md="text-14px h-60px"
+    h-38px class="footer-box" w-full
+    fc text-10px md="text-14px h-60px min-w-1440px"
   >
     <p>@2022 - 零一跃动科技 - 蜀ICP备19087564号 - 1 版权所有</p>
   </div>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { getModalCodeInfo } from '../_utils'
 import banner from '@/assets/proxy/banner.png'
-
 const modal = ref<MODAL>()
 </script>
 
@@ -23,7 +23,7 @@ const modal = ref<MODAL>()
           md:text="#86909C 25px"
           mt-16px md:mt-36px
         >
-          携手零一，共拓企业数字化亿万市场
+          携手零一，共拓企业数字化万亿市场
         </p>
         <self-button
           type="primary"
@@ -41,7 +41,10 @@ const modal = ref<MODAL>()
         />
       </div>
     </div>
-    <base-modal ref="modal" is-reactive />
+    <base-modal
+      ref="modal" is-reactive
+      :modal-info="getModalCodeInfo()"
+    />
   </div>
 </template>
 

@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { getModalCodeInfo } from '../_utils'
+
 import tab1bgc from '@/assets/mall/mall-banner.png'
 // TODO 图片内容与operate下的一致
 import tab2bgc from '@/assets/operate/tab33.png'
@@ -45,7 +47,7 @@ const modal = ref<MODAL>()
 <template>
   <div
     h-400px w-full fic
-    md="h-995px min-w-1440px mx-auto" pt-24px
+    md="h-910px min-w-1440px mx-auto" pt-24px
   >
     <h1
       text-18px
@@ -107,13 +109,16 @@ const modal = ref<MODAL>()
     <self-button
       type="primary"
       class="btn"
-      mt-24px md:mt-80px
+      mt-24px md:mt-30px
       @click="modal && modal.setShowModal()"
     >
       立即咨询
     </self-button>
   </div>
-  <base-modal ref="modal" is-reactive />
+  <base-modal
+    ref="modal" is-reactive
+    :modal-info="getModalCodeInfo()"
+  />
 </template>
 
 <style lang="scss" scoped>

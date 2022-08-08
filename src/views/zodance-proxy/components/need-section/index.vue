@@ -20,8 +20,8 @@ useAnimation(cardsRef)
 
 <template>
   <div
-    fic w-full pt-24px md="min-w-1440px pt-80px"
-    h-430px md:h-500px
+    fic w-full pt-24px md="min-w-1440px pt-40px"
+    h-430px md:h-430px
   >
     <h1
       text="#1D2129 18px" font-500
@@ -30,7 +30,7 @@ useAnimation(cardsRef)
       零一需要这样的合伙人
     </h1>
     <div
-      w-full fcc pt-20px md="fc flex-row pt-80px"
+      w-full fcc pt-20px md="fc flex-row pt-40px"
       gap-20px md:gap-80px
     >
       <div

@@ -1,5 +1,6 @@
 import defaultCode from '@/assets/binaryCode.png'
 import xiaolingCode from '@/assets/xiaoling-code.png'
+import proxyCode from '@/assets/proxy/proxy-code.png'
 export enum ModalType {
   SAAS = 'saas',
   AVATOR = 'avator',
@@ -45,4 +46,11 @@ export const modalSass: Readonly<ModalTypeInfo> = {
   avator: 'zavator',
   desc: '扫码加微信，送你专属大礼包',
   src: defaultCode,
+}
+
+export const MobileModal: Readonly<ModalTypeInfo> = {
+  title: 'HI,我是你的SaaS顾问',
+  avator: 'zavator',
+  desc: '扫码加微信，送你专属大礼包',
+  src: proxyCode,
 }

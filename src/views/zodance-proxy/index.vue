@@ -7,14 +7,19 @@ import tabSection from './components/tab-section/index.vue'
 import needSection from './components/need-section/index.vue'
 import applySection from './components/apply-section/index.vue'
 import footerSection from './components/footer/index.vue'
+import { MobileModal } from '@/enums/modal'
 import { setupHandleScroll } from '@/hooks/useAnimation'
+import { isIosMobile } from '@/utils'
 setupHandleScroll()
 const modal = ref<MODAL>()
 </script>
 
 <template>
   <header-section />
-  <div pb-44px md="pt-60px pb-0" mx-auto>
+  <div
+    :class="isIosMobile() ? 'pb-60px' : 'pb-44px'"
+    md="pt-60px pb-0" mx-auto
+  >
     <banner-section />
     <toge-section />
     <tab-section />
@@ -22,7 +27,10 @@ const modal = ref<MODAL>()
     <apply-section />
     <footer-section />
   </div>
-  <div block md:hidden w-full h-44px bg-blue class="box">
+  <div
+    block md:hidden w-full h-44px
+    class="box" :style="{ height: `${isIosMobile() ? '60px' : '44px'}` }"
+  >
     <self-button
       class="btn"
       :text-style="{ color: 'white' }"
@@ -32,9 +40,11 @@ const modal = ref<MODAL>()
       立即咨询
     </self-button>
   </div>
+  <!-- TODO  -->
   <base-modal
     ref="modal"
     is-reactive
+    :modal-info="MobileModal"
   />
 </template>
 
