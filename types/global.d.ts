@@ -40,6 +40,7 @@ declare global{
     setShowModal: () => void
     setHideModal: () => void
     showModal: () => Ref<Boolean>
+    setModalInfo: (modalInfo:ModalTypeInfo) => void
   }
 
   interface ModalTypeInfo {

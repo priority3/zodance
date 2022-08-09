@@ -1,12 +1,11 @@
 <script setup lang='ts'>
-import { ref } from 'vue'
+import { useMallModalContext } from '../../_utils'
 import funtab from './funtab.vue'
 import quickTab from './quick-tab.vue'
 import liveTab from './live-tab.vue'
 import vipTab from './vip-tab.vue'
 import provideTab from './provide-tab.vue'
 import sellTab from './sell-tab.vue'
-import { ModalMall } from '@/enums/modal'
 const info = {
   title: '100+商城功能，助你收割流量红利',
   tabspanel: [{
@@ -31,7 +30,7 @@ const info = {
     'tab-component': sellTab,
   }],
 }
-const modal = ref<MODAL | null>(null)
+const { mallModalEmitter } = useMallModalContext()
 </script>
 
 <template>
@@ -46,11 +45,10 @@ const modal = ref<MODAL | null>(null)
       type="primary"
       mt-40px w-224px h-50px rounded-4px text-24px
       style="background: linear-gradient(180deg, rgba(113,173,255,1) 0%, rgba(62,143,255,1) 100%)"
-      @click="modal && modal.setShowModal()"
+      @click="mallModalEmitter.emit('show-modal')"
     >
       立即咨询
     </self-button>
-    <base-modal ref="modal" :modal-info="ModalMall" />
   </div>
 </template>
 

@@ -1,7 +1,6 @@
 <script setup lang='ts'>
-import { ref } from 'vue'
+import { usePriceModalContext } from '../../_utils'
 import common from './common.vue'
-import { ModalXiaoLing } from '@/enums/modal'
 const info = [
   {
     title: '小零同学联合运营',
@@ -306,7 +305,7 @@ info.forEach((item) => {
     })
   })
 })
-const modal = ref<MODAL | null>(null)
+const { priceModalEmitter } = usePriceModalContext()
 </script>
 
 <template>
@@ -337,11 +336,10 @@ const modal = ref<MODAL | null>(null)
       style="min-width:224px;background: linear-gradient(45deg, rgba(53,160,237,1) 0%, rgba(68,194,229,1) 100%);"
       :text-style="{ font: `500 24px 'OPPSSans'` }"
       mt-110px
-      @click="modal && modal.setShowModal()"
+      @click="priceModalEmitter.emit('show-modal')"
     >
       立即咨询
     </self-button>
-    <base-modal ref="modal" :modal-info="ModalXiaoLing" />
   </div>
 </template>
 

@@ -18,6 +18,8 @@ const {
 } = defineProps<ModalProps>()
 
 const showModal = ref(false)
+const curModalInfo = ref<ModalTypeInfo>(modalInfo)
+
 const setShowModal = () => {
   showModal.value = true
 }
@@ -28,6 +30,9 @@ defineExpose({
   setShowModal,
   setHideModal,
   showModal: () => showModal,
+  setModalInfo: (info: ModalTypeInfo) => {
+    curModalInfo.value = info
+  },
 })
 </script>
 
@@ -47,21 +52,21 @@ defineExpose({
           class="title-box"
         >
           <self-svgicon
-            :name="modalInfo.avator"
+            :name="curModalInfo.avator"
             text-50px
             class-name="icon"
           />
           <span>
-            {{ modalInfo.title }}
+            {{ curModalInfo.title }}
           </span>
         </div>
         <div
           flex="~ col" items-center gap-22px mt-15px
         >
-          <p>{{ modalInfo.desc }}</p>
+          <p>{{ curModalInfo.desc }}</p>
           <div>
             <self-image
-              :src="modalInfo.src"
+              :src="curModalInfo.src"
               class-name="img"
             />
           </div>

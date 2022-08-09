@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-const modal = ref<MODAL>()
+import { useProxyModalContext } from '../../_utils'
+const { proxyModalEmitter } = useProxyModalContext()
 </script>
 
 <template>
@@ -18,15 +18,11 @@ const modal = ref<MODAL>()
     <div mt-40px hidden md:block>
       <self-button
         class="btn"
-        @click="modal && modal.setShowModal()"
+        @click="proxyModalEmitter.emit('show-modal')"
       >
         立即咨询
       </self-button>
     </div>
-
-    <base-modal
-      ref="modal"
-    />
   </div>
   <div
     h-38px class="footer-box" w-full

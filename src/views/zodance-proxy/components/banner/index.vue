@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { getModalCodeInfo } from '../_utils'
+import { useProxyModalContext } from '../../_utils'
 import banner from '@/assets/proxy/banner.png'
-const modal = ref<MODAL>()
+const { proxyModalEmitter } = useProxyModalContext()
 </script>
 
 <template>
@@ -29,7 +28,7 @@ const modal = ref<MODAL>()
           type="primary"
           class="banner-btn"
           mt-75px md:mt-100px
-          @click="modal && modal.setShowModal()"
+          @click="proxyModalEmitter.emit('show-modal')"
         >
           立即咨询
         </self-button>
@@ -41,10 +40,6 @@ const modal = ref<MODAL>()
         />
       </div>
     </div>
-    <base-modal
-      ref="modal" is-reactive
-      :modal-info="getModalCodeInfo()"
-    />
   </div>
 </template>
 

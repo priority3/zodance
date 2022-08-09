@@ -1,6 +1,5 @@
 <script setup lang='ts'>
-import { ref } from 'vue'
-import { ModalMall } from '@/enums/modal'
+import { useMallModalContext } from '../../_utils'
 const { title, subTitle, content, price, desc } = defineProps<{
   title: string
   subTitle: string
@@ -8,7 +7,7 @@ const { title, subTitle, content, price, desc } = defineProps<{
   price: number
   desc: string
 }>()
-const modal = ref<MODAL | null>()
+const { mallModalEmitter } = useMallModalContext()
 </script>
 
 <template>
@@ -43,11 +42,10 @@ const modal = ref<MODAL | null>()
         type="primary"
         :style="{ width: '128px', height: '43px', borderRadius: '5px' }"
         :text-style="{ font: '400 22px PingFang SC' }"
-        @click="modal && modal.setShowModal()"
+        @click="mallModalEmitter.emit('show-modal')"
       >
         立即咨询
       </self-button>
-      <base-modal ref="modal" :modal-info="ModalMall" />
     </div>
   </div>
 </template>

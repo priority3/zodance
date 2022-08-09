@@ -1,7 +1,6 @@
 <script setup lang='ts'>
-import { ref } from 'vue'
+import { useSaasModalContext } from '../../_utils'
 import advanceCard from './advance-card.vue'
-import { modalSass } from '@/enums/modal'
 const info = [{
   icon: 'saas-advance1',
   desc: '前期沟通',
@@ -32,10 +31,7 @@ const info = [{
   dotbgc: 'rgba(71,222,246,1)',
   isLast: true,
 }]
-const modal = ref<null | MODAL >(null)
-function handleToshowModal() {
-  modal.value && modal.value.setShowModal()
-}
+const { saasModalEmitter } = useSaasModalContext()
 </script>
 
 <template>
@@ -64,14 +60,10 @@ function handleToshowModal() {
       :style="{ backgroundColor: 'rgba(51,136,255,1)', width: '240px', height: '48px', borderRadius: '8px' }"
       border="false" mt-90px
       :text-style="{ font: '500 20px PingFang SC' }"
-      @click="handleToshowModal"
+      @click="saasModalEmitter.emit('show-modal')"
     >
       立即定制
     </self-button>
-    <base-modal
-      ref="modal"
-      :modal-info="modalSass"
-    />
   </div>
 </template>
 

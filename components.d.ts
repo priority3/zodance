@@ -9,7 +9,6 @@ declare module '@vue/runtime-core' {
     BaseHeader: typeof import('./src/components/base-header.vue')['default']
     BaseModal: typeof import('./src/components/base-modal.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
-    NCarousel: typeof import('naive-ui')['NCarousel']
     NDrawer: typeof import('naive-ui')['NDrawer']
     NDrawerContent: typeof import('naive-ui')['NDrawerContent']
     NImage: typeof import('naive-ui')['NImage']

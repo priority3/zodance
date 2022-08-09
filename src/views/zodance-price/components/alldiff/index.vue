@@ -1,8 +1,8 @@
 <script setup lang='ts'>
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { priceMap, versionMap } from '../../constants'
+import { usePriceModalContext } from '../../_utils'
 import collapse from './collapse.vue'
-import { ModalXiaoLing } from '@/enums/modal'
 import { scrollToTop } from '@/utils'
 const typeInfo = computed(() => Object.keys(versionMap))
 function getVersionType(type: string) {
@@ -11,10 +11,7 @@ function getVersionType(type: string) {
   type === 'plus' && (res = versionMap[type])
   return res
 }
-const modal = ref<MODAL | null>(null)
-function handleToShowModal() {
-  modal.value && modal.value.setShowModal()
-}
+const { priceModalEmitter } = usePriceModalContext()
 </script>
 
 <template>
@@ -56,7 +53,7 @@ function handleToShowModal() {
               type="small"
               style="width:60%;height:28px;border-radius:4px;backgroundColor: #39A9EA;"
               mt-14px
-              @click="handleToShowModal"
+              @click="priceModalEmitter.emit('show-modal')"
             >
               立即咨询
             </self-button>
@@ -73,7 +70,7 @@ function handleToShowModal() {
         style="background: linear-gradient(45deg, rgba(53,160,237,1) 0%, rgba(68,194,229,1) 100%);"
         h-48px w-224px rounded-4px
         :text-style="{ font: `500 24px 'OPPSSans'` }"
-        @click="handleToShowModal"
+        @click="priceModalEmitter.emit('show-modal')"
       >
         立即咨询
       </self-button>
@@ -85,10 +82,6 @@ function handleToShowModal() {
         回到顶部
       </self-button>
     </div>
-    <base-modal
-      ref="modal"
-      :modal-info="ModalXiaoLing"
-    />
   </div>
 </template>
 

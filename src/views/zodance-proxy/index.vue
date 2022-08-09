@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { createProxyModalContext, getModalCodeInfo } from './_utils'
+
 import bannerSection from './components/banner/index.vue'
 import headerSection from './components/header/index.vue'
 import togeSection from './components/toge-section/index.vue'
@@ -7,11 +9,25 @@ import tabSection from './components/tab-section/index.vue'
 import needSection from './components/need-section/index.vue'
 import applySection from './components/apply-section/index.vue'
 import footerSection from './components/footer/index.vue'
-import { MobileModal } from '@/enums/modal'
-import { setupHandleScroll } from '@/hooks/useAnimation'
+
 import { isIosMobile } from '@/utils'
+import { setupHandleScroll } from '@/hooks/useAnimation'
+import mitt from '@/utils/mitt'
+
+// animation 挂载
 setupHandleScroll()
+
 const modal = ref<MODAL>()
+const proxyModalEmitter = mitt()
+const activeName = ref('proxyModal')
+proxyModalEmitter.on('show-modal', () => {
+  modal.value?.setShowModal()
+})
+// 根组件provide
+createProxyModalContext({
+  proxyModalEmitter,
+  activeName,
+})
 </script>
 
 <template>
@@ -35,16 +51,15 @@ const modal = ref<MODAL>()
       class="btn"
       :text-style="{ color: 'white' }"
       text-16px font-500 fc
-      @click="modal && modal.setShowModal()"
+      @click="proxyModalEmitter.emit('show-modal')"
     >
       立即咨询
     </self-button>
   </div>
-  <!-- TODO  -->
   <base-modal
     ref="modal"
     is-reactive
-    :modal-info="MobileModal"
+    :modal-info="getModalCodeInfo()"
   />
 </template>
 

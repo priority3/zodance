@@ -49,7 +49,7 @@ export const modalSass: Readonly<ModalTypeInfo> = {
 }
 
 export const MobileModal: Readonly<ModalTypeInfo> = {
-  title: 'HI,我是你的SaaS顾问',
+  title: 'HI,我是你的数字化顾问',
   avator: 'zavator',
   desc: '扫码加微信，送你专属大礼包',
   src: proxyCode,

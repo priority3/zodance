@@ -1,7 +1,6 @@
 <script setup lang='ts'>
-import { ref } from 'vue'
+import { useMallModalContext } from '../../_utils'
 import mallbanner from '@/assets/mall/mall-banner.png'
-import { ModalMall } from '@/enums/modal'
 const info = {
   title: '零一商城',
   subTitle: '快速拥有适合自己的小程序商城，获取流量销量双增长',
@@ -19,7 +18,7 @@ const info = {
     text: '持续护航',
   }],
 }
-const modal = ref<MODAL | null>(null)
+const { mallModalEmitter } = useMallModalContext()
 </script>
 
 <template>
@@ -60,7 +59,7 @@ const modal = ref<MODAL | null>(null)
             color: 'rgba(255,255,255,1)',
             font: '500 18px OPPOSans',
           }"
-          @click="modal && modal.setShowModal()"
+          @click="mallModalEmitter.emit('show-modal')"
         >
           免费申领
         </self-button>
@@ -75,7 +74,7 @@ const modal = ref<MODAL | null>(null)
             color: 'rgba(29,33,41,1)',
             font: '500 18px OPPOSans',
           }"
-          @click="modal && modal.setShowModal()"
+          @click="mallModalEmitter.emit('show-modal')"
         >
           立即咨询
         </self-button>
@@ -86,13 +85,8 @@ const modal = ref<MODAL | null>(null)
           :src="mallbanner"
           width="620"
         />
-        <!-- <img :src="mallbanner" alt=""> -->
       </div>
     </div>
-    <base-modal
-      ref="modal"
-      :modal-info="ModalMall"
-    />
   </div>
 </template>
 

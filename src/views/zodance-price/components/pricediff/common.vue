@@ -1,9 +1,9 @@
 <script setup lang='ts'>
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { bgcMap, contentMap, priceMap, versionMap } from '../../constants'
 import type { versionType } from '../../constants/type'
-import { isBorT, useStyle } from './_utils'
-import { ModalXiaoLing } from '@/enums/modal'
+import { usePriceModalContext } from '../../_utils'
+import { isBorT, useStyle } from './price_utils'
 const { title, type, isActive, contentInfo, freeCont } = defineProps<{
   title: string
   type: versionType
@@ -28,7 +28,7 @@ const {
   isActive,
   isTop,
 })
-const modal = ref<MODAL | null>()
+const { priceModalEmitter } = usePriceModalContext()
 </script>
 
 <template>
@@ -81,7 +81,7 @@ const modal = ref<MODAL | null>()
       <self-button
         type="info"
         :style="getselfBtnStyle"
-        @click="modal && modal.setShowModal()"
+        @click="priceModalEmitter.emit('show-modal')"
       >
         联系我们
       </self-button>
@@ -148,10 +148,6 @@ const modal = ref<MODAL | null>()
       </div>
     </div>
   </div>
-  <base-modal
-    ref="modal"
-    :modal-info="ModalXiaoLing"
-  />
 </template>
 
 <style scoped lang='scss'>

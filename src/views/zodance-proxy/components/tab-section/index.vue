@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { getModalCodeInfo } from '../_utils'
+import { useProxyModalContext } from '../../_utils'
 
 import tab1bgc from '@/assets/mall/mall-banner.png'
 // TODO 图片内容与operate下的一致
@@ -41,7 +41,7 @@ function changeTabActive(selectInd: number) {
 function getTabActive(num: number) {
   return tabspanel[num][num === curSelectInd.value ? 'tab-acicon' : 'tab-icon']
 }
-const modal = ref<MODAL>()
+const { proxyModalEmitter } = useProxyModalContext()
 </script>
 
 <template>
@@ -110,15 +110,11 @@ const modal = ref<MODAL>()
       type="primary"
       class="btn"
       mt-24px md:mt-30px
-      @click="modal && modal.setShowModal()"
+      @click="proxyModalEmitter.emit('show-modal')"
     >
       立即咨询
     </self-button>
   </div>
-  <base-modal
-    ref="modal" is-reactive
-    :modal-info="getModalCodeInfo()"
-  />
 </template>
 
 <style lang="scss" scoped>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { getModalCodeInfo } from '../_utils'
+import { useProxyModalContext } from '../../_utils'
 import togeImg from '@/assets/proxy/toge-section.png'
 import { useAnimation } from '@/hooks/useAnimation'
 const cards = [{
@@ -20,11 +20,11 @@ const cards = [{
   desc: '向年度优秀合伙人发放丰厚奖金',
   icon: '',
 }]
-const modal = ref<MODAL>()
 const imgRef = ref<HTMLElement | null>(null)
 const cardsRef = ref<HTMLElement | null>(null)
 useAnimation(cardsRef)
 useAnimation(imgRef, 'fade')
+const { proxyModalEmitter } = useProxyModalContext()
 </script>
 
 <template>
@@ -39,7 +39,7 @@ useAnimation(imgRef, 'fade')
     </h1>
     <div block md:hidden>
       <div fcc gap-20px text="#1D2129 18px">
-        <h1 text-22px>
+        <h1 text-18px font-500>
           做零一合伙人
         </h1>
         <h1>门槛低、收益高、返利快</h1>
@@ -98,15 +98,11 @@ useAnimation(imgRef, 'fade')
       type="primary"
       class="btn"
       mt-24px md:mt-60px
-      @click="modal && modal.setShowModal()"
+      @click="proxyModalEmitter.emit('show-modal')"
     >
       立即咨询
     </self-button>
   </div>
-  <base-modal
-    ref="modal" is-reactive
-    :modal-info="getModalCodeInfo()"
-  />
 </template>
 
 <style lang="scss" scoped>

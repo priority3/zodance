@@ -2,8 +2,13 @@
 import { ref } from 'vue'
 import allDiff from './components/alldiff/index.vue'
 import priceDiff from './components/pricediff/index.vue'
-import { setupHandleScroll } from './components/pricediff/_utils'
+
+import { setupHandleScroll } from './components/pricediff/price_utils'
+import { createPriceModalContext } from './_utils'
+import { ModalXiaoLing } from '@/enums/modal'
 import priceLogo from '@/assets/price/price-logo.png'
+import mitt from '@/utils/mitt'
+
 const info = {
   title: '专业的数字化团队服务',
   subTitle: '一个普通员工的薪资就能拥有整个数字化运营团队',
@@ -11,6 +16,19 @@ const info = {
 const headerContainer = ref<HTMLElement | null>(null)
 const priceContainer = ref<HTMLElement | null>(null)
 setupHandleScroll(priceContainer, headerContainer)
+
+const modal = ref<MODAL>()
+const priceModalEmitter = mitt()
+const activeName = ref('')
+priceModalEmitter.on('show-modal', (modalInfo: ModalTypeInfo = ModalXiaoLing) => {
+  modal.value?.setModalInfo(modalInfo)
+  modal.value?.setShowModal()
+})
+
+createPriceModalContext({
+  priceModalEmitter,
+  activeName,
+})
 </script>
 
 <template>
@@ -43,6 +61,7 @@ setupHandleScroll(priceContainer, headerContainer)
     </div>
   </div>
   <base-footer mt-100px />
+  <base-modal ref="modal" />
 </template>
 
 <style scoped lang='scss'>

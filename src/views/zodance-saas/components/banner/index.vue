@@ -1,8 +1,6 @@
 <script setup lang='ts'>
-import { ref } from 'vue'
-import { modalSass } from '@/enums/modal'
-
-const modal = ref<MODAL | null>(null)
+import { useSaasModalContext } from '../../_utils'
+const { saasModalEmitter } = useSaasModalContext()
 </script>
 
 <template>
@@ -34,13 +32,9 @@ const modal = ref<MODAL | null>(null)
           color: 'rgba(255,255,255,1)',
           font: '400 20px PingFang SC',
         }"
-        @click="modal && modal.setShowModal()"
+        @click="saasModalEmitter.emit('show-modal')"
       />
     </div>
-    <base-modal
-      ref="modal"
-      :modal-info="modalSass"
-    />
   </div>
 </template>
 
