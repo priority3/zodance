@@ -57,8 +57,7 @@ createProxyModalContext({
     </self-button>
   </div>
   <base-modal
-    ref="modal"
-    is-reactive
+    ref="modal" is-reactive
     :modal-info="getModalCodeInfo()"
   />
 </template>

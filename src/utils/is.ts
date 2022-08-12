@@ -1,7 +1,7 @@
-function isType(type) {
+function isType(type: any) {
   return Object.prototype.toString.apply(type).slice(8, -1)
 }
 
-export function isArray(type) {
+export function isArray(type: any) {
   return isType(type) === 'Array'
 }

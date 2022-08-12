@@ -38,9 +38,10 @@ const curSelectInd = ref(0)
 function changeTabActive(selectInd: number) {
   curSelectInd.value = selectInd
 }
-function getTabActive(num: number) {
+const showActiveTabIcon = function (num: number) {
   return tabspanel[num][num === curSelectInd.value ? 'tab-acicon' : 'tab-icon']
 }
+
 const { proxyModalEmitter } = useProxyModalContext()
 </script>
 
@@ -92,9 +93,11 @@ const { proxyModalEmitter } = useProxyModalContext()
             </div>
           </template>
           <template #tab>
-            <div flex="~ col" justify-center items-center gap10px>
+            <div
+              flex="~ col" justify-center items-center gap10px
+            >
               <self-svgicon
-                :name="getTabActive(index)"
+                :name="showActiveTabIcon(index)"
                 class-name="tab-svg"
               />
               <span
@@ -192,5 +195,8 @@ const { proxyModalEmitter } = useProxyModalContext()
       bottom: 0;
       z-index: 10;
     }
-  }
+}
+:deep(.n-tabs.n-tabs--line-type .n-tabs-tab:hover, .n-tabs.n-tabs--bar-type .n-tabs-tab:hover){
+  color: #1F2225;
+}
 </style>

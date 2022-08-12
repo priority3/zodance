@@ -1,5 +1,6 @@
 /**
  * http://github.com/developit/mitt
+ * extands `clear` function to remove all listeners
  */
 
 export type EventType = string | symbol
