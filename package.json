@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    // "upload": "npm run build && node ./scripts/upload.js prod",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -33,33 +32,5 @@
     "vite-plugin-html": "^3.2.0",
     "vite-plugin-mock": "^2.9.6",
     "vue-tsc": "^0.34.7"
-  },
-  "web": {
-    "aliOss": {
-      "dev": {
-        "region": "oss-cn-chengdu",
-        "accessKeyId": "LTAI5tCHCTVyAs2YEFeKv3L6",
-        "accessKeySecret": "UocLbj7Oflspvr0fOR9ItH9uMkzwNq",
-        "bucket": "zodance-web",
-        "source": {
-          "dir": "dist"
-        },
-        "target": {
-          "dir": ""
-        }
-      },
-      "prod": {
-        "region": "oss-cn-chengdu",
-        "accessKeyId": "LTAI5tCHCTVyAs2YEFeKv3L6",
-        "accessKeySecret": "UocLbj7Oflspvr0fOR9ItH9uMkzwNq",
-        "bucket": "zodance-web",
-        "source": {
-          "dir": "dist"
-        },
-        "target": {
-          "dir": ""
-        }
-      }
-    }
   }
 }
